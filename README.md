@@ -1,7 +1,7 @@
 # 胡云南
 
 - 期望职位：PHP工程师 (厦门)
-- 1991年 / 5年工作经验
+- 2014年 / 3年工作经验
 - 手机 / 微信：18148920091
 - 邮箱：clouds.hu@foxmail.com
 - GitHub：[https://github.com/CloudS-Hu](https://github.com/CloudS-Hu)
