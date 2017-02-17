@@ -1,0 +1,266 @@
+body{
+	margin: auto;
+	background-color: rgb(238,238,238);
+}
+a{
+    width: 100%;
+	height: 100%;
+	display: block;
+	text-decoration: none;
+	color: black;
+	/*border: 1px solid red;*/
+}
+i{
+	font-style: normal;
+}
+.homeHeader{
+	/*opacity: 0.3;*/
+	width: 100%;
+	height: 0.5rem;
+	position: fixed;
+	background-color: rgb(222,47,81);
+	z-index: 2;
+}
+.messageCenter{
+	width: 0.6rem;
+	height: 100%;
+	position: absolute;
+	left: 0;
+	
+}
+.messageCenter img{
+	display: block;
+	margin-left: 0.15rem;
+	margin-top: 0.1rem;
+	width: 0.3rem;
+	height: 0.3rem;
+}
+.homeTitle{
+	position: absolute;
+	left: 0.6rem;
+	right: 0.6rem;
+	height: 100%;
+	text-align: center;
+}
+.homeTitle span{
+	color: white;
+	display: block;
+	margin-top: 0.13rem;
+	font-size: 0.2rem;
+}
+.top{
+	height: 0.5rem;
+	width: 100%;
+}
+.content{
+    position: relative;
+	height: 1.7rem;
+	width: 100%;
+	background-color: white;
+	border-bottom: 1px solid rgb(222,222,222);
+}
+.contentTop{
+	height: 1.2rem;
+	position: absolute;
+	left: 0.1rem;
+	right: 0.1rem;
+	border-bottom: 1px solid rgb(222,222,222);
+	/*background-color: red;*/
+}
+.contentBottom{
+	height: 0.5rem;
+	position: absolute;
+	left: 0.1rem;
+	right: 0.1rem;
+	/*background-color: green;*/
+	bottom: 0;
+}
+.CTleft{
+	position: absolute;
+	left: 0;
+	width: 0.98rem;
+	/*background-color: red;*/
+	height: 100%;
+}
+.CTleft img{
+	margin-top: 0.1rem;
+	height: 1rem;
+}
+.CTmiddle{
+	position: absolute;
+	left: 0.98rem;
+	right: 0.4rem;
+	/*background-color: gray;*/
+	height: 100%;
+}
+.CTmiddle h6{
+	font-size: 0.15rem;
+	margin: 0;
+	padding: 0;
+	position: absolute;
+	top: 0.1rem;
+	font-weight: 100;
+}
+.CTmiddle span{
+	font-size: 0.13rem;
+	position: absolute;
+	display: block;
+	color: rgb(138,138,138);
+}
+
+.CTmiddle span:nth-child(2){
+	top: 0.55rem;
+}
+.CTmiddle span:nth-child(3){
+	top: 0.72rem;
+}
+.CTmiddle span:nth-child(4){
+	top: 0.9rem;
+}
+.CTright{
+	position: absolute;
+	right: 0;
+	width: 0.4rem;
+	/*background-color: red;*/
+	height: 100%;
+}
+.CTright img{
+	width: 0.3rem;
+	margin-top: 0.1rem;
+	margin-left: 0.1rem;
+}
+.CBleft{
+	position: absolute;
+	left: 0;
+	height: 100%;
+	width: 60%;
+	/*background-color: red;*/
+	/*border: 1px solid red;*/
+}
+.CBleftLine{
+	position: absolute;
+	left: 0.3rem;
+	top: 0.18rem;
+	height: 0.04rem;
+	width: 1.5rem;
+	background-color: rgb(177,177,177);
+}
+.zhongjiang{
+	position: absolute;
+}
+.zhongjiang div{
+	position: absolute;
+	width: 0.2rem;
+	height: 0.2rem;
+	border-radius: 0.1rem;
+	background-color: rgb(3,169,244);
+	left: 0.2rem;
+	top: 0.1rem;
+}
+.zhongjiang div span{
+	display: inline-block;
+	position: absolute;
+	height: 0.08rem;
+	width: 0.08rem;
+	border-radius: 0.04rem;
+	background-color: white;
+	left: 0.06rem;
+	top: 0.06rem;
+}
+.zhongjiang span:nth-child(2){
+	display: block;
+	position: absolute;
+/*	border: 1px solid red;*/
+	width: 0.4rem;
+	text-align: center;
+	left: 0.1rem;
+	top: 0.3rem;
+	font-size: 0.12rem;
+	color: rgb(188,188,188);
+}
+
+
+.dizhi{
+	position: absolute;
+}
+.dizhi div{
+	position: absolute;
+	width: 0.2rem;
+	height: 0.2rem;
+	border-radius: 0.1rem;
+	background-color: rgb(3,169,244);
+	left: 1rem;
+	top: 0.1rem;
+}
+.dizhi div span{
+	display: inline-block;
+	position: absolute;
+	height: 0.08rem;
+	width: 0.08rem;
+	border-radius: 0.04rem;
+	background-color: white;
+	left: 0.06rem;
+	top: 0.06rem;
+}
+.dizhi span:nth-child(2){
+	display: block;
+	position: absolute;
+/*	border: 1px solid red;*/
+	width: 0.6rem;
+	text-align: center;
+	left: 0.8rem;
+	top: 0.3rem;
+	font-size: 0.12rem;
+	color: rgb(3,169,244);
+}
+
+.fahuo{
+	position: absolute;
+}
+.fahuo div{
+	position: absolute;
+	width: 0.2rem;
+	height: 0.2rem;
+	border-radius: 0.1rem;
+	background-color: rgb(177,177,177);
+	left: 1.8rem;
+	top: 0.1rem;
+	text-align: center;
+}
+.fahuo div span{
+    color: white;
+    font-size: 0.15rem;
+    line-height: 0.2rem;
+}
+.fahuo span:nth-child(2){
+	display: block;
+	position: absolute;
+/*	border: 1px solid red;*/
+	width: 0.6rem;
+	text-align: center;
+	left: 1.6rem;
+	top: 0.3rem;
+	font-size: 0.12rem;
+	color: rgb(188,188,188);
+}
+.CBright{
+	position: absolute;
+	width: 40%;
+	right: 0;
+	height: 0.5rem;
+	text-align: center;
+}
+.CBright span{
+	display: block;
+	position: absolute;
+	/*width: 1rem;*/
+	font-size: 0.14rem;
+	height: 0.3rem;
+	right: 0.1rem;
+	line-height: 0.3rem;
+	top: 0.1rem;
+	background-color: rgb(177,177,177);
+	width: 0.8rem;
+	color: white;
+	border-radius: 0.05rem;
+}

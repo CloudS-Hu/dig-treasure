@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html style="font-size:100px;">
+
+	<head>
+		<!--设置编码-->
+		<meta charset="UTF-8">
+		<!--设置设备屏幕自适应及用户缩放特性-->
+		<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, 
+			width=device-width, user-scalable=no">
+		<title>home</title>
+		<script type="text/javascript" src="js/jquery-2.1.0.js"></script>
+		<script type="text/javascript">
+			function back(){
+				location.href='baskDetails.html';
+			}
+		</script>
+		<link rel="stylesheet" type="text/css" href="css/userPage.css"/>
+	</head>
+
+	<body onload="loaded()" style="font-size: 0px;">
+		<!--内容主体-->
+		<div class="mainPart">			
+				<!--我-->
+				<div class="my" id="my">
+					<div class="myWrap">
+						<div class="myHeader">
+							<!--<a href="baskDetails.html">-->
+								<div class="myShare" onclick="back()"><img src="images/icon/back.png"/></div>
+							<!--</a>-->
+							<div class="myShow">
+								<a href="#个人信息"></a>
+								<div class="myPhoto"><img src="images/img/myphoto.jpg"/> </div>
+								<div class="myName">
+									<span style="font-size: 0.17rem;">这里插入用户名</span>
+									<div><span>余额:</span><span style="color: rgb(255,61,51);">0</span><span>夺金币</span></div>
+								</div>							
+							</div>
+							<!--<div class="myBalance"><a href="#充值">充值</a> </div>-->
+							<div class="myHeaderShade"></div>
+						</div>
+						<div class="myFooter myMiddle">
+							<ul>
+								<li>
+									<a href="orderRecord.html">
+										<div class="left1"><img src="images/icon/orderRecord.png"/><span>&nbsp;&nbsp;参与记录</span></div>
+									    <div class="right1"> <img src="images/icon/next.png" /> </div>
+									</a>
+								</li>
+								<li>
+									<div class="left1"><img src="images/icon/zhongjiang.png"/><span>&nbsp;&nbsp;中奖记录</span></div>
+									<div class="right1"> <img src="images/icon/next.png" /> </div>
+								</li>
+								<li>
+									<a href="baskRecord.html">
+										<div class="left1"><img style="height: 0.18rem;vertical-align:-12%;" src="images/icon/saidan.png"/><span>&nbsp;&nbsp;晒单记录</span></div>
+										<div class="right1"> <img src="images/icon/next.png" /> </div>
+									</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</body>
+
+</html>

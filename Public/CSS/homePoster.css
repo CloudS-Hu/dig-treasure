@@ -1,0 +1,68 @@
+.homePoster{
+	/*background-color: peachpuff;*/
+	width: 100%;
+	height: 1.55rem;
+	overflow: hidden;
+}
+.homePosterWrap{
+	position: relative;
+	background-color: rosybrown;
+	width: 400%;
+	height: 100%;
+}
+.homePosterWrap img{
+	width: 100%;
+	/*height: 100%;*/
+}
+.poster1{
+	width: 25%;
+	height: 100%;
+	background-color: aquamarine;
+	float: left;
+}
+.poster2{
+	width: 25%;
+	height: 100%;
+	background-color: indigo;
+	float: left;
+}
+.poster3{
+	width: 25%;
+	height: 100%;
+	background-color: goldenrod;
+	float: left;
+}
+.poster4{
+	width: 25%;
+	height: 100%;
+	background-color: darkcyan;
+	float: left;
+}
+.posterFocus{
+	position: absolute;
+	width: 14%;
+	height: 0.2rem;
+	top: 4.35rem;
+	left: 43%;
+	/*background-color: red;*/
+	/*text-align: center;*/
+	padding: 0;
+	margin: 0;
+}
+.posterFocus li{
+	list-style: none;
+	width: 0.06rem;
+	height: 0.06rem;
+	border: 1px solid white;
+	border-radius: 0.06rem;
+	position: absolute;	
+}
+.activeFocus{
+	width: 0.06rem;
+	height: 0.06rem;
+	border: 1px solid white;
+	border-radius: 0.06rem;
+	position: absolute;	
+	left: 6.25%;
+	background-color: white;
+}

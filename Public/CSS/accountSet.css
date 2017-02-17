@@ -1,0 +1,104 @@
+body,i,input{
+	margin: auto;
+	background-color: rgb(238,238,238);
+	font-style: normal;
+	color: rgb(111,116,118);
+}
+input{
+	outline: none;
+	border: 0;
+	font-size: 0.15rem;
+	background-color: white;
+	width: 100%;
+	height: 0.45rem;
+}
+.Header{
+	/*opacity: 0.3;*/
+	/*position: fixed;*/
+	position: relative;
+	width: 100%;
+	height: 0.5rem;
+	background-color: rgb(222,47,81);
+	z-index: 2;
+}
+.back{
+	width: 0.6rem;
+	height: 100%;
+	position: absolute;
+	left: 0;
+	
+}
+.back a{
+	width: 100%;
+	height: 100%;
+	display: block;
+}
+.back img{
+	display: block;
+	margin-left: 0.15rem;
+	margin-top: 0.1rem;
+	width: 0.3rem;
+	height: 0.3rem;
+}
+.Title{
+	position: absolute;
+	left: 0.6rem;
+	right: 0.6rem;
+	height: 100%;
+	text-align: center;
+}
+.Title span{
+	color: white;
+	display: block;
+	margin-top: 0.13rem;
+	font-size: 0.2rem;
+}
+.top{
+	height: 0.3rem;
+	line-height: 0.3rem;
+	font-size: 0.14rem;
+	color: rgb(188,188,188);
+	margin-left: 0.15rem;
+	border-bottom: 1px solid rgb(232,232,232);
+}
+.save{
+	background-color: rgb(3,169,244);
+	color: white;
+	height: 0.4rem;
+	margin-left: 0.3rem;
+	margin-right: 0.3rem;
+	margin-top: 0.2rem;
+	border-radius: 0.05rem;
+	text-align: center;
+	font-size: 0.18rem;
+	line-height: 0.4rem;
+}
+.initialPsw{
+	height: 0.5rem;
+	width: 100%;
+	background-color: white;
+	line-height: 0.5rem;
+	box-sizing: border-box;
+	padding-left: 0.15rem;
+	border-bottom: 1px solid rgb(232,232,232);
+    width: calc();
+    width: -moz-calc();
+    width: -webkit-calc();
+}
+.error{
+	position: relative;
+	margin-top: -1rem;
+	height: 0.4rem;
+	text-align: center;
+	width: 100%;
+	font-size: 0.14rem;
+	line-height: 0.4rem;
+	color: white;
+	z-index: 5;
+}
+.error span{
+	background-color: rgb(132,132,132);
+	font-size: 0.14rem;
+	padding: 0.1rem 0.1rem 0.1rem;
+	border-radius: 0.05rem;
+}

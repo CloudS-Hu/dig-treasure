@@ -1,0 +1,158 @@
+body{
+	margin: auto;
+	background-color: rgb(238,238,238);
+}
+a{
+    width: 100%;
+	height: 100%;
+	display: block;
+	text-decoration: none;
+	color: black;
+	/*border: 1px solid red;*/
+}
+i{
+	font-style: normal;
+}
+.homeHeader{
+	/*opacity: 0.3;*/
+	width: 100%;
+	height: 0.5rem;
+	position: fixed;
+	background-color: rgb(222,47,81);
+	z-index: 2;
+}
+.messageCenter{
+	width: 0.6rem;
+	height: 100%;
+	position: absolute;
+	left: 0;
+	
+}
+.messageCenter img{
+	display: block;
+	margin-left: 0.15rem;
+	margin-top: 0.1rem;
+	width: 0.3rem;
+	height: 0.3rem;
+}
+.homeTitle{
+	position: absolute;
+	left: 0.6rem;
+	right: 0.6rem;
+	height: 100%;
+	text-align: center;
+}
+.homeTitle span{
+	color: white;
+	display: block;
+	margin-top: 0.13rem;
+	font-size: 0.2rem;
+}
+.top{
+	height: 0.5rem;
+	width: 100%;
+}
+.declare{
+    width:100%;
+    height:1rem;
+    font-size:0.14rem;
+    padding:0.22rem 0.15rem 0.2rem;
+    box-sizing:border-box;
+    color:rgb(120,120,120);
+}
+.recharge{
+    height:1.5rem;
+    width:100%;
+    background-color:white;
+    font-size:0.18rem;
+    position:relative;
+    border-bottom:1px solid rgb(222,222,222);
+    border-top:1px solid rgb(222,222,222);
+}
+.recharge h4{
+	position:absolute;
+    display:block;
+    font-weight:100;
+    line-height:0.5rem;
+    margin:0;
+    padding:0;
+    left:0.15rem;
+}
+.recharge span,.recharge input{
+    position:absolute;
+    display:block;
+    height:0.24rem;
+    width:0.8rem;
+    line-height:0.24rem;
+    border:1px solid rgb(188,188,188);
+    text-align:center;
+    color:rgb(168,168,168);
+}
+.recharge span:nth-child(2){
+    top:0.53rem;
+    left:0.15rem;
+}
+.recharge span:nth-child(3){
+    top:0.53rem;
+    left:50%;
+    margin-left:-0.4rem;
+}
+.recharge span:nth-child(4){
+    top:0.53rem;
+    right:0.15rem;
+}
+.recharge span:nth-child(5){
+    bottom:0.23rem;
+    left:0.15rem;
+}
+.recharge span:nth-child(6){
+    bottom:0.23rem;
+    left:50%;
+    margin-left:-0.4rem;
+}
+.recharge input{
+	bottom:0.23rem;
+    right:0.15rem;
+    font-size:0.17rem !important;
+}
+.payNow{
+    height:0.4rem;
+    margin-left:5%;
+    margin-right:5%;
+    background-color:rgb(222,47,81);
+    margin-top:1rem;
+    border-radius:0.05rem;
+    text-align:center;
+    line-height:0.4rem;
+    font-size:0.18rem;
+    color:white;
+}
+
+.error{
+	position: relative;
+	margin-top: -1.2rem;
+	height: 0.4rem;
+	text-align: center;
+	width: 100%;
+	font-size: 0.14rem;
+	line-height: 0.4rem;
+	color: white;
+	z-index: 5;
+}
+.error span{
+	background-color: rgb(132,132,132);
+	font-size: 0.14rem;
+	padding: 0.1rem 0.1rem 0.1rem;
+	border-radius: 0.05rem;
+}
+
+
+
+
+
+
+
+
+
+
+

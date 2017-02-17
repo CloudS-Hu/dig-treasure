@@ -1,0 +1,207 @@
+body{
+	margin: auto;
+	background-color: rgb(238,238,238);
+}
+i{font-style: normal;}
+ul,li{
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+}
+a{
+	display: block;
+	width: 100%;
+	height: 100%;
+}
+.Header{
+	/*opacity: 0.3;*/
+	position: relative;
+	width: 100%;
+	height: 0.5rem;
+	background-color: rgb(222,47,81);
+}
+.back{
+	width: 0.6rem;
+	height: 100%;
+	position: absolute;
+	left: 0;
+}
+.back a{
+	width: 100%;
+	height: 100%;
+	display: block;
+	
+}
+.back img{
+	display: block;
+	margin-left: 0.15rem;
+	margin-top: 0.1rem;
+	width: 0.3rem;
+	height: 0.3rem;
+}
+.Title{
+	position: absolute;
+	left: 0.6rem;
+	right: 0.6rem;
+	height: 100%;
+	text-align: center;
+}
+.Title span{
+	color: white;
+	display: block;
+	margin-top: 0.13rem;
+	font-size: 0.2rem;
+}
+.content{
+	width: 100%;
+}
+.contentHead{
+	width: 100%;
+	height: 0.4rem;
+	background-color: white;
+	border-bottom: 0.01rem solid rgb(220,220,220);
+	position: relative;
+}
+.contentHead span{
+	display: block;
+	position: absolute;
+	height: 100%;
+	width: 50%;
+	font-size: 0.15rem;
+	text-align: center;
+	line-height: 0.4rem;
+}
+.recordAll{
+	left: 0;
+	color: rgb(222,47,81);
+}
+.recording{
+	left: 50%;
+}
+/*.recorded{
+	left: 66.66%;
+}*/
+.recordBar{
+	position: absolute;
+	width: 50%;
+	height: 0.05rem;
+	background-color: rgb(222,47,81);
+	bottom: -0.01rem;
+}
+.contentDetails{
+	width: 100%;
+	height: calc(100%-41px);
+	height:-moz-calc(100% - 41px); 
+	height:-webkit-calc(100% - 41px); 
+	overflow: hidden;
+}
+.recordWrap{
+	height: 100%;
+	width: 300%;
+}
+.all{
+	height: 100%;
+	float: left;
+	position: relative;
+	overflow: scroll;
+	margin-top: 0.15rem;
+	border-top: 0.01rem solid rgb(220,220,220);
+	/*border-bottom: 0.01rem solid rgb(240,240,240);*/
+}
+.ing{
+	height: 100%;
+	float: left;
+	position: relative;
+	overflow: scroll;
+	margin-top: 0.15rem;
+	border-top: 0.01rem solid rgb(220,220,220);
+}
+li{
+	height: 0.5rem;
+	width: 100%;
+	border-bottom: 0.01rem solid rgb(220,220,220);
+	position: relative;
+	background-color: white;
+}
+.left{
+	font-size: 0.16rem;
+	display: block;
+	position: absolute;
+	left: 0.1rem;
+	line-height: 0.5rem;
+}
+.leftInput{
+	font-size: 0.16rem;
+	display: block;
+	position: absolute;
+	left: 0.8rem;
+	line-height: 0.5rem;
+	height: 0.5rem;
+}
+.leftInput input{
+	line-height: 0.5rem;
+	margin: 0;
+	padding: 0;
+	font-size: 0.16rem;
+	outline: none;
+	border: 0;
+	height: 0.5rem;
+}
+.login{
+	height: 0.4rem;
+    position: absolute;
+    left: 0.15rem;
+    right: 0.15rem;
+    margin-top: 0.2rem;
+    background-color: rgb(222,47,81);
+    border-radius: 0.05rem;
+    line-height: 0.4rem;
+    text-align: center;
+    
+}
+.login input{
+	border: 0;
+	background-color: rgb(222,47,81);
+	height: 0.4rem;
+	width: 100%;
+	border-radius: 0.05rem;
+	color: white;
+	font-size: 0.16rem;
+}
+
+.login span{
+	border: 0;
+	background-color: rgb(222,47,81);
+	height: 0.4rem;
+	width: 100%;
+	border-radius: 0.05rem;
+	color: white;
+	font-size: 0.16rem;
+}
+.error{
+	position: relative;
+	margin-top: -3.5rem;
+	height: 0.4rem;
+	text-align: center;
+	width: 100%;
+	font-size: 0.14rem;
+	line-height: 0.4rem;
+	color: white;
+	z-index: 5;
+}
+.error span{
+	background-color: rgb(132,132,132);
+	font-size: 0.14rem;
+	padding: 0.1rem 0.1rem 0.1rem;
+	border-radius: 0.05rem;
+}
+.guid{
+	height: 0.4rem;
+    position: absolute;
+    margin-top: 0.65rem;
+    border-radius: 0.05rem;
+    text-align: center;
+    font-size:0.13rem;
+    right:0.3rem;
+    color:rgb(3,169,244);
+}

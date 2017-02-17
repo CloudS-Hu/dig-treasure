@@ -1,0 +1,227 @@
+body{
+	margin: auto;
+	background-color: rgb(238,238,238);
+}
+i{font-style: normal;}
+ul,li{
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+}
+a{
+	display: block;
+	width: 100%;
+	height: 100%;
+}
+.Header{
+	/*opacity: 0.3;*/
+	position: relative;
+	width: 100%;
+	height: 0.5rem;
+	background-color: rgb(222,47,81);
+}
+.back{
+	width: 0.6rem;
+	height: 100%;
+	position: absolute;
+	left: 0;
+	
+}
+.back a{
+	width: 100%;
+	height: 100%;
+	display: block;
+	
+}
+.back img{
+	display: block;
+	margin-left: 0.15rem;
+	margin-top: 0.1rem;
+	width: 0.3rem;
+	height: 0.3rem;
+}
+.Title{
+	position: absolute;
+	left: 0.6rem;
+	right: 0.6rem;
+	height: 100%;
+	text-align: center;
+}
+.Title span{
+	color: white;
+	display: block;
+	margin-top: 0.13rem;
+	font-size: 0.2rem;
+}
+.content{
+	width: 100%;
+}
+.contentHead{
+	width: 100%;
+	height: 0.4rem;
+	background-color: white;
+	border-bottom: 0.01rem solid rgb(240,240,240);
+	position: relative;
+}
+.contentHead span{
+	display: block;
+	position: absolute;
+	height: 100%;
+	width: 33.33%;
+	font-size: 0.15rem;
+	text-align: center;
+	line-height: 0.4rem;
+}
+.recordAll{
+	left: 0;
+	color: rgb(222,47,81);
+}
+.recording{
+	left: 33.33%;
+}
+.recorded{
+	left: 66.66%;
+}
+.recordBar{
+	position: absolute;
+	width: 33.33%;
+	height: 0.05rem;
+	background-color: rgb(222,47,81);
+	bottom: -0.01rem;
+}
+.contentDetails{
+	width: 100%;
+	height: calc(100%-41px);
+	height:-moz-calc(100% - 41px); 
+	height:-webkit-calc(100% - 41px); 
+	overflow: hidden;
+}
+.recordWrap{
+	height: 100%;
+	width: 300%;
+}
+.all{
+	height: 100%;
+	float: left;
+	position: relative;
+	overflow: scroll;
+}
+.ing{
+	background-color: white;
+	height: 100%;
+	float: left;
+	position: relative;
+	overflow: scroll;
+}
+.ed{
+	background-color: black;
+	height: 100%;
+	float: left;
+	position: relative;
+	overflow: scroll;
+}
+li{
+	height: 2rem;
+	width: 100%;
+	border-bottom: 0.01rem solid rgb(240,240,240);
+	position: relative;
+	background-color: white;
+}
+.detailsTop{
+	height: 1rem;
+	position: absolute;
+	top: 0;
+	width: 100%;
+}
+.detailsTop img{
+	margin-top: 0.07rem;
+	height: 0.86rem;
+	width: 0.7rem;
+}
+.DTleft{
+	position: absolute;
+	width: 30%;
+	height: 100%;
+	text-align: center;
+}
+.DTright{
+	position: absolute;
+	width: 70%;
+	height: 100%;
+	left: 30%;
+	font-size: 0.13rem;
+	color: rgb(111,116,118);
+}
+.DTright span{
+	display: block;
+	position: absolute;
+}
+.DTright span:nth-child(1){
+	top: 0.1rem;
+	font-size: 0.15rem;
+	color: black;
+}
+.DTright span:nth-child(2){
+	top: 0.55rem;
+}
+.DTright span:nth-child(3) i{
+	color: rgb(3,169,244);
+}
+.DTright span:nth-child(3){
+	bottom: 0.1rem;
+}
+.detailsBottom{
+	height: 0.8rem;
+	position: absolute;
+	bottom: 0.1rem;
+	left: 0.1rem;
+	right: 0.1rem;
+	background-color: rgb(238,238,238);
+}
+.detailsBottom img{
+	margin-top: 0.1rem;
+	height: 0.6rem;
+	width: 0.6rem;
+	border-radius: 0.3rem;
+}
+.BTleft{
+	width: 80%;
+	height: 100%;
+	position: absolute;
+	left: 0;
+	font-size: 0.13rem;
+}
+.BTleft span{
+	display: block;
+	position: absolute;
+	color: rgb(111,116,118);
+	left: 0.1rem;
+}
+.BTleft span:nth-child(1){
+	top: 0.05rem;
+}
+.BTleft span:nth-child(1) i{
+	color: rgb(3,169,244);
+}
+.BTleft span:nth-child(2){
+	top: 0.22rem;
+}
+.BTleft span:nth-child(2) i{
+	color: rgb(222,47,81);
+}
+.BTleft span:nth-child(3){
+	bottom: 0.23rem;
+}
+.BTleft span:nth-child(3) i{
+	color: rgb(222,47,81);
+}
+.BTleft span:nth-child(4){
+	bottom: 0.05rem;
+}
+.BTright{
+	width: 20%;
+	text-align: center;
+	height: 100%;
+	position: absolute;
+	right: 0;
+}

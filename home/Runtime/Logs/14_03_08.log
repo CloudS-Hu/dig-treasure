@@ -1,0 +1,2315 @@
+﻿[ 2014-03-08T00:00:00+08:00 ] 192.168.43.1 /www/digTreasure-ThinkPHP/home.php/Prize/prizeDtails/prizeId/9
+INFO: [ route_check ] --START--
+INFO: Run CheckRoute Behavior [ RunTime:0.000658s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000737s ]
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000418s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000477s ]
+NOTIC: [8] A session had already been started - ignoring session_start() D:\wamp\www\digTreasure-ThinkPHP\ThinkPHP\Common\functions.php 第 552 行.
+SQL: SHOW COLUMNS FROM `c_prize` [ RunTime:0.001620s ]
+SQL: SHOW COLUMNS FROM `c_prize` [ RunTime:0.001458s ]
+SQL: select p.prizeDetail,p.prizeTitle,p.prizePrice,max(pt.prizeTermId) as newestTermId,min(pt.prizeTermBetCount) as betCount,count(*) as termNum from c_prize p ,c_prizeterm pt where p.prizeId=pt.prizeId and p.prizeId='9' group by p.prizeId; [ RunTime:0.000549s ]
+SQL: SHOW COLUMNS FROM `c_takepartin` [ RunTime:0.001344s ]
+SQL: SHOW COLUMNS FROM `c_takepartin` [ RunTime:0.001398s ]
+SQL: select * from (select userId ,sum(tpiPayAmount) as allPay from c_takepartin  where prizeTermId='72' group by userId order by sum(tpiPayAmount) desc) as t limit 0,1;  [ RunTime:0.000638s ]
+SQL: SHOW COLUMNS FROM `c_user` [ RunTime:0.001401s ]
+SQL: SHOW COLUMNS FROM `c_user` [ RunTime:0.001448s ]
+SQL: select * from C_User where userId='43'; [ RunTime:0.000374s ]
+SQL: select userId from c_takepartin where prizeTermId='72' order by tpiTime limit 0,1; [ RunTime:0.000288s ]
+SQL: select * from C_User where userId='43'; [ RunTime:0.000146s ]
+SQL: select u.userNickName ,u.userPortrait,t.tpiPayAmount as betCount,t.tpiTime from (select * from c_takepartin where prizeTermId='72') as t left join c_user u on t.userId=u.userId  order by t.tpiTime desc; [ RunTime:0.000386s ]
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:0.000977s ]
+INFO: [ view_template ] --END-- [ RunTime:0.001037s ]
+INFO: [ view_parse ] --START--
+INFO: Run ParseTemplate Behavior [ RunTime:0.012086s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.012162s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:0.000291s ]
+INFO: Run TokenBuild Behavior [ RunTime:0.000275s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:0.000181s ]
+INFO: Run ShowRuntime Behavior [ RunTime:0.000337s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001234s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:0.000447s ]
+INFO: [ view_end ] --END-- [ RunTime:0.000501s ]
+
+[ 2014-03-08T00:00:28+08:00 ] 192.168.43.1 /www/digTreasure-ThinkPHP/home.php/Index/index
+INFO: [ route_check ] --START--
+INFO: Run CheckRoute Behavior [ RunTime:0.001729s ]
+INFO: [ route_check ] --END-- [ RunTime:0.001915s ]
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.001101s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001288s ]
+NOTIC: [8] A session had already been started - ignoring session_start() D:\wamp\www\digTreasure-ThinkPHP\ThinkPHP\Common\functions.php 第 552 行.
+SQL: SHOW COLUMNS FROM `c_user` [ RunTime:0.001551s ]
+SQL: SHOW COLUMNS FROM `c_prize` [ RunTime:0.001252s ]
+SQL: SHOW COLUMNS FROM `c_prize` [ RunTime:0.001377s ]
+SQL: select pt.prizeId,min(pt.prizeTermBetCount) as betCount,p.prizeTitle,p.prizePrice,p.prizePicture,count(*) as termNum from c_prizeterm pt left join c_prize p on pt.prizeId=p.prizeId group by pt.prizeId order by termNum desc; [ RunTime:0.000378s ]
+SQL: select pt.prizeId,min(pt.prizeTermBetCount) as betCount,p.prizeTitle,p.prizePrice,p.prizePicture,count(*) as termNum from c_prizeterm pt left join c_prize p on pt.prizeId=p.prizeId group by pt.prizeId; [ RunTime:0.000168s ]
+SQL: select pt.prizeId,min(pt.prizeTermBetCount) as betCount,p.prizeTitle,p.prizePrice,p.prizePicture,count(*) as termNum from c_prizeterm pt left join c_prize p on pt.prizeId=p.prizeId group by pt.prizeId order by prizeId desc; [ RunTime:0.000162s ]
+SQL: select pt.prizeId,min(pt.prizeTermBetCount) as betCount,p.prizeTitle,p.prizePrice,p.prizePicture,count(*) as termNum from c_prizeterm pt left join c_prize p on pt.prizeId=p.prizeId group by pt.prizeId order by prizePrice desc; [ RunTime:0.000160s ]
+SQL: select pt.prizeId,min(pt.prizeTermBetCount) as betCount,p.prizeTitle,p.prizePrice,p.prizePicture,count(*) as termNum from c_prizeterm pt left join c_prize p on pt.prizeId=p.prizeId group by pt.prizeId order by prizePrice; [ RunTime:0.000158s ]
+SQL: SHOW COLUMNS FROM `c_tobuy` [ RunTime:0.001303s ]
+SQL: SHOW COLUMNS FROM `c_tobuy` [ RunTime:0.001397s ]
+SQL: select buy.prizeId,buy.toBuyId, min(prizeTermBetCount) as betCount,count(*) as termNum,buy.prizeTitle,buy.prizePicture,buy.prizePrice from c_prizeterm pt ,(select t.toBuyId,p.prizeId,p.prizeTitle,p.prizePrice,p.prizePicture from c_tobuy t ,c_prize p where t.prizeId=p.prizeId and userId='43') as buy where pt.prizeId=buy.prizeId group by buy.prizeId order by buy.toBuyId; [ RunTime:0.000374s ]
+SQL: SHOW COLUMNS FROM `c_user` [ RunTime:0.001337s ]
+SQL: select * from C_User where userId='43'; [ RunTime:0.000832s ]
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:0.000678s ]
+INFO: [ view_template ] --END-- [ RunTime:0.000756s ]
+INFO: [ view_parse ] --START--
+INFO: Run ParseTemplate Behavior [ RunTime:0.035549s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.035635s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:0.001389s ]
+INFO: Run TokenBuild Behavior [ RunTime:0.000408s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:0.000187s ]
+INFO: Run ShowRuntime Behavior [ RunTime:0.000538s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.002695s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:0.000446s ]
+INFO: [ view_end ] --END-- [ RunTime:0.000501s ]
+
+[ 2014-03-08T00:00:40+08:00 ] 192.168.43.1 /www/digTreasure-ThinkPHP/home.php/User/login.html
+INFO: [ route_check ] --START--
+INFO: Run CheckRoute Behavior [ RunTime:0.001445s ]
+INFO: [ route_check ] --END-- [ RunTime:0.001589s ]
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000446s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000509s ]
+NOTIC: [8] A session had already been started - ignoring session_start() D:\wamp\www\digTreasure-ThinkPHP\ThinkPHP\Common\functions.php 第 552 行.
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:0.000959s ]
+INFO: [ view_template ] --END-- [ RunTime:0.001021s ]
+INFO: [ view_parse ] --START--
+NOTIC: [8] Undefined variable: error D:\wamp\www\digTreasure-ThinkPHP\home\Runtime\Cache\8298ba80e5e93b8862fca4e0e5e97dfe.php 第 84 行.
+INFO: Run ParseTemplate Behavior [ RunTime:0.007655s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.007716s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:0.000267s ]
+INFO: Run TokenBuild Behavior [ RunTime:0.000275s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:0.000180s ]
+INFO: Run ShowRuntime Behavior [ RunTime:0.000335s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001203s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:0.000446s ]
+INFO: [ view_end ] --END-- [ RunTime:0.000498s ]
+
+[ 2014-03-08T00:00:40+08:00 ] 192.168.43.1 /www/digTreasure-ThinkPHP/home.php/User/login.html
+INFO: [ route_check ] --START--
+INFO: Run CheckRoute Behavior [ RunTime:0.001011s ]
+INFO: [ route_check ] --END-- [ RunTime:0.001093s ]
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000751s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000816s ]
+NOTIC: [8] A session had already been started - ignoring session_start() D:\wamp\www\digTreasure-ThinkPHP\ThinkPHP\Common\functions.php 第 552 行.
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:0.001008s ]
+INFO: [ view_template ] --END-- [ RunTime:0.001077s ]
+INFO: [ view_parse ] --START--
+NOTIC: [8] Undefined variable: error D:\wamp\www\digTreasure-ThinkPHP\home\Runtime\Cache\8298ba80e5e93b8862fca4e0e5e97dfe.php 第 84 行.
+INFO: Run ParseTemplate Behavior [ RunTime:0.008702s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.008765s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:0.000556s ]
+INFO: Run TokenBuild Behavior [ RunTime:0.000562s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:0.000467s ]
+INFO: Run ShowRuntime Behavior [ RunTime:0.000621s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.002357s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:0.000733s ]
+INFO: [ view_end ] --END-- [ RunTime:0.000786s ]
+
+[ 2014-03-08T00:00:42+08:00 ] 192.168.43.1 /www/digTreasure-ThinkPHP/home.php/Index/index
+INFO: [ route_check ] --START--
+INFO: Run CheckRoute Behavior [ RunTime:0.001798s ]
+INFO: [ route_check ] --END-- [ RunTime:0.001992s ]
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.001106s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001263s ]
+NOTIC: [8] A session had already been started - ignoring session_start() D:\wamp\www\digTreasure-ThinkPHP\ThinkPHP\Common\functions.php 第 552 行.
+SQL: SHOW COLUMNS FROM `c_user` [ RunTime:0.001571s ]
+SQL: SHOW COLUMNS FROM `c_prize` [ RunTime:0.001411s ]
+SQL: SHOW COLUMNS FROM `c_prize` [ RunTime:0.001382s ]
+SQL: select pt.prizeId,min(pt.prizeTermBetCount) as betCount,p.prizeTitle,p.prizePrice,p.prizePicture,count(*) as termNum from c_prizeterm pt left join c_prize p on pt.prizeId=p.prizeId group by pt.prizeId order by termNum desc; [ RunTime:0.000407s ]
+SQL: select pt.prizeId,min(pt.prizeTermBetCount) as betCount,p.prizeTitle,p.prizePrice,p.prizePicture,count(*) as termNum from c_prizeterm pt left join c_prize p on pt.prizeId=p.prizeId group by pt.prizeId; [ RunTime:0.000230s ]
+SQL: select pt.prizeId,min(pt.prizeTermBetCount) as betCount,p.prizeTitle,p.prizePrice,p.prizePicture,count(*) as termNum from c_prizeterm pt left join c_prize p on pt.prizeId=p.prizeId group by pt.prizeId order by prizeId desc; [ RunTime:0.000221s ]
+SQL: select pt.prizeId,min(pt.prizeTermBetCount) as betCount,p.prizeTitle,p.prizePrice,p.prizePicture,count(*) as termNum from c_prizeterm pt left join c_prize p on pt.prizeId=p.prizeId group by pt.prizeId order by prizePrice desc; [ RunTime:0.000223s ]
+SQL: select pt.prizeId,min(pt.prizeTermBetCount) as betCount,p.prizeTitle,p.prizePrice,p.prizePicture,count(*) as termNum from c_prizeterm pt left join c_prize p on pt.prizeId=p.prizeId group by pt.prizeId order by prizePrice; [ RunTime:0.000199s ]
+SQL: SHOW COLUMNS FROM `c_tobuy` [ RunTime:0.001482s ]
+SQL: SHOW COLUMNS FROM `c_tobuy` [ RunTime:0.001345s ]
+SQL: select buy.prizeId,buy.toBuyId, min(prizeTermBetCount) as betCount,count(*) as termNum,buy.prizeTitle,buy.prizePicture,buy.prizePrice from c_prizeterm pt ,(select t.toBuyId,p.prizeId,p.prizeTitle,p.prizePrice,p.prizePicture from c_tobuy t ,c_prize p where t.prizeId=p.prizeId and userId='43') as buy where pt.prizeId=buy.prizeId group by buy.prizeId order by buy.toBuyId; [ RunTime:0.000399s ]
+SQL: SHOW COLUMNS FROM `c_user` [ RunTime:0.001357s ]
+SQL: select * from C_User where userId='43'; [ RunTime:0.000381s ]
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:0.000825s ]
+INFO: [ view_template ] --END-- [ RunTime:0.000899s ]
+INFO: [ view_parse ] --START--
+INFO: Run ParseTemplate Behavior [ RunTime:0.035367s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.035450s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:0.001388s ]
+INFO: Run TokenBuild Behavior [ RunTime:0.000402s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:0.000187s ]
+INFO: Run ShowRuntime Behavior [ RunTime:0.000538s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.002683s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:0.000444s ]
+INFO: [ view_end ] --END-- [ RunTime:0.000498s ]
+
+[ 2014-03-08T00:00:45+08:00 ] 192.168.43.1 /www/digTreasure-ThinkPHP/home.php/Prize/prizeDtails/prizeId/3
+INFO: [ route_check ] --START--
+INFO: Run CheckRoute Behavior [ RunTime:0.001720s ]
+INFO: [ route_check ] --END-- [ RunTime:0.001905s ]
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.001094s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001250s ]
+NOTIC: [8] A session had already been started - ignoring session_start() D:\wamp\www\digTreasure-ThinkPHP\ThinkPHP\Common\functions.php 第 552 行.
+SQL: SHOW COLUMNS FROM `c_prize` [ RunTime:0.001421s ]
+SQL: SHOW COLUMNS FROM `c_prize` [ RunTime:0.001355s ]
+SQL: select p.prizeDetail,p.prizeTitle,p.prizePrice,max(pt.prizeTermId) as newestTermId,min(pt.prizeTermBetCount) as betCount,count(*) as termNum from c_prize p ,c_prizeterm pt where p.prizeId=pt.prizeId and p.prizeId='3' group by p.prizeId; [ RunTime:0.000531s ]
+SQL: SHOW COLUMNS FROM `c_takepartin` [ RunTime:0.001201s ]
+SQL: SHOW COLUMNS FROM `c_takepartin` [ RunTime:0.001343s ]
+SQL: select * from (select userId ,sum(tpiPayAmount) as allPay from c_takepartin  where prizeTermId='3' group by userId order by sum(tpiPayAmount) desc) as t limit 0,1;  [ RunTime:0.000645s ]
+NOTIC: [8] Undefined offset:  0 D:\wamp\www\digTreasure-ThinkPHP\home\Lib\Action\PrizeAction.class.php 第 14 行.
+NOTIC: [8] Undefined offset:  0 D:\wamp\www\digTreasure-ThinkPHP\home\Lib\Action\PrizeAction.class.php 第 15 行.
+SQL: SHOW COLUMNS FROM `c_user` [ RunTime:0.001507s ]
+SQL: SHOW COLUMNS FROM `c_user` [ RunTime:0.001658s ]
+SQL: select * from C_User where userId=''; [ RunTime:0.001158s ]
+NOTIC: [8] Undefined offset:  0 D:\wamp\www\digTreasure-ThinkPHP\home\Lib\Action\PrizeAction.class.php 第 18 行.
+NOTIC: [8] Undefined offset:  0 D:\wamp\www\digTreasure-ThinkPHP\home\Lib\Action\PrizeAction.class.php 第 19 行.
+SQL: select userId from c_takepartin where prizeTermId='3' order by tpiTime limit 0,1; [ RunTime:0.000285s ]
+NOTIC: [8] Undefined offset:  0 D:\wamp\www\digTreasure-ThinkPHP\home\Lib\Action\PrizeAction.class.php 第 25 行.
+SQL: select * from C_User where userId=''; [ RunTime:0.000142s ]
+SQL: select u.userNickName ,u.userPortrait,t.tpiPayAmount as betCount,t.tpiTime from (select * from c_takepartin where prizeTermId='3') as t left join c_user u on t.userId=u.userId  order by t.tpiTime desc; [ RunTime:0.000359s ]
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:0.000880s ]
+INFO: [ view_template ] --END-- [ RunTime:0.000945s ]
+INFO: [ view_parse ] --START--
+NOTIC: [8] Undefined offset:  0 D:\wamp\www\digTreasure-ThinkPHP\home\Runtime\Cache\3ca35bdf19db5a6a23c511a038f04f7e.php 第 111 行.
+NOTIC: [8] Undefined offset:  0 D:\wamp\www\digTreasure-ThinkPHP\home\Runtime\Cache\3ca35bdf19db5a6a23c511a038f04f7e.php 第 113 行.
+INFO: Run ParseTemplate Behavior [ RunTime:0.013920s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.013997s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:0.000334s ]
+INFO: Run TokenBuild Behavior [ RunTime:0.000318s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:0.000191s ]
+INFO: Run ShowRuntime Behavior [ RunTime:0.000348s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001353s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:0.000457s ]
+INFO: [ view_end ] --END-- [ RunTime:0.000509s ]
+
+[ 2014-03-08T00:00:45+08:00 ] 192.168.43.1 /www/digTreasure-ThinkPHP/home.php/Prize/prizeDtails/prizeId/3
+INFO: [ route_check ] --START--
+INFO: Run CheckRoute Behavior [ RunTime:0.000692s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000774s ]
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000422s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000482s ]
+NOTIC: [8] A session had already been started - ignoring session_start() D:\wamp\www\digTreasure-ThinkPHP\ThinkPHP\Common\functions.php 第 552 行.
+SQL: SHOW COLUMNS FROM `c_prize` [ RunTime:0.001504s ]
+SQL: SHOW COLUMNS FROM `c_prize` [ RunTime:0.001419s ]
+SQL: select p.prizeDetail,p.prizeTitle,p.prizePrice,max(pt.prizeTermId) as newestTermId,min(pt.prizeTermBetCount) as betCount,count(*) as termNum from c_prize p ,c_prizeterm pt where p.prizeId=pt.prizeId and p.prizeId='3' group by p.prizeId; [ RunTime:0.000357s ]
+SQL: SHOW COLUMNS FROM `c_takepartin` [ RunTime:0.001535s ]
+SQL: SHOW COLUMNS FROM `c_takepartin` [ RunTime:0.001477s ]
+SQL: select * from (select userId ,sum(tpiPayAmount) as allPay from c_takepartin  where prizeTermId='3' group by userId order by sum(tpiPayAmount) desc) as t limit 0,1;  [ RunTime:0.000357s ]
+NOTIC: [8] Undefined offset:  0 D:\wamp\www\digTreasure-ThinkPHP\home\Lib\Action\PrizeAction.class.php 第 14 行.
+NOTIC: [8] Undefined offset:  0 D:\wamp\www\digTreasure-ThinkPHP\home\Lib\Action\PrizeAction.class.php 第 15 行.
+SQL: SHOW COLUMNS FROM `c_user` [ RunTime:0.001500s ]
+SQL: SHOW COLUMNS FROM `c_user` [ RunTime:0.001534s ]
+SQL: select * from C_User where userId=''; [ RunTime:0.000288s ]
+NOTIC: [8] Undefined offset:  0 D:\wamp\www\digTreasure-ThinkPHP\home\Lib\Action\PrizeAction.class.php 第 18 行.
+NOTIC: [8] Undefined offset:  0 D:\wamp\www\digTreasure-ThinkPHP\home\Lib\Action\PrizeAction.class.php 第 19 行.
+SQL: select userId from c_takepartin where prizeTermId='3' order by tpiTime limit 0,1; [ RunTime:0.000144s ]
+NOTIC: [8] Undefined offset:  0 D:\wamp\www\digTreasure-ThinkPHP\home\Lib\Action\PrizeAction.class.php 第 25 行.
+SQL: select * from C_User where userId=''; [ RunTime:0.000123s ]
+SQL: select u.userNickName ,u.userPortrait,t.tpiPayAmount as betCount,t.tpiTime from (select * from c_takepartin where prizeTermId='3') as t left join c_user u on t.userId=u.userId  order by t.tpiTime desc; [ RunTime:0.000124s ]
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:0.001069s ]
+INFO: [ view_template ] --END-- [ RunTime:0.001136s ]
+INFO: [ view_parse ] --START--
+NOTIC: [8] Undefined offset:  0 D:\wamp\www\digTreasure-ThinkPHP\home\Runtime\Cache\3ca35bdf19db5a6a23c511a038f04f7e.php 第 111 行.
+NOTIC: [8] Undefined offset:  0 D:\wamp\www\digTreasure-ThinkPHP\home\Runtime\Cache\3ca35bdf19db5a6a23c511a038f04f7e.php 第 113 行.
+INFO: Run ParseTemplate Behavior [ RunTime:0.012979s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.013053s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:0.000309s ]
+INFO: Run TokenBuild Behavior [ RunTime:0.000294s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:0.000195s ]
+INFO: Run ShowRuntime Behavior [ RunTime:0.000363s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001321s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:0.000478s ]
+INFO: [ view_end ] --END-- [ RunTime:0.000536s ]
+
+[ 2014-03-08T00:00:45+08:00 ] 192.168.43.1 /www/digTreasure-ThinkPHP/home.php/Prize/prizeDtails/prizeId/3
+INFO: [ route_check ] --START--
+INFO: Run CheckRoute Behavior [ RunTime:0.000945s ]
+INFO: [ route_check ] --END-- [ RunTime:0.001027s ]
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000701s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000764s ]
+NOTIC: [8] A session had already been started - ignoring session_start() D:\wamp\www\digTreasure-ThinkPHP\ThinkPHP\Common\functions.php 第 552 行.
+SQL: SHOW COLUMNS FROM `c_prize` [ RunTime:0.001425s ]
+SQL: SHOW COLUMNS FROM `c_prize` [ RunTime:0.001381s ]
+SQL: select p.prizeDetail,p.prizeTitle,p.prizePrice,max(pt.prizeTermId) as newestTermId,min(pt.prizeTermBetCount) as betCount,count(*) as termNum from c_prize p ,c_prizeterm pt where p.prizeId=pt.prizeId and p.prizeId='3' group by p.prizeId; [ RunTime:0.000351s ]
+SQL: SHOW COLUMNS FROM `c_takepartin` [ RunTime:0.001202s ]
+SQL: SHOW COLUMNS FROM `c_takepartin` [ RunTime:0.001390s ]
+SQL: select * from (select userId ,sum(tpiPayAmount) as allPay from c_takepartin  where prizeTermId='3' group by userId order by sum(tpiPayAmount) desc) as t limit 0,1;  [ RunTime:0.000366s ]
+NOTIC: [8] Undefined offset:  0 D:\wamp\www\digTreasure-ThinkPHP\home\Lib\Action\PrizeAction.class.php 第 14 行.
+NOTIC: [8] Undefined offset:  0 D:\wamp\www\digTreasure-ThinkPHP\home\Lib\Action\PrizeAction.class.php 第 15 行.
+SQL: SHOW COLUMNS FROM `c_user` [ RunTime:0.001243s ]
+SQL: SHOW COLUMNS FROM `c_user` [ RunTime:0.001425s ]
+SQL: select * from C_User where userId=''; [ RunTime:0.000822s ]
+NOTIC: [8] Undefined offset:  0 D:\wamp\www\digTreasure-ThinkPHP\home\Lib\Action\PrizeAction.class.php 第 18 行.
+NOTIC: [8] Undefined offset:  0 D:\wamp\www\digTreasure-ThinkPHP\home\Lib\Action\PrizeAction.class.php 第 19 行.
+SQL: select userId from c_takepartin where prizeTermId='3' order by tpiTime limit 0,1; [ RunTime:0.000123s ]
+NOTIC: [8] Undefined offset:  0 D:\wamp\www\digTreasure-ThinkPHP\home\Lib\Action\PrizeAction.class.php 第 25 行.
+SQL: select * from C_User where userId=''; [ RunTime:0.000097s ]
+SQL: select u.userNickName ,u.userPortrait,t.tpiPayAmount as betCount,t.tpiTime from (select * from c_takepartin where prizeTermId='3') as t left join c_user u on t.userId=u.userId  order by t.tpiTime desc; [ RunTime:0.000089s ]
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:0.001049s ]
+INFO: [ view_template ] --END-- [ RunTime:0.001114s ]
+INFO: [ view_parse ] --START--
+NOTIC: [8] Undefined offset:  0 D:\wamp\www\digTreasure-ThinkPHP\home\Runtime\Cache\3ca35bdf19db5a6a23c511a038f04f7e.php 第 111 行.
+NOTIC: [8] Undefined offset:  0 D:\wamp\www\digTreasure-ThinkPHP\home\Runtime\Cache\3ca35bdf19db5a6a23c511a038f04f7e.php 第 113 行.
+INFO: Run ParseTemplate Behavior [ RunTime:0.013689s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.013762s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:0.000634s ]
+INFO: Run TokenBuild Behavior [ RunTime:0.000604s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:0.000500s ]
+INFO: Run ShowRuntime Behavior [ RunTime:0.000665s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.002568s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:0.000782s ]
+INFO: [ view_end ] --END-- [ RunTime:0.000839s ]
+
+[ 2014-03-08T00:00:46+08:00 ] 192.168.43.1 /www/digTreasure-ThinkPHP/home.php/Index/index
+INFO: [ route_check ] --START--
+INFO: Run CheckRoute Behavior [ RunTime:0.001709s ]
+INFO: [ route_check ] --END-- [ RunTime:0.001892s ]
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.001092s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001246s ]
+NOTIC: [8] A session had already been started - ignoring session_start() D:\wamp\www\digTreasure-ThinkPHP\ThinkPHP\Common\functions.php 第 552 行.
+SQL: SHOW COLUMNS FROM `c_user` [ RunTime:0.001562s ]
+SQL: SHOW COLUMNS FROM `c_prize` [ RunTime:0.001332s ]
+SQL: SHOW COLUMNS FROM `c_prize` [ RunTime:0.001392s ]
+SQL: select pt.prizeId,min(pt.prizeTermBetCount) as betCount,p.prizeTitle,p.prizePrice,p.prizePicture,count(*) as termNum from c_prizeterm pt left join c_prize p on pt.prizeId=p.prizeId group by pt.prizeId order by termNum desc; [ RunTime:0.000389s ]
+SQL: select pt.prizeId,min(pt.prizeTermBetCount) as betCount,p.prizeTitle,p.prizePrice,p.prizePicture,count(*) as termNum from c_prizeterm pt left join c_prize p on pt.prizeId=p.prizeId group by pt.prizeId; [ RunTime:0.000168s ]
+SQL: select pt.prizeId,min(pt.prizeTermBetCount) as betCount,p.prizeTitle,p.prizePrice,p.prizePicture,count(*) as termNum from c_prizeterm pt left join c_prize p on pt.prizeId=p.prizeId group by pt.prizeId order by prizeId desc; [ RunTime:0.000161s ]
+SQL: select pt.prizeId,min(pt.prizeTermBetCount) as betCount,p.prizeTitle,p.prizePrice,p.prizePicture,count(*) as termNum from c_prizeterm pt left join c_prize p on pt.prizeId=p.prizeId group by pt.prizeId order by prizePrice desc; [ RunTime:0.000161s ]
+SQL: select pt.prizeId,min(pt.prizeTermBetCount) as betCount,p.prizeTitle,p.prizePrice,p.prizePicture,count(*) as termNum from c_prizeterm pt left join c_prize p on pt.prizeId=p.prizeId group by pt.prizeId order by prizePrice; [ RunTime:0.000159s ]
+SQL: SHOW COLUMNS FROM `c_tobuy` [ RunTime:0.001339s ]
+SQL: SHOW COLUMNS FROM `c_tobuy` [ RunTime:0.001511s ]
+SQL: select buy.prizeId,buy.toBuyId, min(prizeTermBetCount) as betCount,count(*) as termNum,buy.prizeTitle,buy.prizePicture,buy.prizePrice from c_prizeterm pt ,(select t.toBuyId,p.prizeId,p.prizeTitle,p.prizePrice,p.prizePicture from c_tobuy t ,c_prize p where t.prizeId=p.prizeId and userId='43') as buy where pt.prizeId=buy.prizeId group by buy.prizeId order by buy.toBuyId; [ RunTime:0.000371s ]
+SQL: SHOW COLUMNS FROM `c_user` [ RunTime:0.001334s ]
+SQL: select * from C_User where userId='43'; [ RunTime:0.000641s ]
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:0.001028s ]
+INFO: [ view_template ] --END-- [ RunTime:0.001113s ]
+INFO: [ view_parse ] --START--
+INFO: Run ParseTemplate Behavior [ RunTime:0.036541s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.036637s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:0.001459s ]
+INFO: Run TokenBuild Behavior [ RunTime:0.000426s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:0.000202s ]
+INFO: Run ShowRuntime Behavior [ RunTime:0.000567s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.002828s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:0.000473s ]
+INFO: [ view_end ] --END-- [ RunTime:0.000532s ]
+
+[ 2014-03-08T00:00:49+08:00 ] 192.168.43.1 /www/digTreasure-ThinkPHP/home.php/Prize/prizeDtails/prizeId/3
+INFO: [ route_check ] --START--
+INFO: Run CheckRoute Behavior [ RunTime:0.001737s ]
+INFO: [ route_check ] --END-- [ RunTime:0.001932s ]
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.001095s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001253s ]
+NOTIC: [8] A session had already been started - ignoring session_start() D:\wamp\www\digTreasure-ThinkPHP\ThinkPHP\Common\functions.php 第 552 行.
+SQL: SHOW COLUMNS FROM `c_prize` [ RunTime:0.002383s ]
+SQL: SHOW COLUMNS FROM `c_prize` [ RunTime:0.002307s ]
+SQL: select p.prizeDetail,p.prizeTitle,p.prizePrice,max(pt.prizeTermId) as newestTermId,min(pt.prizeTermBetCount) as betCount,count(*) as termNum from c_prize p ,c_prizeterm pt where p.prizeId=pt.prizeId and p.prizeId='3' group by p.prizeId; [ RunTime:0.000485s ]
+SQL: SHOW COLUMNS FROM `c_takepartin` [ RunTime:0.002037s ]
+SQL: SHOW COLUMNS FROM `c_takepartin` [ RunTime:0.002277s ]
+SQL: select * from (select userId ,sum(tpiPayAmount) as allPay from c_takepartin  where prizeTermId='3' group by userId order by sum(tpiPayAmount) desc) as t limit 0,1;  [ RunTime:0.000573s ]
+NOTIC: [8] Undefined offset:  0 D:\wamp\www\digTreasure-ThinkPHP\home\Lib\Action\PrizeAction.class.php 第 14 行.
+NOTIC: [8] Undefined offset:  0 D:\wamp\www\digTreasure-ThinkPHP\home\Lib\Action\PrizeAction.class.php 第 15 行.
+SQL: SHOW COLUMNS FROM `c_user` [ RunTime:0.002279s ]
+SQL: SHOW COLUMNS FROM `c_user` [ RunTime:0.002281s ]
+SQL: select * from C_User where userId=''; [ RunTime:0.000562s ]
+NOTIC: [8] Undefined offset:  0 D:\wamp\www\digTreasure-ThinkPHP\home\Lib\Action\PrizeAction.class.php 第 18 行.
+NOTIC: [8] Undefined offset:  0 D:\wamp\www\digTreasure-ThinkPHP\home\Lib\Action\PrizeAction.class.php 第 19 行.
+SQL: select userId from c_takepartin where prizeTermId='3' order by tpiTime limit 0,1; [ RunTime:0.000264s ]
+NOTIC: [8] Undefined offset:  0 D:\wamp\www\digTreasure-ThinkPHP\home\Lib\Action\PrizeAction.class.php 第 25 行.
+SQL: select * from C_User where userId=''; [ RunTime:0.000262s ]
+SQL: select u.userNickName ,u.userPortrait,t.tpiPayAmount as betCount,t.tpiTime from (select * from c_takepartin where prizeTermId='3') as t left join c_user u on t.userId=u.userId  order by t.tpiTime desc; [ RunTime:0.000257s ]
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:0.000871s ]
+INFO: [ view_template ] --END-- [ RunTime:0.000971s ]
+INFO: [ view_parse ] --START--
+NOTIC: [8] Undefined offset:  0 D:\wamp\www\digTreasure-ThinkPHP\home\Runtime\Cache\3ca35bdf19db5a6a23c511a038f04f7e.php 第 111 行.
+NOTIC: [8] Undefined offset:  0 D:\wamp\www\digTreasure-ThinkPHP\home\Runtime\Cache\3ca35bdf19db5a6a23c511a038f04f7e.php 第 113 行.
+INFO: Run ParseTemplate Behavior [ RunTime:0.015155s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.015240s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:0.000301s ]
+INFO: Run TokenBuild Behavior [ RunTime:0.000277s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:0.000182s ]
+INFO: Run ShowRuntime Behavior [ RunTime:0.000340s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001253s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:0.000445s ]
+INFO: [ view_end ] --END-- [ RunTime:0.000497s ]
+
+[ 2014-03-08T00:00:49+08:00 ] 192.168.43.1 /www/digTreasure-ThinkPHP/home.php/Prize/prizeDtails/prizeId/3
+INFO: [ route_check ] --START--
+INFO: Run CheckRoute Behavior [ RunTime:0.000653s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000734s ]
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000416s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000476s ]
+NOTIC: [8] A session had already been started - ignoring session_start() D:\wamp\www\digTreasure-ThinkPHP\ThinkPHP\Common\functions.php 第 552 行.
+SQL: SHOW COLUMNS FROM `c_prize` [ RunTime:0.001590s ]
+SQL: SHOW COLUMNS FROM `c_prize` [ RunTime:0.001405s ]
+SQL: select p.prizeDetail,p.prizeTitle,p.prizePrice,max(pt.prizeTermId) as newestTermId,min(pt.prizeTermBetCount) as betCount,count(*) as termNum from c_prize p ,c_prizeterm pt where p.prizeId=pt.prizeId and p.prizeId='3' group by p.prizeId; [ RunTime:0.000351s ]
+SQL: SHOW COLUMNS FROM `c_takepartin` [ RunTime:0.001322s ]
+SQL: SHOW COLUMNS FROM `c_takepartin` [ RunTime:0.001417s ]
+SQL: select * from (select userId ,sum(tpiPayAmount) as allPay from c_takepartin  where prizeTermId='3' group by userId order by sum(tpiPayAmount) desc) as t limit 0,1;  [ RunTime:0.000373s ]
+NOTIC: [8] Undefined offset:  0 D:\wamp\www\digTreasure-ThinkPHP\home\Lib\Action\PrizeAction.class.php 第 14 行.
+NOTIC: [8] Undefined offset:  0 D:\wamp\www\digTreasure-ThinkPHP\home\Lib\Action\PrizeAction.class.php 第 15 行.
+SQL: SHOW COLUMNS FROM `c_user` [ RunTime:0.001407s ]
+SQL: SHOW COLUMNS FROM `c_user` [ RunTime:0.001449s ]
+SQL: select * from C_User where userId=''; [ RunTime:0.000363s ]
+NOTIC: [8] Undefined offset:  0 D:\wamp\www\digTreasure-ThinkPHP\home\Lib\Action\PrizeAction.class.php 第 18 行.
+NOTIC: [8] Undefined offset:  0 D:\wamp\www\digTreasure-ThinkPHP\home\Lib\Action\PrizeAction.class.php 第 19 行.
+SQL: select userId from c_takepartin where prizeTermId='3' order by tpiTime limit 0,1; [ RunTime:0.000147s ]
+NOTIC: [8] Undefined offset:  0 D:\wamp\www\digTreasure-ThinkPHP\home\Lib\Action\PrizeAction.class.php 第 25 行.
+SQL: select * from C_User where userId=''; [ RunTime:0.000144s ]
+SQL: select u.userNickName ,u.userPortrait,t.tpiPayAmount as betCount,t.tpiTime from (select * from c_takepartin where prizeTermId='3') as t left join c_user u on t.userId=u.userId  order by t.tpiTime desc; [ RunTime:0.000140s ]
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:0.000943s ]
+INFO: [ view_template ] --END-- [ RunTime:0.001003s ]
+INFO: [ view_parse ] --START--
+NOTIC: [8] Undefined offset:  0 D:\wamp\www\digTreasure-ThinkPHP\home\Runtime\Cache\3ca35bdf19db5a6a23c511a038f04f7e.php 第 111 行.
+NOTIC: [8] Undefined offset:  0 D:\wamp\www\digTreasure-ThinkPHP\home\Runtime\Cache\3ca35bdf19db5a6a23c511a038f04f7e.php 第 113 行.
+INFO: Run ParseTemplate Behavior [ RunTime:0.012910s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.012981s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:0.000305s ]
+INFO: Run TokenBuild Behavior [ RunTime:0.000292s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:0.000191s ]
+INFO: Run ShowRuntime Behavior [ RunTime:0.000364s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001313s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:0.000475s ]
+INFO: [ view_end ] --END-- [ RunTime:0.000531s ]
+
+[ 2014-03-08T00:00:49+08:00 ] 192.168.43.1 /www/digTreasure-ThinkPHP/home.php/Prize/prizeDtails/prizeId/3
+INFO: [ route_check ] --START--
+INFO: Run CheckRoute Behavior [ RunTime:0.000694s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000770s ]
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000439s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000502s ]
+NOTIC: [8] A session had already been started - ignoring session_start() D:\wamp\www\digTreasure-ThinkPHP\ThinkPHP\Common\functions.php 第 552 行.
+SQL: SHOW COLUMNS FROM `c_prize` [ RunTime:0.001434s ]
+SQL: SHOW COLUMNS FROM `c_prize` [ RunTime:0.001397s ]
+SQL: select p.prizeDetail,p.prizeTitle,p.prizePrice,max(pt.prizeTermId) as newestTermId,min(pt.prizeTermBetCount) as betCount,count(*) as termNum from c_prize p ,c_prizeterm pt where p.prizeId=pt.prizeId and p.prizeId='3' group by p.prizeId; [ RunTime:0.000348s ]
+SQL: SHOW COLUMNS FROM `c_takepartin` [ RunTime:0.001192s ]
+SQL: SHOW COLUMNS FROM `c_takepartin` [ RunTime:0.001367s ]
+SQL: select * from (select userId ,sum(tpiPayAmount) as allPay from c_takepartin  where prizeTermId='3' group by userId order by sum(tpiPayAmount) desc) as t limit 0,1;  [ RunTime:0.000362s ]
+NOTIC: [8] Undefined offset:  0 D:\wamp\www\digTreasure-ThinkPHP\home\Lib\Action\PrizeAction.class.php 第 14 行.
+NOTIC: [8] Undefined offset:  0 D:\wamp\www\digTreasure-ThinkPHP\home\Lib\Action\PrizeAction.class.php 第 15 行.
+SQL: SHOW COLUMNS FROM `c_user` [ RunTime:0.001254s ]
+SQL: SHOW COLUMNS FROM `c_user` [ RunTime:0.001686s ]
+SQL: select * from C_User where userId=''; [ RunTime:0.000748s ]
+NOTIC: [8] Undefined offset:  0 D:\wamp\www\digTreasure-ThinkPHP\home\Lib\Action\PrizeAction.class.php 第 18 行.
+NOTIC: [8] Undefined offset:  0 D:\wamp\www\digTreasure-ThinkPHP\home\Lib\Action\PrizeAction.class.php 第 19 行.
+SQL: select userId from c_takepartin where prizeTermId='3' order by tpiTime limit 0,1; [ RunTime:0.000144s ]
+NOTIC: [8] Undefined offset:  0 D:\wamp\www\digTreasure-ThinkPHP\home\Lib\Action\PrizeAction.class.php 第 25 行.
+SQL: select * from C_User where userId=''; [ RunTime:0.000125s ]
+SQL: select u.userNickName ,u.userPortrait,t.tpiPayAmount as betCount,t.tpiTime from (select * from c_takepartin where prizeTermId='3') as t left join c_user u on t.userId=u.userId  order by t.tpiTime desc; [ RunTime:0.000116s ]
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:0.000856s ]
+INFO: [ view_template ] --END-- [ RunTime:0.000920s ]
+INFO: [ view_parse ] --START--
+NOTIC: [8] Undefined offset:  0 D:\wamp\www\digTreasure-ThinkPHP\home\Runtime\Cache\3ca35bdf19db5a6a23c511a038f04f7e.php 第 111 行.
+NOTIC: [8] Undefined offset:  0 D:\wamp\www\digTreasure-ThinkPHP\home\Runtime\Cache\3ca35bdf19db5a6a23c511a038f04f7e.php 第 113 行.
+INFO: Run ParseTemplate Behavior [ RunTime:0.013316s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.013392s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:0.000321s ]
+INFO: Run TokenBuild Behavior [ RunTime:0.000295s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:0.000192s ]
+INFO: Run ShowRuntime Behavior [ RunTime:0.000361s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001329s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:0.000480s ]
+INFO: [ view_end ] --END-- [ RunTime:0.000535s ]
+
+[ 2014-03-08T00:00:51+08:00 ] 192.168.43.1 /www/digTreasure-ThinkPHP/home.php/Index/index
+INFO: [ route_check ] --START--
+INFO: Run CheckRoute Behavior [ RunTime:0.001724s ]
+INFO: [ route_check ] --END-- [ RunTime:0.001919s ]
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000458s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000526s ]
+NOTIC: [8] A session had already been started - ignoring session_start() D:\wamp\www\digTreasure-ThinkPHP\ThinkPHP\Common\functions.php 第 552 行.
+SQL: SHOW COLUMNS FROM `c_user` [ RunTime:0.001562s ]
+SQL: SHOW COLUMNS FROM `c_prize` [ RunTime:0.001369s ]
+SQL: SHOW COLUMNS FROM `c_prize` [ RunTime:0.001413s ]
+SQL: select pt.prizeId,min(pt.prizeTermBetCount) as betCount,p.prizeTitle,p.prizePrice,p.prizePicture,count(*) as termNum from c_prizeterm pt left join c_prize p on pt.prizeId=p.prizeId group by pt.prizeId order by termNum desc; [ RunTime:0.000407s ]
+SQL: select pt.prizeId,min(pt.prizeTermBetCount) as betCount,p.prizeTitle,p.prizePrice,p.prizePicture,count(*) as termNum from c_prizeterm pt left join c_prize p on pt.prizeId=p.prizeId group by pt.prizeId; [ RunTime:0.000229s ]
+SQL: select pt.prizeId,min(pt.prizeTermBetCount) as betCount,p.prizeTitle,p.prizePrice,p.prizePicture,count(*) as termNum from c_prizeterm pt left join c_prize p on pt.prizeId=p.prizeId group by pt.prizeId order by prizeId desc; [ RunTime:0.000301s ]
+SQL: select pt.prizeId,min(pt.prizeTermBetCount) as betCount,p.prizeTitle,p.prizePrice,p.prizePicture,count(*) as termNum from c_prizeterm pt left join c_prize p on pt.prizeId=p.prizeId group by pt.prizeId order by prizePrice desc; [ RunTime:0.000187s ]
+SQL: select pt.prizeId,min(pt.prizeTermBetCount) as betCount,p.prizeTitle,p.prizePrice,p.prizePicture,count(*) as termNum from c_prizeterm pt left join c_prize p on pt.prizeId=p.prizeId group by pt.prizeId order by prizePrice; [ RunTime:0.000220s ]
+SQL: SHOW COLUMNS FROM `c_tobuy` [ RunTime:0.001425s ]
+SQL: SHOW COLUMNS FROM `c_tobuy` [ RunTime:0.001438s ]
+SQL: select buy.prizeId,buy.toBuyId, min(prizeTermBetCount) as betCount,count(*) as termNum,buy.prizeTitle,buy.prizePicture,buy.prizePrice from c_prizeterm pt ,(select t.toBuyId,p.prizeId,p.prizeTitle,p.prizePrice,p.prizePicture from c_tobuy t ,c_prize p where t.prizeId=p.prizeId and userId='43') as buy where pt.prizeId=buy.prizeId group by buy.prizeId order by buy.toBuyId; [ RunTime:0.000375s ]
+SQL: SHOW COLUMNS FROM `c_user` [ RunTime:0.001323s ]
+SQL: select * from C_User where userId='43'; [ RunTime:0.000404s ]
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:0.000490s ]
+INFO: [ view_template ] --END-- [ RunTime:0.000556s ]
+INFO: [ view_parse ] --START--
+INFO: Run ParseTemplate Behavior [ RunTime:0.034687s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.034770s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:0.001369s ]
+INFO: Run TokenBuild Behavior [ RunTime:0.000406s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:0.000187s ]
+INFO: Run ShowRuntime Behavior [ RunTime:0.000539s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.002668s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:0.000445s ]
+INFO: [ view_end ] --END-- [ RunTime:0.000498s ]
+
+[ 2014-03-08T00:00:54+08:00 ] 192.168.43.1 /www/digTreasure-ThinkPHP/home.php/Prize/prizeDtails/prizeId/3
+INFO: [ route_check ] --START--
+INFO: Run CheckRoute Behavior [ RunTime:0.000800s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000911s ]
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000523s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000603s ]
+NOTIC: [8] A session had already been started - ignoring session_start() D:\wamp\www\digTreasure-ThinkPHP\ThinkPHP\Common\functions.php 第 552 行.
+SQL: SHOW COLUMNS FROM `c_prize` [ RunTime:0.001457s ]
+SQL: SHOW COLUMNS FROM `c_prize` [ RunTime:0.001472s ]
+SQL: select p.prizeDetail,p.prizeTitle,p.prizePrice,max(pt.prizeTermId) as newestTermId,min(pt.prizeTermBetCount) as betCount,count(*) as termNum from c_prize p ,c_prizeterm pt where p.prizeId=pt.prizeId and p.prizeId='3' group by p.prizeId; [ RunTime:0.000340s ]
+SQL: SHOW COLUMNS FROM `c_takepartin` [ RunTime:0.001417s ]
+SQL: SHOW COLUMNS FROM `c_takepartin` [ RunTime:0.001484s ]
+SQL: select * from (select userId ,sum(tpiPayAmount) as allPay from c_takepartin  where prizeTermId='3' group by userId order by sum(tpiPayAmount) desc) as t limit 0,1;  [ RunTime:0.000349s ]
+NOTIC: [8] Undefined offset:  0 D:\wamp\www\digTreasure-ThinkPHP\home\Lib\Action\PrizeAction.class.php 第 14 行.
+NOTIC: [8] Undefined offset:  0 D:\wamp\www\digTreasure-ThinkPHP\home\Lib\Action\PrizeAction.class.php 第 15 行.
+SQL: SHOW COLUMNS FROM `c_user` [ RunTime:0.001434s ]
+SQL: SHOW COLUMNS FROM `c_user` [ RunTime:0.001475s ]
+SQL: select * from C_User where userId=''; [ RunTime:0.000353s ]
+NOTIC: [8] Undefined offset:  0 D:\wamp\www\digTreasure-ThinkPHP\home\Lib\Action\PrizeAction.class.php 第 18 行.
+NOTIC: [8] Undefined offset:  0 D:\wamp\www\digTreasure-ThinkPHP\home\Lib\Action\PrizeAction.class.php 第 19 行.
+SQL: select userId from c_takepartin where prizeTermId='3' order by tpiTime limit 0,1; [ RunTime:0.000106s ]
+NOTIC: [8] Undefined offset:  0 D:\wamp\www\digTreasure-ThinkPHP\home\Lib\Action\PrizeAction.class.php 第 25 行.
+SQL: select * from C_User where userId=''; [ RunTime:0.000094s ]
+SQL: select u.userNickName ,u.userPortrait,t.tpiPayAmount as betCount,t.tpiTime from (select * from c_takepartin where prizeTermId='3') as t left join c_user u on t.userId=u.userId  order by t.tpiTime desc; [ RunTime:0.000089s ]
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:0.001229s ]
+INFO: [ view_template ] --END-- [ RunTime:0.001314s ]
+INFO: [ view_parse ] --START--
+NOTIC: [8] Undefined offset:  0 D:\wamp\www\digTreasure-ThinkPHP\home\Runtime\Cache\3ca35bdf19db5a6a23c511a038f04f7e.php 第 111 行.
+NOTIC: [8] Undefined offset:  0 D:\wamp\www\digTreasure-ThinkPHP\home\Runtime\Cache\3ca35bdf19db5a6a23c511a038f04f7e.php 第 113 行.
+INFO: Run ParseTemplate Behavior [ RunTime:0.013416s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.013494s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:0.000311s ]
+INFO: Run TokenBuild Behavior [ RunTime:0.000294s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:0.000194s ]
+INFO: Run ShowRuntime Behavior [ RunTime:0.000883s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001850s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:0.000482s ]
+INFO: [ view_end ] --END-- [ RunTime:0.000537s ]
+
+[ 2014-03-08T00:00:54+08:00 ] 192.168.43.1 /www/digTreasure-ThinkPHP/home.php/Prize/prizeDtails/prizeId/3
+INFO: [ route_check ] --START--
+INFO: Run CheckRoute Behavior [ RunTime:0.000839s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000915s ]
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000419s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000478s ]
+NOTIC: [8] A session had already been started - ignoring session_start() D:\wamp\www\digTreasure-ThinkPHP\ThinkPHP\Common\functions.php 第 552 行.
+SQL: SHOW COLUMNS FROM `c_prize` [ RunTime:0.001462s ]
+SQL: SHOW COLUMNS FROM `c_prize` [ RunTime:0.001417s ]
+SQL: select p.prizeDetail,p.prizeTitle,p.prizePrice,max(pt.prizeTermId) as newestTermId,min(pt.prizeTermBetCount) as betCount,count(*) as termNum from c_prize p ,c_prizeterm pt where p.prizeId=pt.prizeId and p.prizeId='3' group by p.prizeId; [ RunTime:0.000364s ]
+SQL: SHOW COLUMNS FROM `c_takepartin` [ RunTime:0.001487s ]
+SQL: SHOW COLUMNS FROM `c_takepartin` [ RunTime:0.001319s ]
+SQL: select * from (select userId ,sum(tpiPayAmount) as allPay from c_takepartin  where prizeTermId='3' group by userId order by sum(tpiPayAmount) desc) as t limit 0,1;  [ RunTime:0.000383s ]
+NOTIC: [8] Undefined offset:  0 D:\wamp\www\digTreasure-ThinkPHP\home\Lib\Action\PrizeAction.class.php 第 14 行.
+NOTIC: [8] Undefined offset:  0 D:\wamp\www\digTreasure-ThinkPHP\home\Lib\Action\PrizeAction.class.php 第 15 行.
+SQL: SHOW COLUMNS FROM `c_user` [ RunTime:0.001242s ]
+SQL: SHOW COLUMNS FROM `c_user` [ RunTime:0.001418s ]
+SQL: select * from C_User where userId=''; [ RunTime:0.000372s ]
+NOTIC: [8] Undefined offset:  0 D:\wamp\www\digTreasure-ThinkPHP\home\Lib\Action\PrizeAction.class.php 第 18 行.
+NOTIC: [8] Undefined offset:  0 D:\wamp\www\digTreasure-ThinkPHP\home\Lib\Action\PrizeAction.class.php 第 19 行.
+SQL: select userId from c_takepartin where prizeTermId='3' order by tpiTime limit 0,1; [ RunTime:0.000130s ]
+NOTIC: [8] Undefined offset:  0 D:\wamp\www\digTreasure-ThinkPHP\home\Lib\Action\PrizeAction.class.php 第 25 行.
+SQL: select * from C_User where userId=''; [ RunTime:0.000124s ]
+SQL: select u.userNickName ,u.userPortrait,t.tpiPayAmount as betCount,t.tpiTime from (select * from c_takepartin where prizeTermId='3') as t left join c_user u on t.userId=u.userId  order by t.tpiTime desc; [ RunTime:0.000125s ]
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:0.000870s ]
+INFO: [ view_template ] --END-- [ RunTime:0.000934s ]
+INFO: [ view_parse ] --START--
+NOTIC: [8] Undefined offset:  0 D:\wamp\www\digTreasure-ThinkPHP\home\Runtime\Cache\3ca35bdf19db5a6a23c511a038f04f7e.php 第 111 行.
+NOTIC: [8] Undefined offset:  0 D:\wamp\www\digTreasure-ThinkPHP\home\Runtime\Cache\3ca35bdf19db5a6a23c511a038f04f7e.php 第 113 行.
+INFO: Run ParseTemplate Behavior [ RunTime:0.013023s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.013099s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:0.000312s ]
+INFO: Run TokenBuild Behavior [ RunTime:0.000277s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:0.000181s ]
+INFO: Run ShowRuntime Behavior [ RunTime:0.000340s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001269s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:0.000449s ]
+INFO: [ view_end ] --END-- [ RunTime:0.000503s ]
+
+[ 2014-03-08T00:00:54+08:00 ] 192.168.43.1 /www/digTreasure-ThinkPHP/home.php/Prize/prizeDtails/prizeId/3
+INFO: [ route_check ] --START--
+INFO: Run CheckRoute Behavior [ RunTime:0.001021s ]
+INFO: [ route_check ] --END-- [ RunTime:0.001111s ]
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000755s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000823s ]
+NOTIC: [8] A session had already been started - ignoring session_start() D:\wamp\www\digTreasure-ThinkPHP\ThinkPHP\Common\functions.php 第 552 行.
+SQL: SHOW COLUMNS FROM `c_prize` [ RunTime:0.001499s ]
+SQL: SHOW COLUMNS FROM `c_prize` [ RunTime:0.001389s ]
+SQL: select p.prizeDetail,p.prizeTitle,p.prizePrice,max(pt.prizeTermId) as newestTermId,min(pt.prizeTermBetCount) as betCount,count(*) as termNum from c_prize p ,c_prizeterm pt where p.prizeId=pt.prizeId and p.prizeId='3' group by p.prizeId; [ RunTime:0.000368s ]
+SQL: SHOW COLUMNS FROM `c_takepartin` [ RunTime:0.001327s ]
+SQL: SHOW COLUMNS FROM `c_takepartin` [ RunTime:0.001432s ]
+SQL: select * from (select userId ,sum(tpiPayAmount) as allPay from c_takepartin  where prizeTermId='3' group by userId order by sum(tpiPayAmount) desc) as t limit 0,1;  [ RunTime:0.000374s ]
+NOTIC: [8] Undefined offset:  0 D:\wamp\www\digTreasure-ThinkPHP\home\Lib\Action\PrizeAction.class.php 第 14 行.
+NOTIC: [8] Undefined offset:  0 D:\wamp\www\digTreasure-ThinkPHP\home\Lib\Action\PrizeAction.class.php 第 15 行.
+SQL: SHOW COLUMNS FROM `c_user` [ RunTime:0.001571s ]
+SQL: SHOW COLUMNS FROM `c_user` [ RunTime:0.001456s ]
+SQL: select * from C_User where userId=''; [ RunTime:0.000376s ]
+NOTIC: [8] Undefined offset:  0 D:\wamp\www\digTreasure-ThinkPHP\home\Lib\Action\PrizeAction.class.php 第 18 行.
+NOTIC: [8] Undefined offset:  0 D:\wamp\www\digTreasure-ThinkPHP\home\Lib\Action\PrizeAction.class.php 第 19 行.
+SQL: select userId from c_takepartin where prizeTermId='3' order by tpiTime limit 0,1; [ RunTime:0.000151s ]
+NOTIC: [8] Undefined offset:  0 D:\wamp\www\digTreasure-ThinkPHP\home\Lib\Action\PrizeAction.class.php 第 25 行.
+SQL: select * from C_User where userId=''; [ RunTime:0.000144s ]
+SQL: select u.userNickName ,u.userPortrait,t.tpiPayAmount as betCount,t.tpiTime from (select * from c_takepartin where prizeTermId='3') as t left join c_user u on t.userId=u.userId  order by t.tpiTime desc; [ RunTime:0.000140s ]
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:0.000988s ]
+INFO: [ view_template ] --END-- [ RunTime:0.001047s ]
+INFO: [ view_parse ] --START--
+NOTIC: [8] Undefined offset:  0 D:\wamp\www\digTreasure-ThinkPHP\home\Runtime\Cache\3ca35bdf19db5a6a23c511a038f04f7e.php 第 111 行.
+NOTIC: [8] Undefined offset:  0 D:\wamp\www\digTreasure-ThinkPHP\home\Runtime\Cache\3ca35bdf19db5a6a23c511a038f04f7e.php 第 113 行.
+INFO: Run ParseTemplate Behavior [ RunTime:0.013338s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.013407s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:0.000637s ]
+INFO: Run TokenBuild Behavior [ RunTime:0.000575s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:0.000473s ]
+INFO: Run ShowRuntime Behavior [ RunTime:0.000631s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.002472s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:0.000741s ]
+INFO: [ view_end ] --END-- [ RunTime:0.000794s ]
+
+[ 2014-03-08T00:00:54+08:00 ] 192.168.43.1 /www/digTreasure-ThinkPHP/home.php/Prize/prizeDtails/prizeId/3
+INFO: [ route_check ] --START--
+INFO: Run CheckRoute Behavior [ RunTime:0.000691s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000771s ]
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000423s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000483s ]
+NOTIC: [8] A session had already been started - ignoring session_start() D:\wamp\www\digTreasure-ThinkPHP\ThinkPHP\Common\functions.php 第 552 行.
+SQL: SHOW COLUMNS FROM `c_prize` [ RunTime:0.001479s ]
+SQL: SHOW COLUMNS FROM `c_prize` [ RunTime:0.001992s ]
+SQL: select p.prizeDetail,p.prizeTitle,p.prizePrice,max(pt.prizeTermId) as newestTermId,min(pt.prizeTermBetCount) as betCount,count(*) as termNum from c_prize p ,c_prizeterm pt where p.prizeId=pt.prizeId and p.prizeId='3' group by p.prizeId; [ RunTime:0.000357s ]
+SQL: SHOW COLUMNS FROM `c_takepartin` [ RunTime:0.001346s ]
+SQL: SHOW COLUMNS FROM `c_takepartin` [ RunTime:0.001499s ]
+SQL: select * from (select userId ,sum(tpiPayAmount) as allPay from c_takepartin  where prizeTermId='3' group by userId order by sum(tpiPayAmount) desc) as t limit 0,1;  [ RunTime:0.000372s ]
+NOTIC: [8] Undefined offset:  0 D:\wamp\www\digTreasure-ThinkPHP\home\Lib\Action\PrizeAction.class.php 第 14 行.
+NOTIC: [8] Undefined offset:  0 D:\wamp\www\digTreasure-ThinkPHP\home\Lib\Action\PrizeAction.class.php 第 15 行.
+SQL: SHOW COLUMNS FROM `c_user` [ RunTime:0.001382s ]
+SQL: SHOW COLUMNS FROM `c_user` [ RunTime:0.001461s ]
+SQL: select * from C_User where userId=''; [ RunTime:0.000382s ]
+NOTIC: [8] Undefined offset:  0 D:\wamp\www\digTreasure-ThinkPHP\home\Lib\Action\PrizeAction.class.php 第 18 行.
+NOTIC: [8] Undefined offset:  0 D:\wamp\www\digTreasure-ThinkPHP\home\Lib\Action\PrizeAction.class.php 第 19 行.
+SQL: select userId from c_takepartin where prizeTermId='3' order by tpiTime limit 0,1; [ RunTime:0.000149s ]
+NOTIC: [8] Undefined offset:  0 D:\wamp\www\digTreasure-ThinkPHP\home\Lib\Action\PrizeAction.class.php 第 25 行.
+SQL: select * from C_User where userId=''; [ RunTime:0.000145s ]
+SQL: select u.userNickName ,u.userPortrait,t.tpiPayAmount as betCount,t.tpiTime from (select * from c_takepartin where prizeTermId='3') as t left join c_user u on t.userId=u.userId  order by t.tpiTime desc; [ RunTime:0.000140s ]
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:0.000953s ]
+INFO: [ view_template ] --END-- [ RunTime:0.001013s ]
+INFO: [ view_parse ] --START--
+NOTIC: [8] Undefined offset:  0 D:\wamp\www\digTreasure-ThinkPHP\home\Runtime\Cache\3ca35bdf19db5a6a23c511a038f04f7e.php 第 111 行.
+NOTIC: [8] Undefined offset:  0 D:\wamp\www\digTreasure-ThinkPHP\home\Runtime\Cache\3ca35bdf19db5a6a23c511a038f04f7e.php 第 113 行.
+INFO: Run ParseTemplate Behavior [ RunTime:0.012124s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.012190s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:0.000287s ]
+INFO: Run TokenBuild Behavior [ RunTime:0.000275s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:0.000182s ]
+INFO: Run ShowRuntime Behavior [ RunTime:0.000340s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001234s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:0.000446s ]
+INFO: [ view_end ] --END-- [ RunTime:0.000499s ]
+
+[ 2014-03-08T00:00:56+08:00 ] 192.168.43.1 /www/digTreasure-ThinkPHP/home.php/Index/index
+INFO: [ route_check ] --START--
+INFO: Run CheckRoute Behavior [ RunTime:0.001718s ]
+INFO: [ route_check ] --END-- [ RunTime:0.001904s ]
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.001096s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001248s ]
+NOTIC: [8] A session had already been started - ignoring session_start() D:\wamp\www\digTreasure-ThinkPHP\ThinkPHP\Common\functions.php 第 552 行.
+SQL: SHOW COLUMNS FROM `c_user` [ RunTime:0.001394s ]
+SQL: SHOW COLUMNS FROM `c_prize` [ RunTime:0.001237s ]
+SQL: SHOW COLUMNS FROM `c_prize` [ RunTime:0.001172s ]
+SQL: select pt.prizeId,min(pt.prizeTermBetCount) as betCount,p.prizeTitle,p.prizePrice,p.prizePicture,count(*) as termNum from c_prizeterm pt left join c_prize p on pt.prizeId=p.prizeId group by pt.prizeId order by termNum desc; [ RunTime:0.000335s ]
+SQL: select pt.prizeId,min(pt.prizeTermBetCount) as betCount,p.prizeTitle,p.prizePrice,p.prizePicture,count(*) as termNum from c_prizeterm pt left join c_prize p on pt.prizeId=p.prizeId group by pt.prizeId; [ RunTime:0.000223s ]
+SQL: select pt.prizeId,min(pt.prizeTermBetCount) as betCount,p.prizeTitle,p.prizePrice,p.prizePicture,count(*) as termNum from c_prizeterm pt left join c_prize p on pt.prizeId=p.prizeId group by pt.prizeId order by prizeId desc; [ RunTime:0.000218s ]
+SQL: select pt.prizeId,min(pt.prizeTermBetCount) as betCount,p.prizeTitle,p.prizePrice,p.prizePicture,count(*) as termNum from c_prizeterm pt left join c_prize p on pt.prizeId=p.prizeId group by pt.prizeId order by prizePrice desc; [ RunTime:0.000199s ]
+SQL: select pt.prizeId,min(pt.prizeTermBetCount) as betCount,p.prizeTitle,p.prizePrice,p.prizePicture,count(*) as termNum from c_prizeterm pt left join c_prize p on pt.prizeId=p.prizeId group by pt.prizeId order by prizePrice; [ RunTime:0.000194s ]
+SQL: SHOW COLUMNS FROM `c_tobuy` [ RunTime:0.001188s ]
+SQL: SHOW COLUMNS FROM `c_tobuy` [ RunTime:0.001294s ]
+SQL: select buy.prizeId,buy.toBuyId, min(prizeTermBetCount) as betCount,count(*) as termNum,buy.prizeTitle,buy.prizePicture,buy.prizePrice from c_prizeterm pt ,(select t.toBuyId,p.prizeId,p.prizeTitle,p.prizePrice,p.prizePicture from c_tobuy t ,c_prize p where t.prizeId=p.prizeId and userId='43') as buy where pt.prizeId=buy.prizeId group by buy.prizeId order by buy.toBuyId; [ RunTime:0.000652s ]
+SQL: SHOW COLUMNS FROM `c_user` [ RunTime:0.001233s ]
+SQL: select * from C_User where userId='43'; [ RunTime:0.000363s ]
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:0.000655s ]
+INFO: [ view_template ] --END-- [ RunTime:0.000722s ]
+INFO: [ view_parse ] --START--
+INFO: Run ParseTemplate Behavior [ RunTime:0.035642s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.035724s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:0.001381s ]
+INFO: Run TokenBuild Behavior [ RunTime:0.000403s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:0.000191s ]
+INFO: Run ShowRuntime Behavior [ RunTime:0.000543s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.002694s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:0.000450s ]
+INFO: [ view_end ] --END-- [ RunTime:0.000506s ]
+
+[ 2014-03-08T00:00:58+08:00 ] 192.168.43.1 /www/digTreasure-ThinkPHP/home.php/Index/index
+INFO: [ route_check ] --START--
+INFO: Run CheckRoute Behavior [ RunTime:0.000881s ]
+INFO: [ route_check ] --END-- [ RunTime:0.001015s ]
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000437s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000500s ]
+NOTIC: [8] A session had already been started - ignoring session_start() D:\wamp\www\digTreasure-ThinkPHP\ThinkPHP\Common\functions.php 第 552 行.
+SQL: SHOW COLUMNS FROM `c_user` [ RunTime:0.001427s ]
+SQL: SHOW COLUMNS FROM `c_prize` [ RunTime:0.001236s ]
+SQL: SHOW COLUMNS FROM `c_prize` [ RunTime:0.001203s ]
+SQL: select pt.prizeId,min(pt.prizeTermBetCount) as betCount,p.prizeTitle,p.prizePrice,p.prizePicture,count(*) as termNum from c_prizeterm pt left join c_prize p on pt.prizeId=p.prizeId group by pt.prizeId order by termNum desc; [ RunTime:0.000341s ]
+SQL: select pt.prizeId,min(pt.prizeTermBetCount) as betCount,p.prizeTitle,p.prizePrice,p.prizePicture,count(*) as termNum from c_prizeterm pt left join c_prize p on pt.prizeId=p.prizeId group by pt.prizeId; [ RunTime:0.000295s ]
+SQL: select pt.prizeId,min(pt.prizeTermBetCount) as betCount,p.prizeTitle,p.prizePrice,p.prizePicture,count(*) as termNum from c_prizeterm pt left join c_prize p on pt.prizeId=p.prizeId group by pt.prizeId order by prizeId desc; [ RunTime:0.000224s ]
+SQL: select pt.prizeId,min(pt.prizeTermBetCount) as betCount,p.prizeTitle,p.prizePrice,p.prizePicture,count(*) as termNum from c_prizeterm pt left join c_prize p on pt.prizeId=p.prizeId group by pt.prizeId order by prizePrice desc; [ RunTime:0.000219s ]
+SQL: select pt.prizeId,min(pt.prizeTermBetCount) as betCount,p.prizeTitle,p.prizePrice,p.prizePicture,count(*) as termNum from c_prizeterm pt left join c_prize p on pt.prizeId=p.prizeId group by pt.prizeId order by prizePrice; [ RunTime:0.000217s ]
+SQL: SHOW COLUMNS FROM `c_tobuy` [ RunTime:0.001281s ]
+SQL: SHOW COLUMNS FROM `c_tobuy` [ RunTime:0.001195s ]
+SQL: select buy.prizeId,buy.toBuyId, min(prizeTermBetCount) as betCount,count(*) as termNum,buy.prizeTitle,buy.prizePicture,buy.prizePrice from c_prizeterm pt ,(select t.toBuyId,p.prizeId,p.prizeTitle,p.prizePrice,p.prizePicture from c_tobuy t ,c_prize p where t.prizeId=p.prizeId and userId='43') as buy where pt.prizeId=buy.prizeId group by buy.prizeId order by buy.toBuyId; [ RunTime:0.000272s ]
+SQL: SHOW COLUMNS FROM `c_user` [ RunTime:0.001224s ]
+SQL: select * from C_User where userId='43'; [ RunTime:0.000347s ]
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:0.000652s ]
+INFO: [ view_template ] --END-- [ RunTime:0.000719s ]
+INFO: [ view_parse ] --START--
+INFO: Run ParseTemplate Behavior [ RunTime:0.034969s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.035052s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:0.001436s ]
+INFO: Run TokenBuild Behavior [ RunTime:0.000470s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:0.000200s ]
+INFO: Run ShowRuntime Behavior [ RunTime:0.000654s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.002935s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:0.000446s ]
+INFO: [ view_end ] --END-- [ RunTime:0.000502s ]
+
+[ 2014-03-08T00:01:03+08:00 ] 192.168.43.1 /www/digTreasure-ThinkPHP/home.php/Index/index
+INFO: [ route_check ] --START--
+INFO: Run CheckRoute Behavior [ RunTime:0.001725s ]
+INFO: [ route_check ] --END-- [ RunTime:0.001913s ]
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.001097s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001251s ]
+NOTIC: [8] A session had already been started - ignoring session_start() D:\wamp\www\digTreasure-ThinkPHP\ThinkPHP\Common\functions.php 第 552 行.
+SQL: SHOW COLUMNS FROM `c_user` [ RunTime:0.003241s ]
+SQL: SHOW COLUMNS FROM `c_prize` [ RunTime:0.002817s ]
+SQL: SHOW COLUMNS FROM `c_prize` [ RunTime:0.002889s ]
+SQL: select pt.prizeId,min(pt.prizeTermBetCount) as betCount,p.prizeTitle,p.prizePrice,p.prizePicture,count(*) as termNum from c_prizeterm pt left join c_prize p on pt.prizeId=p.prizeId group by pt.prizeId order by termNum desc; [ RunTime:0.000286s ]
+SQL: select pt.prizeId,min(pt.prizeTermBetCount) as betCount,p.prizeTitle,p.prizePrice,p.prizePicture,count(*) as termNum from c_prizeterm pt left join c_prize p on pt.prizeId=p.prizeId group by pt.prizeId; [ RunTime:0.000223s ]
+SQL: select pt.prizeId,min(pt.prizeTermBetCount) as betCount,p.prizeTitle,p.prizePrice,p.prizePicture,count(*) as termNum from c_prizeterm pt left join c_prize p on pt.prizeId=p.prizeId group by pt.prizeId order by prizeId desc; [ RunTime:0.000220s ]
+SQL: select pt.prizeId,min(pt.prizeTermBetCount) as betCount,p.prizeTitle,p.prizePrice,p.prizePicture,count(*) as termNum from c_prizeterm pt left join c_prize p on pt.prizeId=p.prizeId group by pt.prizeId order by prizePrice desc; [ RunTime:0.000219s ]
+SQL: select pt.prizeId,min(pt.prizeTermBetCount) as betCount,p.prizeTitle,p.prizePrice,p.prizePicture,count(*) as termNum from c_prizeterm pt left join c_prize p on pt.prizeId=p.prizeId group by pt.prizeId order by prizePrice; [ RunTime:0.000218s ]
+SQL: SHOW COLUMNS FROM `c_tobuy` [ RunTime:0.001268s ]
+SQL: SHOW COLUMNS FROM `c_tobuy` [ RunTime:0.001219s ]
+SQL: select buy.prizeId,buy.toBuyId, min(prizeTermBetCount) as betCount,count(*) as termNum,buy.prizeTitle,buy.prizePicture,buy.prizePrice from c_prizeterm pt ,(select t.toBuyId,p.prizeId,p.prizeTitle,p.prizePrice,p.prizePicture from c_tobuy t ,c_prize p where t.prizeId=p.prizeId and userId='43') as buy where pt.prizeId=buy.prizeId group by buy.prizeId order by buy.toBuyId; [ RunTime:0.000327s ]
+SQL: SHOW COLUMNS FROM `c_user` [ RunTime:0.001199s ]
+SQL: select * from C_User where userId='43'; [ RunTime:0.000337s ]
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:0.000658s ]
+INFO: [ view_template ] --END-- [ RunTime:0.000724s ]
+INFO: [ view_parse ] --START--
+INFO: Run ParseTemplate Behavior [ RunTime:0.035208s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.035291s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:0.001473s ]
+INFO: Run TokenBuild Behavior [ RunTime:0.000472s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:0.000199s ]
+INFO: Run ShowRuntime Behavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.003335s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:0.000485s ]
+INFO: [ view_end ] --END-- [ RunTime:0.000542s ]
+
+[ 2014-03-08T00:01:10+08:00 ] 192.168.43.1 /www/digTreasure-ThinkPHP/home.php/Tobuy/addPrize
+INFO: [ route_check ] --START--
+INFO: Run CheckRoute Behavior [ RunTime:0.001785s ]
+INFO: [ route_check ] --END-- [ RunTime:0.001983s ]
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.001110s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001255s ]
+NOTIC: [8] A session had already been started - ignoring session_start() D:\wamp\www\digTreasure-ThinkPHP\ThinkPHP\Common\functions.php 第 552 行.
+SQL: SHOW COLUMNS FROM `c_tobuy` [ RunTime:0.002980s ]
+SQL: SHOW COLUMNS FROM `c_tobuy` [ RunTime:0.002068s ]
+SQL: SELECT * FROM `c_tobuy` WHERE ( `userId` = 43 ) AND ( `prizeId` = 26 )  [ RunTime:0.000402s ]
+SQL: INSERT INTO `c_tobuy` (`userId`,`prizeId`) VALUES (43,26) [ RunTime:0.128601s ]
+SQL: select buy.prizeId,buy.toBuyId, min(prizeTermBetCount) as betCount,count(*) as termNum,buy.prizeTitle,buy.prizePicture,buy.prizePrice from c_prizeterm pt ,(select t.toBuyId,p.prizeId,p.prizeTitle,p.prizePrice,p.prizePicture from c_tobuy t ,c_prize p where t.prizeId=p.prizeId and userId='43') as buy where pt.prizeId=buy.prizeId group by buy.prizeId order by buy.toBuyId; [ RunTime:0.001394s ]
+
+[ 2014-03-08T00:01:16+08:00 ] 192.168.43.1 /www/digTreasure-ThinkPHP/home.php/Pay/topay
+INFO: [ route_check ] --START--
+INFO: Run CheckRoute Behavior [ RunTime:0.001744s ]
+INFO: [ route_check ] --END-- [ RunTime:0.001938s ]
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.001113s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001271s ]
+NOTIC: [8] A session had already been started - ignoring session_start() D:\wamp\www\digTreasure-ThinkPHP\ThinkPHP\Common\functions.php 第 552 行.
+SQL: SHOW COLUMNS FROM `c_user` [ RunTime:0.001351s ]
+SQL: SHOW COLUMNS FROM `c_user` [ RunTime:0.001649s ]
+SQL: select userBalance from c_user where userId='43'; [ RunTime:0.000787s ]
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:0.000705s ]
+INFO: [ view_template ] --END-- [ RunTime:0.000779s ]
+INFO: [ view_parse ] --START--
+INFO: Run ParseTemplate Behavior [ RunTime:0.008583s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.008671s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:0.000309s ]
+INFO: Run TokenBuild Behavior [ RunTime:0.000295s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:0.000214s ]
+INFO: Run ShowRuntime Behavior [ RunTime:0.000458s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001474s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:0.000512s ]
+INFO: [ view_end ] --END-- [ RunTime:0.000575s ]
+
+[ 2014-03-08T00:01:19+08:00 ] 192.168.43.1 /www/digTreasure-ThinkPHP/home.php/Index/index
+INFO: [ route_check ] --START--
+INFO: Run CheckRoute Behavior [ RunTime:0.001722s ]
+INFO: [ route_check ] --END-- [ RunTime:0.001912s ]
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000870s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000972s ]
+NOTIC: [8] A session had already been started - ignoring session_start() D:\wamp\www\digTreasure-ThinkPHP\ThinkPHP\Common\functions.php 第 552 行.
+SQL: SHOW COLUMNS FROM `c_user` [ RunTime:0.001463s ]
+SQL: SHOW COLUMNS FROM `c_prize` [ RunTime:0.001201s ]
+SQL: SHOW COLUMNS FROM `c_prize` [ RunTime:0.001187s ]
+SQL: select pt.prizeId,min(pt.prizeTermBetCount) as betCount,p.prizeTitle,p.prizePrice,p.prizePicture,count(*) as termNum from c_prizeterm pt left join c_prize p on pt.prizeId=p.prizeId group by pt.prizeId order by termNum desc; [ RunTime:0.000339s ]
+SQL: select pt.prizeId,min(pt.prizeTermBetCount) as betCount,p.prizeTitle,p.prizePrice,p.prizePicture,count(*) as termNum from c_prizeterm pt left join c_prize p on pt.prizeId=p.prizeId group by pt.prizeId; [ RunTime:0.000216s ]
+SQL: select pt.prizeId,min(pt.prizeTermBetCount) as betCount,p.prizeTitle,p.prizePrice,p.prizePicture,count(*) as termNum from c_prizeterm pt left join c_prize p on pt.prizeId=p.prizeId group by pt.prizeId order by prizeId desc; [ RunTime:0.000185s ]
+SQL: select pt.prizeId,min(pt.prizeTermBetCount) as betCount,p.prizeTitle,p.prizePrice,p.prizePicture,count(*) as termNum from c_prizeterm pt left join c_prize p on pt.prizeId=p.prizeId group by pt.prizeId order by prizePrice desc; [ RunTime:0.000184s ]
+SQL: select pt.prizeId,min(pt.prizeTermBetCount) as betCount,p.prizeTitle,p.prizePrice,p.prizePicture,count(*) as termNum from c_prizeterm pt left join c_prize p on pt.prizeId=p.prizeId group by pt.prizeId order by prizePrice; [ RunTime:0.000183s ]
+SQL: SHOW COLUMNS FROM `c_tobuy` [ RunTime:0.001198s ]
+SQL: SHOW COLUMNS FROM `c_tobuy` [ RunTime:0.001207s ]
+SQL: select buy.prizeId,buy.toBuyId, min(prizeTermBetCount) as betCount,count(*) as termNum,buy.prizeTitle,buy.prizePicture,buy.prizePrice from c_prizeterm pt ,(select t.toBuyId,p.prizeId,p.prizeTitle,p.prizePrice,p.prizePicture from c_tobuy t ,c_prize p where t.prizeId=p.prizeId and userId='43') as buy where pt.prizeId=buy.prizeId group by buy.prizeId order by buy.toBuyId; [ RunTime:0.000322s ]
+SQL: SHOW COLUMNS FROM `c_user` [ RunTime:0.001309s ]
+SQL: select * from C_User where userId='43'; [ RunTime:0.000297s ]
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:0.000701s ]
+INFO: [ view_template ] --END-- [ RunTime:0.000773s ]
+INFO: [ view_parse ] --START--
+INFO: Run ParseTemplate Behavior [ RunTime:0.035804s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.035890s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:0.001410s ]
+INFO: Run TokenBuild Behavior [ RunTime:0.000772s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:0.000227s ]
+INFO: Run ShowRuntime Behavior [ RunTime:0.000568s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.003179s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:0.000483s ]
+INFO: [ view_end ] --END-- [ RunTime:0.000540s ]
+
+[ 2014-03-08T00:01:32+08:00 ] 192.168.43.1 /www/digTreasure-ThinkPHP/home.php/Pay/topay
+INFO: [ route_check ] --START--
+INFO: Run CheckRoute Behavior [ RunTime:0.001726s ]
+INFO: [ route_check ] --END-- [ RunTime:0.001925s ]
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.001101s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001257s ]
+NOTIC: [8] A session had already been started - ignoring session_start() D:\wamp\www\digTreasure-ThinkPHP\ThinkPHP\Common\functions.php 第 552 行.
+SQL: SHOW COLUMNS FROM `c_user` [ RunTime:0.001443s ]
+SQL: SHOW COLUMNS FROM `c_user` [ RunTime:0.001268s ]
+SQL: select userBalance from c_user where userId='43'; [ RunTime:0.000328s ]
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:0.000670s ]
+INFO: [ view_template ] --END-- [ RunTime:0.000733s ]
+INFO: [ view_parse ] --START--
+INFO: Run ParseTemplate Behavior [ RunTime:0.007989s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.008067s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:0.000278s ]
+INFO: Run TokenBuild Behavior [ RunTime:0.000274s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:0.000182s ]
+INFO: Run ShowRuntime Behavior [ RunTime:0.000342s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001231s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:0.000447s ]
+INFO: [ view_end ] --END-- [ RunTime:0.000500s ]
+
+[ 2014-03-08T00:01:49+08:00 ] 192.168.43.1 /www/digTreasure-ThinkPHP/home.php/Index/index
+INFO: [ route_check ] --START--
+INFO: Run CheckRoute Behavior [ RunTime:0.002524s ]
+INFO: [ route_check ] --END-- [ RunTime:0.002715s ]
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000756s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000832s ]
+NOTIC: [8] A session had already been started - ignoring session_start() D:\wamp\www\digTreasure-ThinkPHP\ThinkPHP\Common\functions.php 第 552 行.
+SQL: SHOW COLUMNS FROM `c_user` [ RunTime:0.001442s ]
+SQL: SHOW COLUMNS FROM `c_prize` [ RunTime:0.001170s ]
+SQL: SHOW COLUMNS FROM `c_prize` [ RunTime:0.001236s ]
+SQL: select pt.prizeId,min(pt.prizeTermBetCount) as betCount,p.prizeTitle,p.prizePrice,p.prizePicture,count(*) as termNum from c_prizeterm pt left join c_prize p on pt.prizeId=p.prizeId group by pt.prizeId order by termNum desc; [ RunTime:0.000346s ]
+SQL: select pt.prizeId,min(pt.prizeTermBetCount) as betCount,p.prizeTitle,p.prizePrice,p.prizePicture,count(*) as termNum from c_prizeterm pt left join c_prize p on pt.prizeId=p.prizeId group by pt.prizeId; [ RunTime:0.000231s ]
+SQL: select pt.prizeId,min(pt.prizeTermBetCount) as betCount,p.prizeTitle,p.prizePrice,p.prizePicture,count(*) as termNum from c_prizeterm pt left join c_prize p on pt.prizeId=p.prizeId group by pt.prizeId order by prizeId desc; [ RunTime:0.000222s ]
+SQL: select pt.prizeId,min(pt.prizeTermBetCount) as betCount,p.prizeTitle,p.prizePrice,p.prizePicture,count(*) as termNum from c_prizeterm pt left join c_prize p on pt.prizeId=p.prizeId group by pt.prizeId order by prizePrice desc; [ RunTime:0.000222s ]
+SQL: select pt.prizeId,min(pt.prizeTermBetCount) as betCount,p.prizeTitle,p.prizePrice,p.prizePicture,count(*) as termNum from c_prizeterm pt left join c_prize p on pt.prizeId=p.prizeId group by pt.prizeId order by prizePrice; [ RunTime:0.000219s ]
+SQL: SHOW COLUMNS FROM `c_tobuy` [ RunTime:0.001215s ]
+SQL: SHOW COLUMNS FROM `c_tobuy` [ RunTime:0.001194s ]
+SQL: select buy.prizeId,buy.toBuyId, min(prizeTermBetCount) as betCount,count(*) as termNum,buy.prizeTitle,buy.prizePicture,buy.prizePrice from c_prizeterm pt ,(select t.toBuyId,p.prizeId,p.prizeTitle,p.prizePrice,p.prizePicture from c_tobuy t ,c_prize p where t.prizeId=p.prizeId and userId='43') as buy where pt.prizeId=buy.prizeId group by buy.prizeId order by buy.toBuyId; [ RunTime:0.000312s ]
+SQL: SHOW COLUMNS FROM `c_user` [ RunTime:0.001177s ]
+SQL: select * from C_User where userId='43'; [ RunTime:0.000362s ]
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:0.000798s ]
+INFO: [ view_template ] --END-- [ RunTime:0.000867s ]
+INFO: [ view_parse ] --START--
+INFO: Run ParseTemplate Behavior [ RunTime:0.036592s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.036677s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:0.002338s ]
+INFO: Run TokenBuild Behavior [ RunTime:0.000850s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:0.000529s ]
+INFO: Run ShowRuntime Behavior [ RunTime:0.000894s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.004820s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:0.000804s ]
+INFO: [ view_end ] --END-- [ RunTime:0.000866s ]
+
+[ 2014-03-08T00:01:53+08:00 ] 192.168.43.1 /www/digTreasure-ThinkPHP/home.php/Prize/prizeDtails/prizeId/19
+INFO: [ route_check ] --START--
+INFO: Run CheckRoute Behavior [ RunTime:0.001726s ]
+INFO: [ route_check ] --END-- [ RunTime:0.001920s ]
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.001106s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001262s ]
+NOTIC: [8] A session had already been started - ignoring session_start() D:\wamp\www\digTreasure-ThinkPHP\ThinkPHP\Common\functions.php 第 552 行.
+SQL: SHOW COLUMNS FROM `c_prize` [ RunTime:0.001413s ]
+SQL: SHOW COLUMNS FROM `c_prize` [ RunTime:0.001340s ]
+SQL: select p.prizeDetail,p.prizeTitle,p.prizePrice,max(pt.prizeTermId) as newestTermId,min(pt.prizeTermBetCount) as betCount,count(*) as termNum from c_prize p ,c_prizeterm pt where p.prizeId=pt.prizeId and p.prizeId='19' group by p.prizeId; [ RunTime:0.000517s ]
+SQL: SHOW COLUMNS FROM `c_takepartin` [ RunTime:0.001300s ]
+SQL: SHOW COLUMNS FROM `c_takepartin` [ RunTime:0.001290s ]
+SQL: select * from (select userId ,sum(tpiPayAmount) as allPay from c_takepartin  where prizeTermId='19' group by userId order by sum(tpiPayAmount) desc) as t limit 0,1;  [ RunTime:0.000848s ]
+SQL: SHOW COLUMNS FROM `c_user` [ RunTime:0.001599s ]
+SQL: SHOW COLUMNS FROM `c_user` [ RunTime:0.001175s ]
+SQL: select * from C_User where userId='1'; [ RunTime:0.000400s ]
+SQL: select userId from c_takepartin where prizeTermId='19' order by tpiTime limit 0,1; [ RunTime:0.000326s ]
+SQL: select * from C_User where userId='1'; [ RunTime:0.000184s ]
+SQL: select u.userNickName ,u.userPortrait,t.tpiPayAmount as betCount,t.tpiTime from (select * from c_takepartin where prizeTermId='19') as t left join c_user u on t.userId=u.userId  order by t.tpiTime desc; [ RunTime:0.000453s ]
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:0.001071s ]
+INFO: [ view_template ] --END-- [ RunTime:0.001140s ]
+INFO: [ view_parse ] --START--
+INFO: Run ParseTemplate Behavior [ RunTime:0.012376s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.012459s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:0.000322s ]
+INFO: Run TokenBuild Behavior [ RunTime:0.000286s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:0.000186s ]
+INFO: Run ShowRuntime Behavior [ RunTime:0.000343s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001300s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:0.000448s ]
+INFO: [ view_end ] --END-- [ RunTime:0.000502s ]
+
+[ 2014-03-08T00:01:53+08:00 ] 192.168.43.1 /www/digTreasure-ThinkPHP/home.php/Prize/prizeDtails/prizeId/19
+INFO: [ route_check ] --START--
+INFO: Run CheckRoute Behavior [ RunTime:0.000667s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000745s ]
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000415s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000475s ]
+NOTIC: [8] A session had already been started - ignoring session_start() D:\wamp\www\digTreasure-ThinkPHP\ThinkPHP\Common\functions.php 第 552 行.
+SQL: SHOW COLUMNS FROM `c_prize` [ RunTime:0.001318s ]
+SQL: SHOW COLUMNS FROM `c_prize` [ RunTime:0.001180s ]
+SQL: select p.prizeDetail,p.prizeTitle,p.prizePrice,max(pt.prizeTermId) as newestTermId,min(pt.prizeTermBetCount) as betCount,count(*) as termNum from c_prize p ,c_prizeterm pt where p.prizeId=pt.prizeId and p.prizeId='19' group by p.prizeId; [ RunTime:0.000323s ]
+SQL: SHOW COLUMNS FROM `c_takepartin` [ RunTime:0.001204s ]
+SQL: SHOW COLUMNS FROM `c_takepartin` [ RunTime:0.001593s ]
+SQL: select * from (select userId ,sum(tpiPayAmount) as allPay from c_takepartin  where prizeTermId='19' group by userId order by sum(tpiPayAmount) desc) as t limit 0,1;  [ RunTime:0.000304s ]
+SQL: SHOW COLUMNS FROM `c_user` [ RunTime:0.001127s ]
+SQL: SHOW COLUMNS FROM `c_user` [ RunTime:0.001193s ]
+SQL: select * from C_User where userId='1'; [ RunTime:0.000304s ]
+SQL: select userId from c_takepartin where prizeTermId='19' order by tpiTime limit 0,1; [ RunTime:0.000125s ]
+SQL: select * from C_User where userId='1'; [ RunTime:0.000100s ]
+SQL: select u.userNickName ,u.userPortrait,t.tpiPayAmount as betCount,t.tpiTime from (select * from c_takepartin where prizeTermId='19') as t left join c_user u on t.userId=u.userId  order by t.tpiTime desc; [ RunTime:0.000115s ]
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:0.000382s ]
+INFO: [ view_template ] --END-- [ RunTime:0.000444s ]
+INFO: [ view_parse ] --START--
+INFO: Run ParseTemplate Behavior [ RunTime:0.012278s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.012359s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:0.000328s ]
+INFO: Run TokenBuild Behavior [ RunTime:0.000293s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:0.000194s ]
+INFO: Run ShowRuntime Behavior [ RunTime:0.000362s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001335s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:0.000475s ]
+INFO: [ view_end ] --END-- [ RunTime:0.000531s ]
+
+[ 2014-03-08T00:01:53+08:00 ] 192.168.43.1 /www/digTreasure-ThinkPHP/home.php/Prize/prizeDtails/prizeId/19
+INFO: [ route_check ] --START--
+INFO: Run CheckRoute Behavior [ RunTime:0.000653s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000731s ]
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000411s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000470s ]
+NOTIC: [8] A session had already been started - ignoring session_start() D:\wamp\www\digTreasure-ThinkPHP\ThinkPHP\Common\functions.php 第 552 行.
+SQL: SHOW COLUMNS FROM `c_prize` [ RunTime:0.001331s ]
+SQL: SHOW COLUMNS FROM `c_prize` [ RunTime:0.001346s ]
+SQL: select p.prizeDetail,p.prizeTitle,p.prizePrice,max(pt.prizeTermId) as newestTermId,min(pt.prizeTermBetCount) as betCount,count(*) as termNum from c_prize p ,c_prizeterm pt where p.prizeId=pt.prizeId and p.prizeId='19' group by p.prizeId; [ RunTime:0.000414s ]
+SQL: SHOW COLUMNS FROM `c_takepartin` [ RunTime:0.001207s ]
+SQL: SHOW COLUMNS FROM `c_takepartin` [ RunTime:0.001232s ]
+SQL: select * from (select userId ,sum(tpiPayAmount) as allPay from c_takepartin  where prizeTermId='19' group by userId order by sum(tpiPayAmount) desc) as t limit 0,1;  [ RunTime:0.000321s ]
+SQL: SHOW COLUMNS FROM `c_user` [ RunTime:0.001225s ]
+SQL: SHOW COLUMNS FROM `c_user` [ RunTime:0.001256s ]
+SQL: select * from C_User where userId='1'; [ RunTime:0.000303s ]
+SQL: select userId from c_takepartin where prizeTermId='19' order by tpiTime limit 0,1; [ RunTime:0.000145s ]
+SQL: select * from C_User where userId='1'; [ RunTime:0.000143s ]
+SQL: select u.userNickName ,u.userPortrait,t.tpiPayAmount as betCount,t.tpiTime from (select * from c_takepartin where prizeTermId='19') as t left join c_user u on t.userId=u.userId  order by t.tpiTime desc; [ RunTime:0.000141s ]
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:0.000791s ]
+INFO: [ view_template ] --END-- [ RunTime:0.000853s ]
+INFO: [ view_parse ] --START--
+INFO: Run ParseTemplate Behavior [ RunTime:0.012074s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.012152s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:0.000308s ]
+INFO: Run TokenBuild Behavior [ RunTime:0.000274s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:0.000180s ]
+INFO: Run ShowRuntime Behavior [ RunTime:0.000337s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001251s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:0.000445s ]
+INFO: [ view_end ] --END-- [ RunTime:0.000498s ]
+
+[ 2014-03-08T00:02:00+08:00 ] 192.168.43.1 /www/digTreasure-ThinkPHP/home.php/Index/index
+INFO: [ route_check ] --START--
+INFO: Run CheckRoute Behavior [ RunTime:0.001722s ]
+INFO: [ route_check ] --END-- [ RunTime:0.001913s ]
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.001094s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001248s ]
+NOTIC: [8] A session had already been started - ignoring session_start() D:\wamp\www\digTreasure-ThinkPHP\ThinkPHP\Common\functions.php 第 552 行.
+SQL: SHOW COLUMNS FROM `c_user` [ RunTime:0.002049s ]
+SQL: SHOW COLUMNS FROM `c_prize` [ RunTime:0.001241s ]
+SQL: SHOW COLUMNS FROM `c_prize` [ RunTime:0.001150s ]
+SQL: select pt.prizeId,min(pt.prizeTermBetCount) as betCount,p.prizeTitle,p.prizePrice,p.prizePicture,count(*) as termNum from c_prizeterm pt left join c_prize p on pt.prizeId=p.prizeId group by pt.prizeId order by termNum desc; [ RunTime:0.000341s ]
+SQL: select pt.prizeId,min(pt.prizeTermBetCount) as betCount,p.prizeTitle,p.prizePrice,p.prizePicture,count(*) as termNum from c_prizeterm pt left join c_prize p on pt.prizeId=p.prizeId group by pt.prizeId; [ RunTime:0.000227s ]
+SQL: select pt.prizeId,min(pt.prizeTermBetCount) as betCount,p.prizeTitle,p.prizePrice,p.prizePicture,count(*) as termNum from c_prizeterm pt left join c_prize p on pt.prizeId=p.prizeId group by pt.prizeId order by prizeId desc; [ RunTime:0.000220s ]
+SQL: select pt.prizeId,min(pt.prizeTermBetCount) as betCount,p.prizeTitle,p.prizePrice,p.prizePicture,count(*) as termNum from c_prizeterm pt left join c_prize p on pt.prizeId=p.prizeId group by pt.prizeId order by prizePrice desc; [ RunTime:0.000220s ]
+SQL: select pt.prizeId,min(pt.prizeTermBetCount) as betCount,p.prizeTitle,p.prizePrice,p.prizePicture,count(*) as termNum from c_prizeterm pt left join c_prize p on pt.prizeId=p.prizeId group by pt.prizeId order by prizePrice; [ RunTime:0.000209s ]
+SQL: SHOW COLUMNS FROM `c_tobuy` [ RunTime:0.001204s ]
+SQL: SHOW COLUMNS FROM `c_tobuy` [ RunTime:0.001190s ]
+SQL: select buy.prizeId,buy.toBuyId, min(prizeTermBetCount) as betCount,count(*) as termNum,buy.prizeTitle,buy.prizePicture,buy.prizePrice from c_prizeterm pt ,(select t.toBuyId,p.prizeId,p.prizeTitle,p.prizePrice,p.prizePicture from c_tobuy t ,c_prize p where t.prizeId=p.prizeId and userId='43') as buy where pt.prizeId=buy.prizeId group by buy.prizeId order by buy.toBuyId; [ RunTime:0.000281s ]
+SQL: SHOW COLUMNS FROM `c_user` [ RunTime:0.001198s ]
+SQL: select * from C_User where userId='43'; [ RunTime:0.000359s ]
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:0.000654s ]
+INFO: [ view_template ] --END-- [ RunTime:0.000721s ]
+INFO: [ view_parse ] --START--
+INFO: Run ParseTemplate Behavior [ RunTime:0.035617s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.035712s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:0.001504s ]
+INFO: Run TokenBuild Behavior [ RunTime:0.000416s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:0.000193s ]
+INFO: Run ShowRuntime Behavior [ RunTime:0.000545s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.002855s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:0.000448s ]
+INFO: [ view_end ] --END-- [ RunTime:0.000504s ]
+
+[ 2014-03-08T00:02:06+08:00 ] 192.168.43.1 /www/digTreasure-ThinkPHP/home.php/User/login.html
+INFO: [ route_check ] --START--
+INFO: Run CheckRoute Behavior [ RunTime:0.001284s ]
+INFO: [ route_check ] --END-- [ RunTime:0.001417s ]
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000424s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000482s ]
+NOTIC: [8] A session had already been started - ignoring session_start() D:\wamp\www\digTreasure-ThinkPHP\ThinkPHP\Common\functions.php 第 552 行.
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:0.000991s ]
+INFO: [ view_template ] --END-- [ RunTime:0.001051s ]
+INFO: [ view_parse ] --START--
+NOTIC: [8] Undefined variable: error D:\wamp\www\digTreasure-ThinkPHP\home\Runtime\Cache\8298ba80e5e93b8862fca4e0e5e97dfe.php 第 84 行.
+INFO: Run ParseTemplate Behavior [ RunTime:0.007643s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.007705s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:0.000271s ]
+INFO: Run TokenBuild Behavior [ RunTime:0.000275s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:0.000182s ]
+INFO: Run ShowRuntime Behavior [ RunTime:0.000337s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001211s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:0.000444s ]
+INFO: [ view_end ] --END-- [ RunTime:0.000496s ]
+
+[ 2014-03-08T07:35:56+08:00 ] 127.0.0.1 /www/digTreasure-ThinkPHP/home.php/User/userInfo
+INFO: [ route_check ] --START--
+INFO: Run CheckRoute Behavior [ RunTime:0.001125s ]
+INFO: [ route_check ] --END-- [ RunTime:0.001213s ]
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000746s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000808s ]
+NOTIC: [8] A session had already been started - ignoring session_start() D:\wamp\www\digTreasure-ThinkPHP\ThinkPHP\Common\functions.php 第 552 行.
+SQL: SHOW COLUMNS FROM `c_user` [ RunTime:0.001722s ]
+NOTIC: [8] Undefined index:  userId D:\wamp\www\digTreasure-ThinkPHP\home\Lib\Action\UserAction.class.php 第 87 行.
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:0.001350s ]
+INFO: [ view_template ] --END-- [ RunTime:0.001422s ]
+INFO: [ view_parse ] --START--
+NOTIC: [8] Undefined variable: error D:\wamp\www\digTreasure-ThinkPHP\home\Runtime\Cache\8298ba80e5e93b8862fca4e0e5e97dfe.php 第 84 行.
+INFO: Run ParseTemplate Behavior [ RunTime:0.009374s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.009444s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:0.000647s ]
+INFO: Run TokenBuild Behavior [ RunTime:0.000599s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:0.000511s ]
+INFO: Run ShowRuntime Behavior [ RunTime:0.000662s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.002595s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:0.000812s ]
+INFO: [ view_end ] --END-- [ RunTime:0.000874s ]
+
+[ 2014-03-08T14:32:55+08:00 ] 192.168.191.2 /www/digTreasure-ThinkPHP/home.php/Index/index
+INFO: [ route_check ] --START--
+INFO: Run CheckRoute Behavior [ RunTime:0.001179s ]
+INFO: [ route_check ] --END-- [ RunTime:0.001279s ]
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000870s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000946s ]
+NOTIC: [8] A session had already been started - ignoring session_start() D:\wamp\www\digTreasure-ThinkPHP\ThinkPHP\Common\functions.php 第 552 行.
+SQL: SHOW COLUMNS FROM `c_user` [ RunTime:0.001753s ]
+NOTIC: [8] Undefined index:  userId D:\wamp\www\digTreasure-ThinkPHP\home\Lib\Action\IndexAction.class.php 第 7 行.
+SQL: SHOW COLUMNS FROM `c_prize` [ RunTime:0.001669s ]
+SQL: SHOW COLUMNS FROM `c_prize` [ RunTime:0.001367s ]
+SQL: select pt.prizeId,min(pt.prizeTermBetCount) as betCount,p.prizeTitle,p.prizePrice,p.prizePicture,count(*) as termNum from c_prizeterm pt left join c_prize p on pt.prizeId=p.prizeId group by pt.prizeId order by termNum desc; [ RunTime:0.000361s ]
+SQL: select pt.prizeId,min(pt.prizeTermBetCount) as betCount,p.prizeTitle,p.prizePrice,p.prizePicture,count(*) as termNum from c_prizeterm pt left join c_prize p on pt.prizeId=p.prizeId group by pt.prizeId; [ RunTime:0.000183s ]
+SQL: select pt.prizeId,min(pt.prizeTermBetCount) as betCount,p.prizeTitle,p.prizePrice,p.prizePicture,count(*) as termNum from c_prizeterm pt left join c_prize p on pt.prizeId=p.prizeId group by pt.prizeId order by prizeId desc; [ RunTime:0.000175s ]
+SQL: select pt.prizeId,min(pt.prizeTermBetCount) as betCount,p.prizeTitle,p.prizePrice,p.prizePicture,count(*) as termNum from c_prizeterm pt left join c_prize p on pt.prizeId=p.prizeId group by pt.prizeId order by prizePrice desc; [ RunTime:0.000175s ]
+SQL: select pt.prizeId,min(pt.prizeTermBetCount) as betCount,p.prizeTitle,p.prizePrice,p.prizePicture,count(*) as termNum from c_prizeterm pt left join c_prize p on pt.prizeId=p.prizeId group by pt.prizeId order by prizePrice; [ RunTime:0.000173s ]
+SQL: SHOW COLUMNS FROM `c_tobuy` [ RunTime:0.001543s ]
+SQL: SHOW COLUMNS FROM `c_tobuy` [ RunTime:0.001171s ]
+SQL: select buy.prizeId,buy.toBuyId, min(prizeTermBetCount) as betCount,count(*) as termNum,buy.prizeTitle,buy.prizePicture,buy.prizePrice from c_prizeterm pt ,(select t.toBuyId,p.prizeId,p.prizeTitle,p.prizePrice,p.prizePicture from c_tobuy t ,c_prize p where t.prizeId=p.prizeId and userId='0') as buy where pt.prizeId=buy.prizeId group by buy.prizeId order by buy.toBuyId; [ RunTime:0.000729s ]
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:0.001068s ]
+INFO: [ view_template ] --END-- [ RunTime:0.001142s ]
+INFO: [ view_parse ] --START--
+NOTIC: [8] Undefined index:  userId D:\wamp\www\digTreasure-ThinkPHP\home\Runtime\Cache\d046431aa157c89f3a1c30c426be003b.php 第 430 行.
+NOTIC: [8] Undefined index:  userId D:\wamp\www\digTreasure-ThinkPHP\home\Runtime\Cache\d046431aa157c89f3a1c30c426be003b.php 第 430 行.
+NOTIC: [8] Undefined index:  userId D:\wamp\www\digTreasure-ThinkPHP\home\Runtime\Cache\d046431aa157c89f3a1c30c426be003b.php 第 433 行.
+NOTIC: [8] Undefined index:  userId D:\wamp\www\digTreasure-ThinkPHP\home\Runtime\Cache\d046431aa157c89f3a1c30c426be003b.php 第 433 行.
+NOTIC: [8] Undefined index:  userId D:\wamp\www\digTreasure-ThinkPHP\home\Runtime\Cache\d046431aa157c89f3a1c30c426be003b.php 第 437 行.
+NOTIC: [8] Undefined index:  userId D:\wamp\www\digTreasure-ThinkPHP\home\Runtime\Cache\d046431aa157c89f3a1c30c426be003b.php 第 437 行.
+NOTIC: [8] Undefined index:  userId D:\wamp\www\digTreasure-ThinkPHP\home\Runtime\Cache\d046431aa157c89f3a1c30c426be003b.php 第 440 行.
+NOTIC: [8] Undefined index:  userId D:\wamp\www\digTreasure-ThinkPHP\home\Runtime\Cache\d046431aa157c89f3a1c30c426be003b.php 第 440 行.
+NOTIC: [8] Undefined variable: User D:\wamp\www\digTreasure-ThinkPHP\home\Runtime\Cache\d046431aa157c89f3a1c30c426be003b.php 第 445 行.
+NOTIC: [8] Undefined index:  userId D:\wamp\www\digTreasure-ThinkPHP\home\Runtime\Cache\d046431aa157c89f3a1c30c426be003b.php 第 448 行.
+NOTIC: [8] Undefined index:  userId D:\wamp\www\digTreasure-ThinkPHP\home\Runtime\Cache\d046431aa157c89f3a1c30c426be003b.php 第 448 行.
+NOTIC: [8] Undefined variable: User D:\wamp\www\digTreasure-ThinkPHP\home\Runtime\Cache\d046431aa157c89f3a1c30c426be003b.php 第 450 行.
+NOTIC: [8] Undefined index:  userId D:\wamp\www\digTreasure-ThinkPHP\home\Runtime\Cache\d046431aa157c89f3a1c30c426be003b.php 第 452 行.
+NOTIC: [8] Undefined index:  userId D:\wamp\www\digTreasure-ThinkPHP\home\Runtime\Cache\d046431aa157c89f3a1c30c426be003b.php 第 452 行.
+NOTIC: [8] Undefined index:  userId D:\wamp\www\digTreasure-ThinkPHP\home\Runtime\Cache\d046431aa157c89f3a1c30c426be003b.php 第 459 行.
+NOTIC: [8] Undefined index:  userId D:\wamp\www\digTreasure-ThinkPHP\home\Runtime\Cache\d046431aa157c89f3a1c30c426be003b.php 第 459 行.
+NOTIC: [8] Undefined index:  userId D:\wamp\www\digTreasure-ThinkPHP\home\Runtime\Cache\d046431aa157c89f3a1c30c426be003b.php 第 466 行.
+NOTIC: [8] Undefined index:  userId D:\wamp\www\digTreasure-ThinkPHP\home\Runtime\Cache\d046431aa157c89f3a1c30c426be003b.php 第 466 行.
+INFO: Run ParseTemplate Behavior [ RunTime:0.039702s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.039774s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:0.001819s ]
+INFO: Run TokenBuild Behavior [ RunTime:0.001327s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:0.000649s ]
+INFO: Run ShowRuntime Behavior [ RunTime:0.001313s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.005312s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:0.000808s ]
+INFO: [ view_end ] --END-- [ RunTime:0.000867s ]
+
+[ 2014-03-08T14:33:24+08:00 ] 127.0.0.1 /www/digTreasure-ThinkPHP/home.php
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000995s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001101s ]
+NOTIC: [8] A session had already been started - ignoring session_start() D:\wamp\www\digTreasure-ThinkPHP\ThinkPHP\Common\functions.php 第 552 行.
+SQL: SHOW COLUMNS FROM `c_user` [ RunTime:0.002252s ]
+NOTIC: [8] Undefined index:  userId D:\wamp\www\digTreasure-ThinkPHP\home\Lib\Action\IndexAction.class.php 第 7 行.
+SQL: SHOW COLUMNS FROM `c_prize` [ RunTime:0.001739s ]
+SQL: SHOW COLUMNS FROM `c_prize` [ RunTime:0.001266s ]
+SQL: select pt.prizeId,min(pt.prizeTermBetCount) as betCount,p.prizeTitle,p.prizePrice,p.prizePicture,count(*) as termNum from c_prizeterm pt left join c_prize p on pt.prizeId=p.prizeId group by pt.prizeId order by termNum desc; [ RunTime:0.000386s ]
+SQL: select pt.prizeId,min(pt.prizeTermBetCount) as betCount,p.prizeTitle,p.prizePrice,p.prizePicture,count(*) as termNum from c_prizeterm pt left join c_prize p on pt.prizeId=p.prizeId group by pt.prizeId; [ RunTime:0.000168s ]
+SQL: select pt.prizeId,min(pt.prizeTermBetCount) as betCount,p.prizeTitle,p.prizePrice,p.prizePicture,count(*) as termNum from c_prizeterm pt left join c_prize p on pt.prizeId=p.prizeId group by pt.prizeId order by prizeId desc; [ RunTime:0.000193s ]
+SQL: select pt.prizeId,min(pt.prizeTermBetCount) as betCount,p.prizeTitle,p.prizePrice,p.prizePicture,count(*) as termNum from c_prizeterm pt left join c_prize p on pt.prizeId=p.prizeId group by pt.prizeId order by prizePrice desc; [ RunTime:0.000224s ]
+SQL: select pt.prizeId,min(pt.prizeTermBetCount) as betCount,p.prizeTitle,p.prizePrice,p.prizePicture,count(*) as termNum from c_prizeterm pt left join c_prize p on pt.prizeId=p.prizeId group by pt.prizeId order by prizePrice; [ RunTime:0.000231s ]
+SQL: SHOW COLUMNS FROM `c_tobuy` [ RunTime:0.001349s ]
+SQL: SHOW COLUMNS FROM `c_tobuy` [ RunTime:0.001210s ]
+SQL: select buy.prizeId,buy.toBuyId, min(prizeTermBetCount) as betCount,count(*) as termNum,buy.prizeTitle,buy.prizePicture,buy.prizePrice from c_prizeterm pt ,(select t.toBuyId,p.prizeId,p.prizeTitle,p.prizePrice,p.prizePicture from c_tobuy t ,c_prize p where t.prizeId=p.prizeId and userId='0') as buy where pt.prizeId=buy.prizeId group by buy.prizeId order by buy.toBuyId; [ RunTime:0.000300s ]
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:0.001098s ]
+INFO: [ view_template ] --END-- [ RunTime:0.001163s ]
+INFO: [ view_parse ] --START--
+NOTIC: [8] Undefined index:  userId D:\wamp\www\digTreasure-ThinkPHP\home\Runtime\Cache\d046431aa157c89f3a1c30c426be003b.php 第 430 行.
+NOTIC: [8] Undefined index:  userId D:\wamp\www\digTreasure-ThinkPHP\home\Runtime\Cache\d046431aa157c89f3a1c30c426be003b.php 第 430 行.
+NOTIC: [8] Undefined index:  userId D:\wamp\www\digTreasure-ThinkPHP\home\Runtime\Cache\d046431aa157c89f3a1c30c426be003b.php 第 433 行.
+NOTIC: [8] Undefined index:  userId D:\wamp\www\digTreasure-ThinkPHP\home\Runtime\Cache\d046431aa157c89f3a1c30c426be003b.php 第 433 行.
+NOTIC: [8] Undefined index:  userId D:\wamp\www\digTreasure-ThinkPHP\home\Runtime\Cache\d046431aa157c89f3a1c30c426be003b.php 第 437 行.
+NOTIC: [8] Undefined index:  userId D:\wamp\www\digTreasure-ThinkPHP\home\Runtime\Cache\d046431aa157c89f3a1c30c426be003b.php 第 437 行.
+NOTIC: [8] Undefined index:  userId D:\wamp\www\digTreasure-ThinkPHP\home\Runtime\Cache\d046431aa157c89f3a1c30c426be003b.php 第 440 行.
+NOTIC: [8] Undefined index:  userId D:\wamp\www\digTreasure-ThinkPHP\home\Runtime\Cache\d046431aa157c89f3a1c30c426be003b.php 第 440 行.
+NOTIC: [8] Undefined variable: User D:\wamp\www\digTreasure-ThinkPHP\home\Runtime\Cache\d046431aa157c89f3a1c30c426be003b.php 第 445 行.
+NOTIC: [8] Undefined index:  userId D:\wamp\www\digTreasure-ThinkPHP\home\Runtime\Cache\d046431aa157c89f3a1c30c426be003b.php 第 448 行.
+NOTIC: [8] Undefined index:  userId D:\wamp\www\digTreasure-ThinkPHP\home\Runtime\Cache\d046431aa157c89f3a1c30c426be003b.php 第 448 行.
+NOTIC: [8] Undefined variable: User D:\wamp\www\digTreasure-ThinkPHP\home\Runtime\Cache\d046431aa157c89f3a1c30c426be003b.php 第 450 行.
+NOTIC: [8] Undefined index:  userId D:\wamp\www\digTreasure-ThinkPHP\home\Runtime\Cache\d046431aa157c89f3a1c30c426be003b.php 第 452 行.
+NOTIC: [8] Undefined index:  userId D:\wamp\www\digTreasure-ThinkPHP\home\Runtime\Cache\d046431aa157c89f3a1c30c426be003b.php 第 452 行.
+NOTIC: [8] Undefined index:  userId D:\wamp\www\digTreasure-ThinkPHP\home\Runtime\Cache\d046431aa157c89f3a1c30c426be003b.php 第 459 行.
+NOTIC: [8] Undefined index:  userId D:\wamp\www\digTreasure-ThinkPHP\home\Runtime\Cache\d046431aa157c89f3a1c30c426be003b.php 第 459 行.
+NOTIC: [8] Undefined index:  userId D:\wamp\www\digTreasure-ThinkPHP\home\Runtime\Cache\d046431aa157c89f3a1c30c426be003b.php 第 466 行.
+NOTIC: [8] Undefined index:  userId D:\wamp\www\digTreasure-ThinkPHP\home\Runtime\Cache\d046431aa157c89f3a1c30c426be003b.php 第 466 行.
+INFO: Run ParseTemplate Behavior [ RunTime:0.046886s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.046962s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:0.001858s ]
+INFO: Run TokenBuild Behavior [ RunTime:0.000794s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:0.000522s ]
+INFO: Run ShowRuntime Behavior [ RunTime:0.000982s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.004344s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:0.000797s ]
+INFO: [ view_end ] --END-- [ RunTime:0.000856s ]
+
+[ 2014-03-08T14:33:39+08:00 ] 127.0.0.1 /www/digTreasure-ThinkPHP/home.php
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000912s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001057s ]
+NOTIC: [8] A session had already been started - ignoring session_start() D:\wamp\www\digTreasure-ThinkPHP\ThinkPHP\Common\functions.php 第 552 行.
+SQL: SHOW COLUMNS FROM `c_user` [ RunTime:0.001426s ]
+NOTIC: [8] Undefined index:  userId D:\wamp\www\digTreasure-ThinkPHP\home\Lib\Action\IndexAction.class.php 第 7 行.
+SQL: SHOW COLUMNS FROM `c_prize` [ RunTime:0.001256s ]
+SQL: SHOW COLUMNS FROM `c_prize` [ RunTime:0.001208s ]
+SQL: select pt.prizeId,min(pt.prizeTermBetCount) as betCount,p.prizeTitle,p.prizePrice,p.prizePicture,count(*) as termNum from c_prizeterm pt left join c_prize p on pt.prizeId=p.prizeId group by pt.prizeId order by termNum desc; [ RunTime:0.000271s ]
+SQL: select pt.prizeId,min(pt.prizeTermBetCount) as betCount,p.prizeTitle,p.prizePrice,p.prizePicture,count(*) as termNum from c_prizeterm pt left join c_prize p on pt.prizeId=p.prizeId group by pt.prizeId; [ RunTime:0.000150s ]
+SQL: select pt.prizeId,min(pt.prizeTermBetCount) as betCount,p.prizeTitle,p.prizePrice,p.prizePicture,count(*) as termNum from c_prizeterm pt left join c_prize p on pt.prizeId=p.prizeId group by pt.prizeId order by prizeId desc; [ RunTime:0.000186s ]
+SQL: select pt.prizeId,min(pt.prizeTermBetCount) as betCount,p.prizeTitle,p.prizePrice,p.prizePicture,count(*) as termNum from c_prizeterm pt left join c_prize p on pt.prizeId=p.prizeId group by pt.prizeId order by prizePrice desc; [ RunTime:0.000168s ]
+SQL: select pt.prizeId,min(pt.prizeTermBetCount) as betCount,p.prizeTitle,p.prizePrice,p.prizePicture,count(*) as termNum from c_prizeterm pt left join c_prize p on pt.prizeId=p.prizeId group by pt.prizeId order by prizePrice; [ RunTime:0.000134s ]
+SQL: SHOW COLUMNS FROM `c_tobuy` [ RunTime:0.001938s ]
+SQL: SHOW COLUMNS FROM `c_tobuy` [ RunTime:0.002189s ]
+SQL: select buy.prizeId,buy.toBuyId, min(prizeTermBetCount) as betCount,count(*) as termNum,buy.prizeTitle,buy.prizePicture,buy.prizePrice from c_prizeterm pt ,(select t.toBuyId,p.prizeId,p.prizeTitle,p.prizePrice,p.prizePicture from c_tobuy t ,c_prize p where t.prizeId=p.prizeId and userId='0') as buy where pt.prizeId=buy.prizeId group by buy.prizeId order by buy.toBuyId; [ RunTime:0.000500s ]
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:0.001072s ]
+INFO: [ view_template ] --END-- [ RunTime:0.001140s ]
+INFO: [ view_parse ] --START--
+NOTIC: [8] Undefined index:  userId D:\wamp\www\digTreasure-ThinkPHP\home\Runtime\Cache\d046431aa157c89f3a1c30c426be003b.php 第 430 行.
+NOTIC: [8] Undefined index:  userId D:\wamp\www\digTreasure-ThinkPHP\home\Runtime\Cache\d046431aa157c89f3a1c30c426be003b.php 第 430 行.
+NOTIC: [8] Undefined index:  userId D:\wamp\www\digTreasure-ThinkPHP\home\Runtime\Cache\d046431aa157c89f3a1c30c426be003b.php 第 433 行.
+NOTIC: [8] Undefined index:  userId D:\wamp\www\digTreasure-ThinkPHP\home\Runtime\Cache\d046431aa157c89f3a1c30c426be003b.php 第 433 行.
+NOTIC: [8] Undefined index:  userId D:\wamp\www\digTreasure-ThinkPHP\home\Runtime\Cache\d046431aa157c89f3a1c30c426be003b.php 第 437 行.
+NOTIC: [8] Undefined index:  userId D:\wamp\www\digTreasure-ThinkPHP\home\Runtime\Cache\d046431aa157c89f3a1c30c426be003b.php 第 437 行.
+NOTIC: [8] Undefined index:  userId D:\wamp\www\digTreasure-ThinkPHP\home\Runtime\Cache\d046431aa157c89f3a1c30c426be003b.php 第 440 行.
+NOTIC: [8] Undefined index:  userId D:\wamp\www\digTreasure-ThinkPHP\home\Runtime\Cache\d046431aa157c89f3a1c30c426be003b.php 第 440 行.
+NOTIC: [8] Undefined variable: User D:\wamp\www\digTreasure-ThinkPHP\home\Runtime\Cache\d046431aa157c89f3a1c30c426be003b.php 第 445 行.
+NOTIC: [8] Undefined index:  userId D:\wamp\www\digTreasure-ThinkPHP\home\Runtime\Cache\d046431aa157c89f3a1c30c426be003b.php 第 448 行.
+NOTIC: [8] Undefined index:  userId D:\wamp\www\digTreasure-ThinkPHP\home\Runtime\Cache\d046431aa157c89f3a1c30c426be003b.php 第 448 行.
+NOTIC: [8] Undefined variable: User D:\wamp\www\digTreasure-ThinkPHP\home\Runtime\Cache\d046431aa157c89f3a1c30c426be003b.php 第 450 行.
+NOTIC: [8] Undefined index:  userId D:\wamp\www\digTreasure-ThinkPHP\home\Runtime\Cache\d046431aa157c89f3a1c30c426be003b.php 第 452 行.
+NOTIC: [8] Undefined index:  userId D:\wamp\www\digTreasure-ThinkPHP\home\Runtime\Cache\d046431aa157c89f3a1c30c426be003b.php 第 452 行.
+NOTIC: [8] Undefined index:  userId D:\wamp\www\digTreasure-ThinkPHP\home\Runtime\Cache\d046431aa157c89f3a1c30c426be003b.php 第 459 行.
+NOTIC: [8] Undefined index:  userId D:\wamp\www\digTreasure-ThinkPHP\home\Runtime\Cache\d046431aa157c89f3a1c30c426be003b.php 第 459 行.
+NOTIC: [8] Undefined index:  userId D:\wamp\www\digTreasure-ThinkPHP\home\Runtime\Cache\d046431aa157c89f3a1c30c426be003b.php 第 466 行.
+NOTIC: [8] Undefined index:  userId D:\wamp\www\digTreasure-ThinkPHP\home\Runtime\Cache\d046431aa157c89f3a1c30c426be003b.php 第 466 行.
+INFO: Run ParseTemplate Behavior [ RunTime:0.047854s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.047934s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:0.001881s ]
+INFO: Run TokenBuild Behavior [ RunTime:0.000779s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:0.000517s ]
+INFO: Run ShowRuntime Behavior [ RunTime:0.001304s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.004688s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:0.000872s ]
+INFO: [ view_end ] --END-- [ RunTime:0.000933s ]
+
+[ 2014-03-08T14:33:44+08:00 ] 127.0.0.1 /www/digTreasure-ThinkPHP/home.php/User/login
+INFO: [ route_check ] --START--
+INFO: Run CheckRoute Behavior [ RunTime:0.001136s ]
+INFO: [ route_check ] --END-- [ RunTime:0.001228s ]
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000797s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000868s ]
+NOTIC: [8] A session had already been started - ignoring session_start() D:\wamp\www\digTreasure-ThinkPHP\ThinkPHP\Common\functions.php 第 552 行.
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:0.001040s ]
+INFO: [ view_template ] --END-- [ RunTime:0.001105s ]
+INFO: [ view_parse ] --START--
+NOTIC: [8] Undefined variable: error D:\wamp\www\digTreasure-ThinkPHP\home\Runtime\Cache\8298ba80e5e93b8862fca4e0e5e97dfe.php 第 84 行.
+INFO: Run ParseTemplate Behavior [ RunTime:0.016168s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.016263s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:0.000707s ]
+INFO: Run TokenBuild Behavior [ RunTime:0.000674s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:0.000694s ]
+INFO: Run ShowRuntime Behavior [ RunTime:0.000784s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.003069s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:0.000807s ]
+INFO: [ view_end ] --END-- [ RunTime:0.000864s ]
+
+[ 2014-03-08T14:33:58+08:00 ] 127.0.0.1 /www/digTreasure-ThinkPHP/home.php/User/loginaction
+INFO: [ route_check ] --START--
+INFO: Run CheckRoute Behavior [ RunTime:0.001077s ]
+INFO: [ route_check ] --END-- [ RunTime:0.001173s ]
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000552s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000627s ]
+NOTIC: [8] A session had already been started - ignoring session_start() D:\wamp\www\digTreasure-ThinkPHP\ThinkPHP\Common\functions.php 第 552 行.
+SQL: SHOW COLUMNS FROM `c_user` [ RunTime:0.001327s ]
+SQL: SHOW COLUMNS FROM `c_user` [ RunTime:0.001243s ]
+SQL: select * from C_User where userPhone='137779991187' and userPassword='12345678'; [ RunTime:0.000448s ]
+
+[ 2014-03-08T14:34:02+08:00 ] 127.0.0.1 /www/digTreasure-ThinkPHP/home.php/User/loginaction
+INFO: [ route_check ] --START--
+INFO: Run CheckRoute Behavior [ RunTime:0.000698s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000780s ]
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000440s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000496s ]
+NOTIC: [8] A session had already been started - ignoring session_start() D:\wamp\www\digTreasure-ThinkPHP\ThinkPHP\Common\functions.php 第 552 行.
+SQL: SHOW COLUMNS FROM `c_user` [ RunTime:0.001354s ]
+SQL: SHOW COLUMNS FROM `c_user` [ RunTime:0.001215s ]
+SQL: select * from C_User where userPhone='137779991187' and userPassword='123456'; [ RunTime:0.000465s ]
+
+[ 2014-03-08T14:34:09+08:00 ] 127.0.0.1 /www/digTreasure-ThinkPHP/home.php/User/loginaction
+INFO: [ route_check ] --START--
+INFO: Run CheckRoute Behavior [ RunTime:0.000806s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000911s ]
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000777s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000893s ]
+NOTIC: [8] A session had already been started - ignoring session_start() D:\wamp\www\digTreasure-ThinkPHP\ThinkPHP\Common\functions.php 第 552 行.
+SQL: SHOW COLUMNS FROM `c_user` [ RunTime:0.001407s ]
+SQL: SHOW COLUMNS FROM `c_user` [ RunTime:0.001595s ]
+SQL: select * from C_User where userPhone='13779991187' and userPassword='123456'; [ RunTime:0.000702s ]
+
+[ 2014-03-08T14:34:13+08:00 ] 127.0.0.1 /www/digTreasure-ThinkPHP/home.php/User/loginaction
+INFO: [ route_check ] --START--
+INFO: Run CheckRoute Behavior [ RunTime:0.001042s ]
+INFO: [ route_check ] --END-- [ RunTime:0.001158s ]
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000656s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000741s ]
+NOTIC: [8] A session had already been started - ignoring session_start() D:\wamp\www\digTreasure-ThinkPHP\ThinkPHP\Common\functions.php 第 552 行.
+SQL: SHOW COLUMNS FROM `c_user` [ RunTime:0.001375s ]
+SQL: SHOW COLUMNS FROM `c_user` [ RunTime:0.001263s ]
+SQL: select * from C_User where userPhone='13779991187' and userPassword='12345678'; [ RunTime:0.000456s ]
+
+[ 2014-03-08T14:34:16+08:00 ] 127.0.0.1 /www/digTreasure-ThinkPHP/home.php/Index/index
+INFO: [ route_check ] --START--
+INFO: Run CheckRoute Behavior [ RunTime:0.000949s ]
+INFO: [ route_check ] --END-- [ RunTime:0.001059s ]
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000531s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000619s ]
+NOTIC: [8] A session had already been started - ignoring session_start() D:\wamp\www\digTreasure-ThinkPHP\ThinkPHP\Common\functions.php 第 552 行.
+SQL: SHOW COLUMNS FROM `c_user` [ RunTime:0.001572s ]
+SQL: SHOW COLUMNS FROM `c_prize` [ RunTime:0.001747s ]
+SQL: SHOW COLUMNS FROM `c_prize` [ RunTime:0.002189s ]
+SQL: select pt.prizeId,min(pt.prizeTermBetCount) as betCount,p.prizeTitle,p.prizePrice,p.prizePicture,count(*) as termNum from c_prizeterm pt left join c_prize p on pt.prizeId=p.prizeId group by pt.prizeId order by termNum desc; [ RunTime:0.000449s ]
+SQL: select pt.prizeId,min(pt.prizeTermBetCount) as betCount,p.prizeTitle,p.prizePrice,p.prizePicture,count(*) as termNum from c_prizeterm pt left join c_prize p on pt.prizeId=p.prizeId group by pt.prizeId; [ RunTime:0.000259s ]
+SQL: select pt.prizeId,min(pt.prizeTermBetCount) as betCount,p.prizeTitle,p.prizePrice,p.prizePicture,count(*) as termNum from c_prizeterm pt left join c_prize p on pt.prizeId=p.prizeId group by pt.prizeId order by prizeId desc; [ RunTime:0.000248s ]
+SQL: select pt.prizeId,min(pt.prizeTermBetCount) as betCount,p.prizeTitle,p.prizePrice,p.prizePicture,count(*) as termNum from c_prizeterm pt left join c_prize p on pt.prizeId=p.prizeId group by pt.prizeId order by prizePrice desc; [ RunTime:0.000239s ]
+SQL: select pt.prizeId,min(pt.prizeTermBetCount) as betCount,p.prizeTitle,p.prizePrice,p.prizePicture,count(*) as termNum from c_prizeterm pt left join c_prize p on pt.prizeId=p.prizeId group by pt.prizeId order by prizePrice; [ RunTime:0.000258s ]
+SQL: SHOW COLUMNS FROM `c_tobuy` [ RunTime:0.001428s ]
+SQL: SHOW COLUMNS FROM `c_tobuy` [ RunTime:0.001385s ]
+SQL: select buy.prizeId,buy.toBuyId, min(prizeTermBetCount) as betCount,count(*) as termNum,buy.prizeTitle,buy.prizePicture,buy.prizePrice from c_prizeterm pt ,(select t.toBuyId,p.prizeId,p.prizeTitle,p.prizePrice,p.prizePicture from c_tobuy t ,c_prize p where t.prizeId=p.prizeId and userId='1') as buy where pt.prizeId=buy.prizeId group by buy.prizeId order by buy.toBuyId; [ RunTime:0.000857s ]
+SQL: SHOW COLUMNS FROM `c_user` [ RunTime:0.002610s ]
+SQL: select * from C_User where userId='1'; [ RunTime:0.000235s ]
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:0.000716s ]
+INFO: [ view_template ] --END-- [ RunTime:0.000825s ]
+INFO: [ view_parse ] --START--
+INFO: Run ParseTemplate Behavior [ RunTime:0.056415s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.056534s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:0.002306s ]
+INFO: Run TokenBuild Behavior [ RunTime:0.000768s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:0.000371s ]
+INFO: Run ShowRuntime Behavior [ RunTime:0.001075s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.004875s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:0.000823s ]
+INFO: [ view_end ] --END-- [ RunTime:0.000926s ]
+
+[ 2014-03-08T14:34:21+08:00 ] 127.0.0.1 /www/digTreasure-ThinkPHP/home.php/Tobuy/addPrize
+INFO: [ route_check ] --START--
+INFO: Run CheckRoute Behavior [ RunTime:0.000703s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000788s ]
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000444s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000502s ]
+NOTIC: [8] A session had already been started - ignoring session_start() D:\wamp\www\digTreasure-ThinkPHP\ThinkPHP\Common\functions.php 第 552 行.
+SQL: SHOW COLUMNS FROM `c_tobuy` [ RunTime:0.001920s ]
+SQL: SHOW COLUMNS FROM `c_tobuy` [ RunTime:0.002049s ]
+SQL: SELECT * FROM `c_tobuy` WHERE ( `userId` = 1 ) AND ( `prizeId` = 9 )  [ RunTime:0.000272s ]
+SQL: INSERT INTO `c_tobuy` (`userId`,`prizeId`) VALUES (1,9) [ RunTime:0.064667s ]
+SQL: select buy.prizeId,buy.toBuyId, min(prizeTermBetCount) as betCount,count(*) as termNum,buy.prizeTitle,buy.prizePicture,buy.prizePrice from c_prizeterm pt ,(select t.toBuyId,p.prizeId,p.prizeTitle,p.prizePrice,p.prizePicture from c_tobuy t ,c_prize p where t.prizeId=p.prizeId and userId='1') as buy where pt.prizeId=buy.prizeId group by buy.prizeId order by buy.toBuyId; [ RunTime:0.001005s ]
+
+[ 2014-03-08T14:34:24+08:00 ] 127.0.0.1 /www/digTreasure-ThinkPHP/home.php/Tobuy/addPrize
+INFO: [ route_check ] --START--
+INFO: Run CheckRoute Behavior [ RunTime:0.000702s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000781s ]
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000445s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000502s ]
+NOTIC: [8] A session had already been started - ignoring session_start() D:\wamp\www\digTreasure-ThinkPHP\ThinkPHP\Common\functions.php 第 552 行.
+SQL: SHOW COLUMNS FROM `c_tobuy` [ RunTime:0.001670s ]
+SQL: SHOW COLUMNS FROM `c_tobuy` [ RunTime:0.002257s ]
+SQL: SELECT * FROM `c_tobuy` WHERE ( `userId` = 1 ) AND ( `prizeId` = 2 )  [ RunTime:0.000379s ]
+SQL: INSERT INTO `c_tobuy` (`userId`,`prizeId`) VALUES (1,2) [ RunTime:0.086519s ]
+SQL: select buy.prizeId,buy.toBuyId, min(prizeTermBetCount) as betCount,count(*) as termNum,buy.prizeTitle,buy.prizePicture,buy.prizePrice from c_prizeterm pt ,(select t.toBuyId,p.prizeId,p.prizeTitle,p.prizePrice,p.prizePicture from c_tobuy t ,c_prize p where t.prizeId=p.prizeId and userId='1') as buy where pt.prizeId=buy.prizeId group by buy.prizeId order by buy.toBuyId; [ RunTime:0.000697s ]
+
+[ 2014-03-08T14:34:36+08:00 ] 127.0.0.1 /www/digTreasure-ThinkPHP/home.php/Pay/topay
+INFO: [ route_check ] --START--
+INFO: Run CheckRoute Behavior [ RunTime:0.001329s ]
+INFO: [ route_check ] --END-- [ RunTime:0.001455s ]
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000990s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001081s ]
+NOTIC: [8] A session had already been started - ignoring session_start() D:\wamp\www\digTreasure-ThinkPHP\ThinkPHP\Common\functions.php 第 552 行.
+SQL: SHOW COLUMNS FROM `c_user` [ RunTime:0.002029s ]
+SQL: SHOW COLUMNS FROM `c_user` [ RunTime:0.001936s ]
+SQL: select userBalance from c_user where userId='1'; [ RunTime:0.000622s ]
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:0.001390s ]
+INFO: [ view_template ] --END-- [ RunTime:0.001473s ]
+INFO: [ view_parse ] --START--
+INFO: Run ParseTemplate Behavior [ RunTime:0.013239s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.013332s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:0.000665s ]
+INFO: Run TokenBuild Behavior [ RunTime:0.000645s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:0.000523s ]
+INFO: Run ShowRuntime Behavior [ RunTime:0.000685s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.002699s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:0.000812s ]
+INFO: [ view_end ] --END-- [ RunTime:0.000871s ]
+
+[ 2014-03-08T14:34:43+08:00 ] 127.0.0.1 /www/digTreasure-ThinkPHP/home.php/Pay/pay
+INFO: [ route_check ] --START--
+INFO: Run CheckRoute Behavior [ RunTime:0.000924s ]
+INFO: [ route_check ] --END-- [ RunTime:0.001026s ]
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000567s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000645s ]
+NOTIC: [8] A session had already been started - ignoring session_start() D:\wamp\www\digTreasure-ThinkPHP\ThinkPHP\Common\functions.php 第 552 行.
+SQL: SHOW COLUMNS FROM `c_prizeterm` [ RunTime:0.001538s ]
+SQL: SHOW COLUMNS FROM `c_prizeterm` [ RunTime:0.001137s ]
+SQL: select prizeTermId from c_prizeterm where prizeId='21' order by prizeTermId desc limit 0,1; [ RunTime:0.000382s ]
+SQL: UPDATE `c_prizeterm` SET `prizeTermBetCount`=prizeTermBetCount+1976 WHERE ( prizeTermId=21 ) [ RunTime:0.095047s ]
+SQL: SHOW COLUMNS FROM `c_takepartin` [ RunTime:0.003733s ]
+SQL: SHOW COLUMNS FROM `c_takepartin` [ RunTime:0.004037s ]
+SQL: INSERT INTO `c_takepartin` (`prizeTermId`,`userId`,`tpiPayAmount`,`tpiTime`) VALUES (21,1,1976,'16-03-08 02:34:41') [ RunTime:0.040187s ]
+SQL: SHOW COLUMNS FROM `c_orderrecord` [ RunTime:0.003344s ]
+SQL: SHOW COLUMNS FROM `c_orderrecord` [ RunTime:0.003340s ]
+SQL: INSERT INTO `c_orderrecord` (`prizeId`,`userId`,`tpiId`) VALUES (21,1,126) [ RunTime:0.037451s ]
+SQL: select prizeTermBetCount from c_prizeterm where prizeTermId='21'; [ RunTime:0.000590s ]
+SQL: SHOW COLUMNS FROM `c_prize` [ RunTime:0.003028s ]
+SQL: SHOW COLUMNS FROM `c_prize` [ RunTime:0.003115s ]
+SQL: select p.prizeDetail,p.prizeTitle,p.prizePrice,max(pt.prizeTermId) as newestTermId,min(pt.prizeTermBetCount) as betCount,count(*) as termNum from c_prize p ,c_prizeterm pt where p.prizeId=pt.prizeId and p.prizeId='21' group by p.prizeId; [ RunTime:0.000903s ]
+SQL: INSERT INTO `c_prizeterm` (`prizeId`) VALUES (21) [ RunTime:0.037967s ]
+SQL: select prizeTermId from c_prizeterm where prizeId='9' order by prizeTermId desc limit 0,1; [ RunTime:0.000539s ]
+SQL: UPDATE `c_prizeterm` SET `prizeTermBetCount`=prizeTermBetCount+87 WHERE ( prizeTermId=72 ) [ RunTime:0.049353s ]
+SQL: INSERT INTO `c_takepartin` (`prizeTermId`,`userId`,`tpiPayAmount`,`tpiTime`) VALUES (72,1,87,'16-03-08 02:34:41') [ RunTime:0.170471s ]
+SQL: INSERT INTO `c_orderrecord` (`prizeId`,`userId`,`tpiId`) VALUES (9,1,127) [ RunTime:0.201790s ]
+SQL: select prizeTermBetCount from c_prizeterm where prizeTermId='72'; [ RunTime:0.000686s ]
+SQL: select p.prizeDetail,p.prizeTitle,p.prizePrice,max(pt.prizeTermId) as newestTermId,min(pt.prizeTermBetCount) as betCount,count(*) as termNum from c_prize p ,c_prizeterm pt where p.prizeId=pt.prizeId and p.prizeId='9' group by p.prizeId; [ RunTime:0.000639s ]
+SQL: INSERT INTO `c_prizeterm` (`prizeId`) VALUES (9) [ RunTime:0.202893s ]
+SQL: select prizeTermId from c_prizeterm where prizeId='2' order by prizeTermId desc limit 0,1; [ RunTime:0.000721s ]
+SQL: UPDATE `c_prizeterm` SET `prizeTermBetCount`=prizeTermBetCount+5 WHERE ( prizeTermId=28 ) [ RunTime:0.226005s ]
+SQL: INSERT INTO `c_takepartin` (`prizeTermId`,`userId`,`tpiPayAmount`,`tpiTime`) VALUES (28,1,5,'16-03-08 02:34:41') [ RunTime:0.080241s ]
+SQL: INSERT INTO `c_orderrecord` (`prizeId`,`userId`,`tpiId`) VALUES (2,1,128) [ RunTime:0.037546s ]
+SQL: select prizeTermBetCount from c_prizeterm where prizeTermId='28'; [ RunTime:0.000354s ]
+SQL: select p.prizeDetail,p.prizeTitle,p.prizePrice,max(pt.prizeTermId) as newestTermId,min(pt.prizeTermBetCount) as betCount,count(*) as termNum from c_prize p ,c_prizeterm pt where p.prizeId=pt.prizeId and p.prizeId='2' group by p.prizeId; [ RunTime:0.000346s ]
+SQL: SHOW COLUMNS FROM `c_user` [ RunTime:0.003093s ]
+SQL: SHOW COLUMNS FROM `c_user` [ RunTime:0.001351s ]
+SQL: select userBalance from c_user where userId='1'; [ RunTime:0.000389s ]
+SQL: UPDATE `c_user` SET `userBalance`=userBalance-2068 WHERE ( userId=1 ) [ RunTime:0.043420s ]
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:0.000960s ]
+INFO: [ view_template ] --END-- [ RunTime:0.001052s ]
+INFO: [ view_parse ] --START--
+INFO: Run ParseTemplate Behavior [ RunTime:0.006434s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.006529s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:0.000266s ]
+INFO: Run TokenBuild Behavior [ RunTime:0.000307s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:0.000185s ]
+INFO: Run ShowRuntime Behavior [ RunTime:0.000342s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001250s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:0.000496s ]
+INFO: [ view_end ] --END-- [ RunTime:0.000547s ]
+
+[ 2014-03-08T14:34:46+08:00 ] 127.0.0.1 /www/digTreasure-ThinkPHP/home.php/Index/index
+INFO: [ route_check ] --START--
+INFO: Run CheckRoute Behavior [ RunTime:0.000661s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000737s ]
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000419s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000475s ]
+NOTIC: [8] A session had already been started - ignoring session_start() D:\wamp\www\digTreasure-ThinkPHP\ThinkPHP\Common\functions.php 第 552 行.
+SQL: SHOW COLUMNS FROM `c_user` [ RunTime:0.001807s ]
+SQL: SHOW COLUMNS FROM `c_prize` [ RunTime:0.001265s ]
+SQL: SHOW COLUMNS FROM `c_prize` [ RunTime:0.001274s ]
+SQL: select pt.prizeId,min(pt.prizeTermBetCount) as betCount,p.prizeTitle,p.prizePrice,p.prizePicture,count(*) as termNum from c_prizeterm pt left join c_prize p on pt.prizeId=p.prizeId group by pt.prizeId order by termNum desc; [ RunTime:0.000671s ]
+SQL: select pt.prizeId,min(pt.prizeTermBetCount) as betCount,p.prizeTitle,p.prizePrice,p.prizePicture,count(*) as termNum from c_prizeterm pt left join c_prize p on pt.prizeId=p.prizeId group by pt.prizeId; [ RunTime:0.000465s ]
+SQL: select pt.prizeId,min(pt.prizeTermBetCount) as betCount,p.prizeTitle,p.prizePrice,p.prizePicture,count(*) as termNum from c_prizeterm pt left join c_prize p on pt.prizeId=p.prizeId group by pt.prizeId order by prizeId desc; [ RunTime:0.000461s ]
+SQL: select pt.prizeId,min(pt.prizeTermBetCount) as betCount,p.prizeTitle,p.prizePrice,p.prizePicture,count(*) as termNum from c_prizeterm pt left join c_prize p on pt.prizeId=p.prizeId group by pt.prizeId order by prizePrice desc; [ RunTime:0.000444s ]
+SQL: select pt.prizeId,min(pt.prizeTermBetCount) as betCount,p.prizeTitle,p.prizePrice,p.prizePicture,count(*) as termNum from c_prizeterm pt left join c_prize p on pt.prizeId=p.prizeId group by pt.prizeId order by prizePrice; [ RunTime:0.000444s ]
+SQL: SHOW COLUMNS FROM `c_tobuy` [ RunTime:0.001551s ]
+SQL: SHOW COLUMNS FROM `c_tobuy` [ RunTime:0.001470s ]
+SQL: select buy.prizeId,buy.toBuyId, min(prizeTermBetCount) as betCount,count(*) as termNum,buy.prizeTitle,buy.prizePicture,buy.prizePrice from c_prizeterm pt ,(select t.toBuyId,p.prizeId,p.prizeTitle,p.prizePrice,p.prizePicture from c_tobuy t ,c_prize p where t.prizeId=p.prizeId and userId='1') as buy where pt.prizeId=buy.prizeId group by buy.prizeId order by buy.toBuyId; [ RunTime:0.000665s ]
+SQL: SHOW COLUMNS FROM `c_user` [ RunTime:0.001379s ]
+SQL: select * from C_User where userId='1'; [ RunTime:0.000410s ]
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:0.001167s ]
+INFO: [ view_template ] --END-- [ RunTime:0.001278s ]
+INFO: [ view_parse ] --START--
+INFO: Run ParseTemplate Behavior [ RunTime:0.037727s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.037832s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:0.001461s ]
+INFO: Run TokenBuild Behavior [ RunTime:0.000871s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:0.000257s ]
+INFO: Run ShowRuntime Behavior [ RunTime:0.000615s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.003407s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:0.000502s ]
+INFO: [ view_end ] --END-- [ RunTime:0.000565s ]
+
+[ 2014-03-08T14:34:58+08:00 ] 127.0.0.1 /www/digTreasure-ThinkPHP/home.php/User/userInfo
+INFO: [ route_check ] --START--
+INFO: Run CheckRoute Behavior [ RunTime:0.001032s ]
+INFO: [ route_check ] --END-- [ RunTime:0.001146s ]
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000639s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000728s ]
+NOTIC: [8] A session had already been started - ignoring session_start() D:\wamp\www\digTreasure-ThinkPHP\ThinkPHP\Common\functions.php 第 552 行.
+SQL: SHOW COLUMNS FROM `c_user` [ RunTime:0.001951s ]
+SQL: SHOW COLUMNS FROM `c_user` [ RunTime:0.001364s ]
+SQL: select * from C_User where userId='1'; [ RunTime:0.000311s ]
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:0.000710s ]
+INFO: [ view_template ] --END-- [ RunTime:0.000773s ]
+INFO: [ view_parse ] --START--
+INFO: Run ParseTemplate Behavior [ RunTime:0.008022s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.008108s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:0.000318s ]
+INFO: Run TokenBuild Behavior [ RunTime:0.000302s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:0.000198s ]
+INFO: Run ShowRuntime Behavior [ RunTime:0.000369s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001354s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:0.000481s ]
+INFO: [ view_end ] --END-- [ RunTime:0.000537s ]
+
+[ 2014-03-08T14:34:59+08:00 ] 127.0.0.1 /www/digTreasure-ThinkPHP/home.php/User/nicknameSet
+INFO: [ route_check ] --START--
+INFO: Run CheckRoute Behavior [ RunTime:0.000686s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000785s ]
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000531s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000601s ]
+NOTIC: [8] A session had already been started - ignoring session_start() D:\wamp\www\digTreasure-ThinkPHP\ThinkPHP\Common\functions.php 第 552 行.
+SQL: SHOW COLUMNS FROM `c_user` [ RunTime:0.001411s ]
+SQL: SHOW COLUMNS FROM `c_user` [ RunTime:0.001270s ]
+SQL: select * from C_User where userId='1'; [ RunTime:0.000277s ]
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:0.000891s ]
+INFO: [ view_template ] --END-- [ RunTime:0.000950s ]
+INFO: [ view_parse ] --START--
+INFO: Run ParseTemplate Behavior [ RunTime:0.007355s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.007436s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:0.000291s ]
+INFO: Run TokenBuild Behavior [ RunTime:0.000312s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:0.000184s ]
+INFO: Run ShowRuntime Behavior [ RunTime:0.000340s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001279s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:0.000470s ]
+INFO: [ view_end ] --END-- [ RunTime:0.000534s ]
+
+[ 2014-03-08T14:35:01+08:00 ] 127.0.0.1 /www/digTreasure-ThinkPHP/home.php/User/userInfo
+INFO: [ route_check ] --START--
+INFO: Run CheckRoute Behavior [ RunTime:0.000674s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000754s ]
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000419s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000476s ]
+NOTIC: [8] A session had already been started - ignoring session_start() D:\wamp\www\digTreasure-ThinkPHP\ThinkPHP\Common\functions.php 第 552 行.
+SQL: SHOW COLUMNS FROM `c_user` [ RunTime:0.002376s ]
+SQL: SHOW COLUMNS FROM `c_user` [ RunTime:0.001397s ]
+SQL: select * from C_User where userId='1'; [ RunTime:0.000373s ]
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:0.000364s ]
+INFO: [ view_template ] --END-- [ RunTime:0.000421s ]
+INFO: [ view_parse ] --START--
+INFO: Run ParseTemplate Behavior [ RunTime:0.007377s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.007450s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:0.000285s ]
+INFO: Run TokenBuild Behavior [ RunTime:0.000277s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:0.000213s ]
+INFO: Run ShowRuntime Behavior [ RunTime:0.000337s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001261s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:0.000471s ]
+INFO: [ view_end ] --END-- [ RunTime:0.000523s ]
+
+[ 2014-03-08T14:35:03+08:00 ] 127.0.0.1 /www/digTreasure-ThinkPHP/home.php/User/accountSet
+INFO: [ route_check ] --START--
+INFO: Run CheckRoute Behavior [ RunTime:0.000680s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000779s ]
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000421s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000491s ]
+NOTIC: [8] A session had already been started - ignoring session_start() D:\wamp\www\digTreasure-ThinkPHP\ThinkPHP\Common\functions.php 第 552 行.
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:0.000756s ]
+INFO: [ view_template ] --END-- [ RunTime:0.000816s ]
+INFO: [ view_parse ] --START--
+INFO: Run ParseTemplate Behavior [ RunTime:0.007347s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.007421s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:0.000300s ]
+INFO: Run TokenBuild Behavior [ RunTime:0.000280s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:0.000186s ]
+INFO: Run ShowRuntime Behavior [ RunTime:0.000341s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001295s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:0.000455s ]
+INFO: [ view_end ] --END-- [ RunTime:0.000507s ]
+
+[ 2014-03-08T14:35:04+08:00 ] 127.0.0.1 /www/digTreasure-ThinkPHP/home.php/User/userInfo
+INFO: [ route_check ] --START--
+INFO: Run CheckRoute Behavior [ RunTime:0.000805s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000902s ]
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000532s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000607s ]
+NOTIC: [8] A session had already been started - ignoring session_start() D:\wamp\www\digTreasure-ThinkPHP\ThinkPHP\Common\functions.php 第 552 行.
+SQL: SHOW COLUMNS FROM `c_user` [ RunTime:0.001417s ]
+SQL: SHOW COLUMNS FROM `c_user` [ RunTime:0.001193s ]
+SQL: select * from C_User where userId='1'; [ RunTime:0.000289s ]
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:0.000388s ]
+INFO: [ view_template ] --END-- [ RunTime:0.000446s ]
+INFO: [ view_parse ] --START--
+INFO: Run ParseTemplate Behavior [ RunTime:0.008213s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.008300s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:0.000319s ]
+INFO: Run TokenBuild Behavior [ RunTime:0.000295s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:0.000195s ]
+INFO: Run ShowRuntime Behavior [ RunTime:0.000362s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001331s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:0.000476s ]
+INFO: [ view_end ] --END-- [ RunTime:0.000531s ]
+
+[ 2014-03-08T14:35:05+08:00 ] 127.0.0.1 /www/digTreasure-ThinkPHP/home.php/Index/index
+INFO: [ route_check ] --START--
+INFO: Run CheckRoute Behavior [ RunTime:0.000959s ]
+INFO: [ route_check ] --END-- [ RunTime:0.001078s ]
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000603s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000682s ]
+NOTIC: [8] A session had already been started - ignoring session_start() D:\wamp\www\digTreasure-ThinkPHP\ThinkPHP\Common\functions.php 第 552 行.
+SQL: SHOW COLUMNS FROM `c_user` [ RunTime:0.002058s ]
+SQL: SHOW COLUMNS FROM `c_prize` [ RunTime:0.001842s ]
+SQL: SHOW COLUMNS FROM `c_prize` [ RunTime:0.001569s ]
+SQL: select pt.prizeId,min(pt.prizeTermBetCount) as betCount,p.prizeTitle,p.prizePrice,p.prizePicture,count(*) as termNum from c_prizeterm pt left join c_prize p on pt.prizeId=p.prizeId group by pt.prizeId order by termNum desc; [ RunTime:0.000274s ]
+SQL: select pt.prizeId,min(pt.prizeTermBetCount) as betCount,p.prizeTitle,p.prizePrice,p.prizePicture,count(*) as termNum from c_prizeterm pt left join c_prize p on pt.prizeId=p.prizeId group by pt.prizeId; [ RunTime:0.000111s ]
+SQL: select pt.prizeId,min(pt.prizeTermBetCount) as betCount,p.prizeTitle,p.prizePrice,p.prizePicture,count(*) as termNum from c_prizeterm pt left join c_prize p on pt.prizeId=p.prizeId group by pt.prizeId order by prizeId desc; [ RunTime:0.000100s ]
+SQL: select pt.prizeId,min(pt.prizeTermBetCount) as betCount,p.prizeTitle,p.prizePrice,p.prizePicture,count(*) as termNum from c_prizeterm pt left join c_prize p on pt.prizeId=p.prizeId group by pt.prizeId order by prizePrice desc; [ RunTime:0.000101s ]
+SQL: select pt.prizeId,min(pt.prizeTermBetCount) as betCount,p.prizeTitle,p.prizePrice,p.prizePicture,count(*) as termNum from c_prizeterm pt left join c_prize p on pt.prizeId=p.prizeId group by pt.prizeId order by prizePrice; [ RunTime:0.000098s ]
+SQL: SHOW COLUMNS FROM `c_tobuy` [ RunTime:0.001438s ]
+SQL: SHOW COLUMNS FROM `c_tobuy` [ RunTime:0.001161s ]
+SQL: select buy.prizeId,buy.toBuyId, min(prizeTermBetCount) as betCount,count(*) as termNum,buy.prizeTitle,buy.prizePicture,buy.prizePrice from c_prizeterm pt ,(select t.toBuyId,p.prizeId,p.prizeTitle,p.prizePrice,p.prizePicture from c_tobuy t ,c_prize p where t.prizeId=p.prizeId and userId='1') as buy where pt.prizeId=buy.prizeId group by buy.prizeId order by buy.toBuyId; [ RunTime:0.000268s ]
+SQL: SHOW COLUMNS FROM `c_user` [ RunTime:0.001202s ]
+SQL: select * from C_User where userId='1'; [ RunTime:0.000322s ]
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:0.000507s ]
+INFO: [ view_template ] --END-- [ RunTime:0.000578s ]
+INFO: [ view_parse ] --START--
+INFO: Run ParseTemplate Behavior [ RunTime:0.039455s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.039545s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:0.001597s ]
+INFO: Run TokenBuild Behavior [ RunTime:0.000532s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:0.000207s ]
+INFO: Run ShowRuntime Behavior [ RunTime:0.000592s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.003132s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:0.000491s ]
+INFO: [ view_end ] --END-- [ RunTime:0.000549s ]
+
+[ 2014-03-08T14:35:08+08:00 ] 127.0.0.1 /www/digTreasure-ThinkPHP/home.php/Prize/prizeDtails/prizeId/4
+INFO: [ route_check ] --START--
+INFO: Run CheckRoute Behavior [ RunTime:0.000699s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000784s ]
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000455s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000518s ]
+NOTIC: [8] A session had already been started - ignoring session_start() D:\wamp\www\digTreasure-ThinkPHP\ThinkPHP\Common\functions.php 第 552 行.
+SQL: SHOW COLUMNS FROM `c_prize` [ RunTime:0.001820s ]
+SQL: SHOW COLUMNS FROM `c_prize` [ RunTime:0.001260s ]
+SQL: select p.prizeDetail,p.prizeTitle,p.prizePrice,max(pt.prizeTermId) as newestTermId,min(pt.prizeTermBetCount) as betCount,count(*) as termNum from c_prize p ,c_prizeterm pt where p.prizeId=pt.prizeId and p.prizeId='4' group by p.prizeId; [ RunTime:0.000488s ]
+SQL: SHOW COLUMNS FROM `c_takepartin` [ RunTime:0.001354s ]
+SQL: SHOW COLUMNS FROM `c_takepartin` [ RunTime:0.002060s ]
+SQL: select * from (select userId ,sum(tpiPayAmount) as allPay from c_takepartin  where prizeTermId='73' group by userId order by sum(tpiPayAmount) desc) as t limit 0,1;  [ RunTime:0.000532s ]
+NOTIC: [8] Undefined offset:  0 D:\wamp\www\digTreasure-ThinkPHP\home\Lib\Action\PrizeAction.class.php 第 14 行.
+NOTIC: [8] Undefined offset:  0 D:\wamp\www\digTreasure-ThinkPHP\home\Lib\Action\PrizeAction.class.php 第 15 行.
+SQL: SHOW COLUMNS FROM `c_user` [ RunTime:0.001940s ]
+SQL: SHOW COLUMNS FROM `c_user` [ RunTime:0.001302s ]
+SQL: select * from C_User where userId=''; [ RunTime:0.000371s ]
+NOTIC: [8] Undefined offset:  0 D:\wamp\www\digTreasure-ThinkPHP\home\Lib\Action\PrizeAction.class.php 第 18 行.
+NOTIC: [8] Undefined offset:  0 D:\wamp\www\digTreasure-ThinkPHP\home\Lib\Action\PrizeAction.class.php 第 19 行.
+SQL: select userId from c_takepartin where prizeTermId='73' order by tpiTime limit 0,1; [ RunTime:0.000273s ]
+NOTIC: [8] Undefined offset:  0 D:\wamp\www\digTreasure-ThinkPHP\home\Lib\Action\PrizeAction.class.php 第 25 行.
+SQL: select * from C_User where userId=''; [ RunTime:0.000128s ]
+SQL: select u.userNickName ,u.userPortrait,t.tpiPayAmount as betCount,t.tpiTime from (select * from c_takepartin where prizeTermId='73') as t left join c_user u on t.userId=u.userId  order by t.tpiTime desc; [ RunTime:0.000404s ]
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:0.000889s ]
+INFO: [ view_template ] --END-- [ RunTime:0.000955s ]
+INFO: [ view_parse ] --START--
+NOTIC: [8] Undefined offset:  0 D:\wamp\www\digTreasure-ThinkPHP\home\Runtime\Cache\3ca35bdf19db5a6a23c511a038f04f7e.php 第 111 行.
+NOTIC: [8] Undefined offset:  0 D:\wamp\www\digTreasure-ThinkPHP\home\Runtime\Cache\3ca35bdf19db5a6a23c511a038f04f7e.php 第 113 行.
+INFO: Run ParseTemplate Behavior [ RunTime:0.014125s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.014199s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:0.000961s ]
+INFO: Run TokenBuild Behavior [ RunTime:0.000299s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:0.000211s ]
+INFO: Run ShowRuntime Behavior [ RunTime:0.000352s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.002368s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:0.000489s ]
+INFO: [ view_end ] --END-- [ RunTime:0.000557s ]
+
+[ 2014-03-08T14:35:09+08:00 ] 127.0.0.1 /www/digTreasure-ThinkPHP/home.php/Index/index
+INFO: [ route_check ] --START--
+INFO: Run CheckRoute Behavior [ RunTime:0.000805s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000909s ]
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000493s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000561s ]
+NOTIC: [8] A session had already been started - ignoring session_start() D:\wamp\www\digTreasure-ThinkPHP\ThinkPHP\Common\functions.php 第 552 行.
+SQL: SHOW COLUMNS FROM `c_user` [ RunTime:0.001908s ]
+SQL: SHOW COLUMNS FROM `c_prize` [ RunTime:0.001651s ]
+SQL: SHOW COLUMNS FROM `c_prize` [ RunTime:0.001521s ]
+SQL: select pt.prizeId,min(pt.prizeTermBetCount) as betCount,p.prizeTitle,p.prizePrice,p.prizePicture,count(*) as termNum from c_prizeterm pt left join c_prize p on pt.prizeId=p.prizeId group by pt.prizeId order by termNum desc; [ RunTime:0.000512s ]
+SQL: select pt.prizeId,min(pt.prizeTermBetCount) as betCount,p.prizeTitle,p.prizePrice,p.prizePicture,count(*) as termNum from c_prizeterm pt left join c_prize p on pt.prizeId=p.prizeId group by pt.prizeId; [ RunTime:0.000154s ]
+SQL: select pt.prizeId,min(pt.prizeTermBetCount) as betCount,p.prizeTitle,p.prizePrice,p.prizePicture,count(*) as termNum from c_prizeterm pt left join c_prize p on pt.prizeId=p.prizeId group by pt.prizeId order by prizeId desc; [ RunTime:0.000386s ]
+SQL: select pt.prizeId,min(pt.prizeTermBetCount) as betCount,p.prizeTitle,p.prizePrice,p.prizePicture,count(*) as termNum from c_prizeterm pt left join c_prize p on pt.prizeId=p.prizeId group by pt.prizeId order by prizePrice desc; [ RunTime:0.000182s ]
+SQL: select pt.prizeId,min(pt.prizeTermBetCount) as betCount,p.prizeTitle,p.prizePrice,p.prizePicture,count(*) as termNum from c_prizeterm pt left join c_prize p on pt.prizeId=p.prizeId group by pt.prizeId order by prizePrice; [ RunTime:0.000138s ]
+SQL: SHOW COLUMNS FROM `c_tobuy` [ RunTime:0.001241s ]
+SQL: SHOW COLUMNS FROM `c_tobuy` [ RunTime:0.001216s ]
+SQL: select buy.prizeId,buy.toBuyId, min(prizeTermBetCount) as betCount,count(*) as termNum,buy.prizeTitle,buy.prizePicture,buy.prizePrice from c_prizeterm pt ,(select t.toBuyId,p.prizeId,p.prizeTitle,p.prizePrice,p.prizePicture from c_tobuy t ,c_prize p where t.prizeId=p.prizeId and userId='1') as buy where pt.prizeId=buy.prizeId group by buy.prizeId order by buy.toBuyId; [ RunTime:0.000307s ]
+SQL: SHOW COLUMNS FROM `c_user` [ RunTime:0.001115s ]
+SQL: select * from C_User where userId='1'; [ RunTime:0.000305s ]
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:0.000492s ]
+INFO: [ view_template ] --END-- [ RunTime:0.000563s ]
+INFO: [ view_parse ] --START--
+INFO: Run ParseTemplate Behavior [ RunTime:0.038677s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.038795s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:0.001842s ]
+INFO: Run TokenBuild Behavior [ RunTime:0.000467s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:0.000222s ]
+INFO: Run ShowRuntime Behavior [ RunTime:0.000585s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.003313s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:0.000485s ]
+INFO: [ view_end ] --END-- [ RunTime:0.000543s ]
+
+[ 2014-03-08T14:36:54+08:00 ] 127.0.0.1 /www/digTreasure-ThinkPHP/home.php/User/userPay
+INFO: [ route_check ] --START--
+INFO: Run CheckRoute Behavior [ RunTime:0.001044s ]
+INFO: [ route_check ] --END-- [ RunTime:0.001136s ]
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.001600s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001687s ]
+NOTIC: [8] A session had already been started - ignoring session_start() D:\wamp\www\digTreasure-ThinkPHP\ThinkPHP\Common\functions.php 第 552 行.
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:0.000982s ]
+INFO: [ view_template ] --END-- [ RunTime:0.001055s ]
+INFO: [ view_parse ] --START--
+INFO: Run ParseTemplate Behavior [ RunTime:0.010979s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.011102s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:0.000982s ]
+INFO: Run TokenBuild Behavior [ RunTime:0.000686s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:0.000555s ]
+INFO: Run ShowRuntime Behavior [ RunTime:0.000711s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.003212s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:0.000840s ]
+INFO: [ view_end ] --END-- [ RunTime:0.000906s ]
+
+[ 2014-03-08T14:36:56+08:00 ] 127.0.0.1 /www/digTreasure-ThinkPHP/home.php/Index/index
+INFO: [ route_check ] --START--
+INFO: Run CheckRoute Behavior [ RunTime:0.001104s ]
+INFO: [ route_check ] --END-- [ RunTime:0.001228s ]
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000698s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000793s ]
+NOTIC: [8] A session had already been started - ignoring session_start() D:\wamp\www\digTreasure-ThinkPHP\ThinkPHP\Common\functions.php 第 552 行.
+SQL: SHOW COLUMNS FROM `c_user` [ RunTime:0.001442s ]
+SQL: SHOW COLUMNS FROM `c_prize` [ RunTime:0.001250s ]
+SQL: SHOW COLUMNS FROM `c_prize` [ RunTime:0.001752s ]
+SQL: select pt.prizeId,min(pt.prizeTermBetCount) as betCount,p.prizeTitle,p.prizePrice,p.prizePicture,count(*) as termNum from c_prizeterm pt left join c_prize p on pt.prizeId=p.prizeId group by pt.prizeId order by termNum desc; [ RunTime:0.000173s ]
+SQL: select pt.prizeId,min(pt.prizeTermBetCount) as betCount,p.prizeTitle,p.prizePrice,p.prizePicture,count(*) as termNum from c_prizeterm pt left join c_prize p on pt.prizeId=p.prizeId group by pt.prizeId; [ RunTime:0.000106s ]
+SQL: select pt.prizeId,min(pt.prizeTermBetCount) as betCount,p.prizeTitle,p.prizePrice,p.prizePicture,count(*) as termNum from c_prizeterm pt left join c_prize p on pt.prizeId=p.prizeId group by pt.prizeId order by prizeId desc; [ RunTime:0.000102s ]
+SQL: select pt.prizeId,min(pt.prizeTermBetCount) as betCount,p.prizeTitle,p.prizePrice,p.prizePicture,count(*) as termNum from c_prizeterm pt left join c_prize p on pt.prizeId=p.prizeId group by pt.prizeId order by prizePrice desc; [ RunTime:0.000101s ]
+SQL: select pt.prizeId,min(pt.prizeTermBetCount) as betCount,p.prizeTitle,p.prizePrice,p.prizePicture,count(*) as termNum from c_prizeterm pt left join c_prize p on pt.prizeId=p.prizeId group by pt.prizeId order by prizePrice; [ RunTime:0.000098s ]
+SQL: SHOW COLUMNS FROM `c_tobuy` [ RunTime:0.001157s ]
+SQL: SHOW COLUMNS FROM `c_tobuy` [ RunTime:0.001204s ]
+SQL: select buy.prizeId,buy.toBuyId, min(prizeTermBetCount) as betCount,count(*) as termNum,buy.prizeTitle,buy.prizePicture,buy.prizePrice from c_prizeterm pt ,(select t.toBuyId,p.prizeId,p.prizeTitle,p.prizePrice,p.prizePicture from c_tobuy t ,c_prize p where t.prizeId=p.prizeId and userId='1') as buy where pt.prizeId=buy.prizeId group by buy.prizeId order by buy.toBuyId; [ RunTime:0.000401s ]
+SQL: SHOW COLUMNS FROM `c_user` [ RunTime:0.001133s ]
+SQL: select * from C_User where userId='1'; [ RunTime:0.000292s ]
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:0.000823s ]
+INFO: [ view_template ] --END-- [ RunTime:0.000896s ]
+INFO: [ view_parse ] --START--
+INFO: Run ParseTemplate Behavior [ RunTime:0.038084s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.038179s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:0.001522s ]
+INFO: Run TokenBuild Behavior [ RunTime:0.000435s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:0.000211s ]
+INFO: Run ShowRuntime Behavior [ RunTime:0.000576s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.002931s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:0.000480s ]
+INFO: [ view_end ] --END-- [ RunTime:0.000538s ]
+
+[ 2014-03-08T14:37:44+08:00 ] 127.0.0.1 /www/digTreasure-ThinkPHP/home.php/Pay/topay
+INFO: [ route_check ] --START--
+INFO: Run CheckRoute Behavior [ RunTime:0.001779s ]
+INFO: [ route_check ] --END-- [ RunTime:0.001890s ]
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000808s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000881s ]
+NOTIC: [8] A session had already been started - ignoring session_start() D:\wamp\www\digTreasure-ThinkPHP\ThinkPHP\Common\functions.php 第 552 行.
+SQL: SHOW COLUMNS FROM `c_user` [ RunTime:0.002251s ]
+SQL: SHOW COLUMNS FROM `c_user` [ RunTime:0.001820s ]
+SQL: select userBalance from c_user where userId='1'; [ RunTime:0.000303s ]
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:0.001337s ]
+INFO: [ view_template ] --END-- [ RunTime:0.001407s ]
+INFO: [ view_parse ] --START--
+INFO: Run ParseTemplate Behavior [ RunTime:0.010835s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.010925s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:0.000651s ]
+INFO: Run TokenBuild Behavior [ RunTime:0.000645s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:0.000513s ]
+INFO: Run ShowRuntime Behavior [ RunTime:0.000729s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.002718s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:0.000808s ]
+INFO: [ view_end ] --END-- [ RunTime:0.000867s ]
+
+[ 2014-03-08T14:37:55+08:00 ] 127.0.0.1 /www/digTreasure-ThinkPHP/home.php/Index/index
+INFO: [ route_check ] --START--
+INFO: Run CheckRoute Behavior [ RunTime:0.000698s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000786s ]
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000597s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000674s ]
+NOTIC: [8] A session had already been started - ignoring session_start() D:\wamp\www\digTreasure-ThinkPHP\ThinkPHP\Common\functions.php 第 552 行.
+SQL: SHOW COLUMNS FROM `c_user` [ RunTime:0.001312s ]
+SQL: SHOW COLUMNS FROM `c_prize` [ RunTime:0.001132s ]
+SQL: SHOW COLUMNS FROM `c_prize` [ RunTime:0.001212s ]
+SQL: select pt.prizeId,min(pt.prizeTermBetCount) as betCount,p.prizeTitle,p.prizePrice,p.prizePicture,count(*) as termNum from c_prizeterm pt left join c_prize p on pt.prizeId=p.prizeId group by pt.prizeId order by termNum desc; [ RunTime:0.000326s ]
+SQL: select pt.prizeId,min(pt.prizeTermBetCount) as betCount,p.prizeTitle,p.prizePrice,p.prizePicture,count(*) as termNum from c_prizeterm pt left join c_prize p on pt.prizeId=p.prizeId group by pt.prizeId; [ RunTime:0.000109s ]
+SQL: select pt.prizeId,min(pt.prizeTermBetCount) as betCount,p.prizeTitle,p.prizePrice,p.prizePicture,count(*) as termNum from c_prizeterm pt left join c_prize p on pt.prizeId=p.prizeId group by pt.prizeId order by prizeId desc; [ RunTime:0.000101s ]
+SQL: select pt.prizeId,min(pt.prizeTermBetCount) as betCount,p.prizeTitle,p.prizePrice,p.prizePicture,count(*) as termNum from c_prizeterm pt left join c_prize p on pt.prizeId=p.prizeId group by pt.prizeId order by prizePrice desc; [ RunTime:0.000099s ]
+SQL: select pt.prizeId,min(pt.prizeTermBetCount) as betCount,p.prizeTitle,p.prizePrice,p.prizePicture,count(*) as termNum from c_prizeterm pt left join c_prize p on pt.prizeId=p.prizeId group by pt.prizeId order by prizePrice; [ RunTime:0.000097s ]
+SQL: SHOW COLUMNS FROM `c_tobuy` [ RunTime:0.001205s ]
+SQL: SHOW COLUMNS FROM `c_tobuy` [ RunTime:0.001245s ]
+SQL: select buy.prizeId,buy.toBuyId, min(prizeTermBetCount) as betCount,count(*) as termNum,buy.prizeTitle,buy.prizePicture,buy.prizePrice from c_prizeterm pt ,(select t.toBuyId,p.prizeId,p.prizeTitle,p.prizePrice,p.prizePicture from c_tobuy t ,c_prize p where t.prizeId=p.prizeId and userId='1') as buy where pt.prizeId=buy.prizeId group by buy.prizeId order by buy.toBuyId; [ RunTime:0.000358s ]
+SQL: SHOW COLUMNS FROM `c_user` [ RunTime:0.001110s ]
+SQL: select * from C_User where userId='1'; [ RunTime:0.000360s ]
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:0.000663s ]
+INFO: [ view_template ] --END-- [ RunTime:0.000745s ]
+INFO: [ view_parse ] --START--
+INFO: Run ParseTemplate Behavior [ RunTime:0.038239s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.038334s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:0.001685s ]
+INFO: Run TokenBuild Behavior [ RunTime:0.000503s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:0.000223s ]
+INFO: Run ShowRuntime Behavior [ RunTime:0.000556s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.003201s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:0.000503s ]
+INFO: [ view_end ] --END-- [ RunTime:0.000559s ]
+
+[ 2014-03-08T14:38:15+08:00 ] 127.0.0.1 /www/digTreasure-ThinkPHP/home.php/Tobuy/addPrize
+INFO: [ route_check ] --START--
+INFO: Run CheckRoute Behavior [ RunTime:0.000701s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000789s ]
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000453s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000512s ]
+NOTIC: [8] A session had already been started - ignoring session_start() D:\wamp\www\digTreasure-ThinkPHP\ThinkPHP\Common\functions.php 第 552 行.
+SQL: SHOW COLUMNS FROM `c_tobuy` [ RunTime:0.001340s ]
+SQL: SHOW COLUMNS FROM `c_tobuy` [ RunTime:0.001231s ]
+SQL: SELECT * FROM `c_tobuy` WHERE ( `userId` = 1 ) AND ( `prizeId` = 11 )  [ RunTime:0.000407s ]
+SQL: INSERT INTO `c_tobuy` (`userId`,`prizeId`) VALUES (1,11) [ RunTime:0.077625s ]
+SQL: select buy.prizeId,buy.toBuyId, min(prizeTermBetCount) as betCount,count(*) as termNum,buy.prizeTitle,buy.prizePicture,buy.prizePrice from c_prizeterm pt ,(select t.toBuyId,p.prizeId,p.prizeTitle,p.prizePrice,p.prizePicture from c_tobuy t ,c_prize p where t.prizeId=p.prizeId and userId='1') as buy where pt.prizeId=buy.prizeId group by buy.prizeId order by buy.toBuyId; [ RunTime:0.000763s ]
+
+[ 2014-03-08T14:38:18+08:00 ] 127.0.0.1 /www/digTreasure-ThinkPHP/home.php/Index/index
+INFO: [ route_check ] --START--
+INFO: Run CheckRoute Behavior [ RunTime:0.000744s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000836s ]
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000441s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000501s ]
+NOTIC: [8] A session had already been started - ignoring session_start() D:\wamp\www\digTreasure-ThinkPHP\ThinkPHP\Common\functions.php 第 552 行.
+SQL: SHOW COLUMNS FROM `c_user` [ RunTime:0.001423s ]
+SQL: SHOW COLUMNS FROM `c_prize` [ RunTime:0.001167s ]
+SQL: SHOW COLUMNS FROM `c_prize` [ RunTime:0.001509s ]
+SQL: select pt.prizeId,min(pt.prizeTermBetCount) as betCount,p.prizeTitle,p.prizePrice,p.prizePicture,count(*) as termNum from c_prizeterm pt left join c_prize p on pt.prizeId=p.prizeId group by pt.prizeId order by termNum desc; [ RunTime:0.000518s ]
+SQL: select pt.prizeId,min(pt.prizeTermBetCount) as betCount,p.prizeTitle,p.prizePrice,p.prizePicture,count(*) as termNum from c_prizeterm pt left join c_prize p on pt.prizeId=p.prizeId group by pt.prizeId; [ RunTime:0.000112s ]
+SQL: select pt.prizeId,min(pt.prizeTermBetCount) as betCount,p.prizeTitle,p.prizePrice,p.prizePicture,count(*) as termNum from c_prizeterm pt left join c_prize p on pt.prizeId=p.prizeId group by pt.prizeId order by prizeId desc; [ RunTime:0.000102s ]
+SQL: select pt.prizeId,min(pt.prizeTermBetCount) as betCount,p.prizeTitle,p.prizePrice,p.prizePicture,count(*) as termNum from c_prizeterm pt left join c_prize p on pt.prizeId=p.prizeId group by pt.prizeId order by prizePrice desc; [ RunTime:0.000122s ]
+SQL: select pt.prizeId,min(pt.prizeTermBetCount) as betCount,p.prizeTitle,p.prizePrice,p.prizePicture,count(*) as termNum from c_prizeterm pt left join c_prize p on pt.prizeId=p.prizeId group by pt.prizeId order by prizePrice; [ RunTime:0.000104s ]
+SQL: SHOW COLUMNS FROM `c_tobuy` [ RunTime:0.001611s ]
+SQL: SHOW COLUMNS FROM `c_tobuy` [ RunTime:0.001488s ]
+SQL: select buy.prizeId,buy.toBuyId, min(prizeTermBetCount) as betCount,count(*) as termNum,buy.prizeTitle,buy.prizePicture,buy.prizePrice from c_prizeterm pt ,(select t.toBuyId,p.prizeId,p.prizeTitle,p.prizePrice,p.prizePicture from c_tobuy t ,c_prize p where t.prizeId=p.prizeId and userId='1') as buy where pt.prizeId=buy.prizeId group by buy.prizeId order by buy.toBuyId; [ RunTime:0.000329s ]
+SQL: SHOW COLUMNS FROM `c_user` [ RunTime:0.001336s ]
+SQL: select * from C_User where userId='1'; [ RunTime:0.000297s ]
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:0.000515s ]
+INFO: [ view_template ] --END-- [ RunTime:0.000584s ]
+INFO: [ view_parse ] --START--
+INFO: Run ParseTemplate Behavior [ RunTime:0.045951s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.046058s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:0.002108s ]
+INFO: Run TokenBuild Behavior [ RunTime:0.000592s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:0.000208s ]
+INFO: Run ShowRuntime Behavior [ RunTime:0.000701s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.003838s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:0.000556s ]
+INFO: [ view_end ] --END-- [ RunTime:0.000619s ]
+
+[ 2014-03-08T14:38:27+08:00 ] 127.0.0.1 /www/digTreasure-ThinkPHP/home.php/Tobuy/addPrize
+INFO: [ route_check ] --START--
+INFO: Run CheckRoute Behavior [ RunTime:0.001084s ]
+INFO: [ route_check ] --END-- [ RunTime:0.001177s ]
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000927s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001013s ]
+NOTIC: [8] A session had already been started - ignoring session_start() D:\wamp\www\digTreasure-ThinkPHP\ThinkPHP\Common\functions.php 第 552 行.
+SQL: SHOW COLUMNS FROM `c_tobuy` [ RunTime:0.001584s ]
+SQL: SHOW COLUMNS FROM `c_tobuy` [ RunTime:0.001224s ]
+SQL: SELECT * FROM `c_tobuy` WHERE ( `userId` = 1 ) AND ( `prizeId` = 2 )  [ RunTime:0.000277s ]
+
+[ 2014-03-08T14:38:59+08:00 ] 127.0.0.1 /www/digTreasure-ThinkPHP/home.php/Index/index
+INFO: [ route_check ] --START--
+INFO: Run CheckRoute Behavior [ RunTime:0.001059s ]
+INFO: [ route_check ] --END-- [ RunTime:0.001189s ]
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000820s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000890s ]
+NOTIC: [8] A session had already been started - ignoring session_start() D:\wamp\www\digTreasure-ThinkPHP\ThinkPHP\Common\functions.php 第 552 行.
+SQL: SHOW COLUMNS FROM `c_user` [ RunTime:0.001727s ]
+SQL: SHOW COLUMNS FROM `c_prize` [ RunTime:0.001358s ]
+SQL: SHOW COLUMNS FROM `c_prize` [ RunTime:0.001387s ]
+SQL: select pt.prizeId,min(pt.prizeTermBetCount) as betCount,p.prizeTitle,p.prizePrice,p.prizePicture,count(*) as termNum from c_prizeterm pt left join c_prize p on pt.prizeId=p.prizeId group by pt.prizeId order by termNum desc; [ RunTime:0.000363s ]
+SQL: select pt.prizeId,min(pt.prizeTermBetCount) as betCount,p.prizeTitle,p.prizePrice,p.prizePicture,count(*) as termNum from c_prizeterm pt left join c_prize p on pt.prizeId=p.prizeId group by pt.prizeId; [ RunTime:0.000145s ]
+SQL: select pt.prizeId,min(pt.prizeTermBetCount) as betCount,p.prizeTitle,p.prizePrice,p.prizePicture,count(*) as termNum from c_prizeterm pt left join c_prize p on pt.prizeId=p.prizeId group by pt.prizeId order by prizeId desc; [ RunTime:0.000130s ]
+SQL: select pt.prizeId,min(pt.prizeTermBetCount) as betCount,p.prizeTitle,p.prizePrice,p.prizePicture,count(*) as termNum from c_prizeterm pt left join c_prize p on pt.prizeId=p.prizeId group by pt.prizeId order by prizePrice desc; [ RunTime:0.000168s ]
+SQL: select pt.prizeId,min(pt.prizeTermBetCount) as betCount,p.prizeTitle,p.prizePrice,p.prizePicture,count(*) as termNum from c_prizeterm pt left join c_prize p on pt.prizeId=p.prizeId group by pt.prizeId order by prizePrice; [ RunTime:0.000140s ]
+SQL: SHOW COLUMNS FROM `c_tobuy` [ RunTime:0.001947s ]
+SQL: SHOW COLUMNS FROM `c_tobuy` [ RunTime:0.002462s ]
+SQL: select buy.prizeId,buy.toBuyId, min(prizeTermBetCount) as betCount,count(*) as termNum,buy.prizeTitle,buy.prizePicture,buy.prizePrice from c_prizeterm pt ,(select t.toBuyId,p.prizeId,p.prizeTitle,p.prizePrice,p.prizePicture from c_tobuy t ,c_prize p where t.prizeId=p.prizeId and userId='1') as buy where pt.prizeId=buy.prizeId group by buy.prizeId order by buy.toBuyId; [ RunTime:0.000253s ]
+SQL: SHOW COLUMNS FROM `c_user` [ RunTime:0.001453s ]
+SQL: select * from C_User where userId='1'; [ RunTime:0.000336s ]
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:0.001361s ]
+INFO: [ view_template ] --END-- [ RunTime:0.001472s ]
+INFO: [ view_parse ] --START--
+INFO: Run ParseTemplate Behavior [ RunTime:0.051277s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.051402s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:0.002905s ]
+INFO: Run TokenBuild Behavior [ RunTime:0.001224s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:0.000749s ]
+INFO: Run ShowRuntime Behavior [ RunTime:0.001557s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.006755s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:0.001353s ]
+INFO: [ view_end ] --END-- [ RunTime:0.001463s ]
+
+[ 2014-03-08T14:39:38+08:00 ] 127.0.0.1 /www/digTreasure-ThinkPHP/home.php/Prize/prizeDtails/prizeId/9
+INFO: [ route_check ] --START--
+INFO: Run CheckRoute Behavior [ RunTime:0.001200s ]
+INFO: [ route_check ] --END-- [ RunTime:0.001311s ]
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000876s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000972s ]
+NOTIC: [8] A session had already been started - ignoring session_start() D:\wamp\www\digTreasure-ThinkPHP\ThinkPHP\Common\functions.php 第 552 行.
+SQL: SHOW COLUMNS FROM `c_prize` [ RunTime:0.001581s ]
+SQL: SHOW COLUMNS FROM `c_prize` [ RunTime:0.002262s ]
+SQL: select p.prizeDetail,p.prizeTitle,p.prizePrice,max(pt.prizeTermId) as newestTermId,min(pt.prizeTermBetCount) as betCount,count(*) as termNum from c_prize p ,c_prizeterm pt where p.prizeId=pt.prizeId and p.prizeId='9' group by p.prizeId; [ RunTime:0.000739s ]
+SQL: SHOW COLUMNS FROM `c_takepartin` [ RunTime:0.001303s ]
+SQL: SHOW COLUMNS FROM `c_takepartin` [ RunTime:0.001274s ]
+SQL: select * from (select userId ,sum(tpiPayAmount) as allPay from c_takepartin  where prizeTermId='75' group by userId order by sum(tpiPayAmount) desc) as t limit 0,1;  [ RunTime:0.000608s ]
+NOTIC: [8] Undefined offset:  0 D:\wamp\www\digTreasure-ThinkPHP\home\Lib\Action\PrizeAction.class.php 第 14 行.
+NOTIC: [8] Undefined offset:  0 D:\wamp\www\digTreasure-ThinkPHP\home\Lib\Action\PrizeAction.class.php 第 15 行.
+SQL: SHOW COLUMNS FROM `c_user` [ RunTime:0.001487s ]
+SQL: SHOW COLUMNS FROM `c_user` [ RunTime:0.001518s ]
+SQL: select * from C_User where userId=''; [ RunTime:0.000474s ]
+NOTIC: [8] Undefined offset:  0 D:\wamp\www\digTreasure-ThinkPHP\home\Lib\Action\PrizeAction.class.php 第 18 行.
+NOTIC: [8] Undefined offset:  0 D:\wamp\www\digTreasure-ThinkPHP\home\Lib\Action\PrizeAction.class.php 第 19 行.
+SQL: select userId from c_takepartin where prizeTermId='75' order by tpiTime limit 0,1; [ RunTime:0.000422s ]
+NOTIC: [8] Undefined offset:  0 D:\wamp\www\digTreasure-ThinkPHP\home\Lib\Action\PrizeAction.class.php 第 25 行.
+SQL: select * from C_User where userId=''; [ RunTime:0.000257s ]
+SQL: select u.userNickName ,u.userPortrait,t.tpiPayAmount as betCount,t.tpiTime from (select * from c_takepartin where prizeTermId='75') as t left join c_user u on t.userId=u.userId  order by t.tpiTime desc; [ RunTime:0.000657s ]
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:0.001891s ]
+INFO: [ view_template ] --END-- [ RunTime:0.001999s ]
+INFO: [ view_parse ] --START--
+NOTIC: [8] Undefined offset:  0 D:\wamp\www\digTreasure-ThinkPHP\home\Runtime\Cache\3ca35bdf19db5a6a23c511a038f04f7e.php 第 111 行.
+NOTIC: [8] Undefined offset:  0 D:\wamp\www\digTreasure-ThinkPHP\home\Runtime\Cache\3ca35bdf19db5a6a23c511a038f04f7e.php 第 113 行.
+INFO: Run ParseTemplate Behavior [ RunTime:0.016441s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.016522s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:0.000714s ]
+INFO: Run TokenBuild Behavior [ RunTime:0.000716s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:0.000514s ]
+INFO: Run ShowRuntime Behavior [ RunTime:0.000679s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.002819s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:0.000805s ]
+INFO: [ view_end ] --END-- [ RunTime:0.000862s ]
+
+[ 2014-03-08T14:39:43+08:00 ] 127.0.0.1 /www/digTreasure-ThinkPHP/home.php/Index/index
+INFO: [ route_check ] --START--
+INFO: Run CheckRoute Behavior [ RunTime:0.000879s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000991s ]
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000551s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000632s ]
+NOTIC: [8] A session had already been started - ignoring session_start() D:\wamp\www\digTreasure-ThinkPHP\ThinkPHP\Common\functions.php 第 552 行.
+SQL: SHOW COLUMNS FROM `c_user` [ RunTime:0.001600s ]
+SQL: SHOW COLUMNS FROM `c_prize` [ RunTime:0.001911s ]
+SQL: SHOW COLUMNS FROM `c_prize` [ RunTime:0.001325s ]
+SQL: select pt.prizeId,min(pt.prizeTermBetCount) as betCount,p.prizeTitle,p.prizePrice,p.prizePicture,count(*) as termNum from c_prizeterm pt left join c_prize p on pt.prizeId=p.prizeId group by pt.prizeId order by termNum desc; [ RunTime:0.000352s ]
+SQL: select pt.prizeId,min(pt.prizeTermBetCount) as betCount,p.prizeTitle,p.prizePrice,p.prizePicture,count(*) as termNum from c_prizeterm pt left join c_prize p on pt.prizeId=p.prizeId group by pt.prizeId; [ RunTime:0.000125s ]
+SQL: select pt.prizeId,min(pt.prizeTermBetCount) as betCount,p.prizeTitle,p.prizePrice,p.prizePicture,count(*) as termNum from c_prizeterm pt left join c_prize p on pt.prizeId=p.prizeId group by pt.prizeId order by prizeId desc; [ RunTime:0.000119s ]
+SQL: select pt.prizeId,min(pt.prizeTermBetCount) as betCount,p.prizeTitle,p.prizePrice,p.prizePicture,count(*) as termNum from c_prizeterm pt left join c_prize p on pt.prizeId=p.prizeId group by pt.prizeId order by prizePrice desc; [ RunTime:0.000114s ]
+SQL: select pt.prizeId,min(pt.prizeTermBetCount) as betCount,p.prizeTitle,p.prizePrice,p.prizePicture,count(*) as termNum from c_prizeterm pt left join c_prize p on pt.prizeId=p.prizeId group by pt.prizeId order by prizePrice; [ RunTime:0.000111s ]
+SQL: SHOW COLUMNS FROM `c_tobuy` [ RunTime:0.001122s ]
+SQL: SHOW COLUMNS FROM `c_tobuy` [ RunTime:0.001165s ]
+SQL: select buy.prizeId,buy.toBuyId, min(prizeTermBetCount) as betCount,count(*) as termNum,buy.prizeTitle,buy.prizePicture,buy.prizePrice from c_prizeterm pt ,(select t.toBuyId,p.prizeId,p.prizeTitle,p.prizePrice,p.prizePicture from c_tobuy t ,c_prize p where t.prizeId=p.prizeId and userId='1') as buy where pt.prizeId=buy.prizeId group by buy.prizeId order by buy.toBuyId; [ RunTime:0.000281s ]
+SQL: SHOW COLUMNS FROM `c_user` [ RunTime:0.001080s ]
+SQL: select * from C_User where userId='1'; [ RunTime:0.000253s ]
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:0.000837s ]
+INFO: [ view_template ] --END-- [ RunTime:0.000918s ]
+INFO: [ view_parse ] --START--
+INFO: Run ParseTemplate Behavior [ RunTime:0.038621s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.038716s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:0.001510s ]
+INFO: Run TokenBuild Behavior [ RunTime:0.000426s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:0.000193s ]
+INFO: Run ShowRuntime Behavior [ RunTime:0.000577s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.002887s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:0.000453s ]
+INFO: [ view_end ] --END-- [ RunTime:0.000523s ]
+
+[ 2014-03-08T14:39:46+08:00 ] 127.0.0.1 /www/digTreasure-ThinkPHP/home.php/Prize/prizeDtails/prizeId/4
+INFO: [ route_check ] --START--
+INFO: Run CheckRoute Behavior [ RunTime:0.001387s ]
+INFO: [ route_check ] --END-- [ RunTime:0.001543s ]
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000875s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000999s ]
+NOTIC: [8] A session had already been started - ignoring session_start() D:\wamp\www\digTreasure-ThinkPHP\ThinkPHP\Common\functions.php 第 552 行.
+SQL: SHOW COLUMNS FROM `c_prize` [ RunTime:0.001380s ]
+SQL: SHOW COLUMNS FROM `c_prize` [ RunTime:0.001322s ]
+SQL: select p.prizeDetail,p.prizeTitle,p.prizePrice,max(pt.prizeTermId) as newestTermId,min(pt.prizeTermBetCount) as betCount,count(*) as termNum from c_prize p ,c_prizeterm pt where p.prizeId=pt.prizeId and p.prizeId='4' group by p.prizeId; [ RunTime:0.000275s ]
+SQL: SHOW COLUMNS FROM `c_takepartin` [ RunTime:0.001352s ]
+SQL: SHOW COLUMNS FROM `c_takepartin` [ RunTime:0.001255s ]
+SQL: select * from (select userId ,sum(tpiPayAmount) as allPay from c_takepartin  where prizeTermId='73' group by userId order by sum(tpiPayAmount) desc) as t limit 0,1;  [ RunTime:0.000289s ]
+NOTIC: [8] Undefined offset:  0 D:\wamp\www\digTreasure-ThinkPHP\home\Lib\Action\PrizeAction.class.php 第 14 行.
+NOTIC: [8] Undefined offset:  0 D:\wamp\www\digTreasure-ThinkPHP\home\Lib\Action\PrizeAction.class.php 第 15 行.
+SQL: SHOW COLUMNS FROM `c_user` [ RunTime:0.001310s ]
+SQL: SHOW COLUMNS FROM `c_user` [ RunTime:0.001221s ]
+SQL: select * from C_User where userId=''; [ RunTime:0.000301s ]
+NOTIC: [8] Undefined offset:  0 D:\wamp\www\digTreasure-ThinkPHP\home\Lib\Action\PrizeAction.class.php 第 18 行.
+NOTIC: [8] Undefined offset:  0 D:\wamp\www\digTreasure-ThinkPHP\home\Lib\Action\PrizeAction.class.php 第 19 行.
+SQL: select userId from c_takepartin where prizeTermId='73' order by tpiTime limit 0,1; [ RunTime:0.000156s ]
+NOTIC: [8] Undefined offset:  0 D:\wamp\www\digTreasure-ThinkPHP\home\Lib\Action\PrizeAction.class.php 第 25 行.
+SQL: select * from C_User where userId=''; [ RunTime:0.000163s ]
+SQL: select u.userNickName ,u.userPortrait,t.tpiPayAmount as betCount,t.tpiTime from (select * from c_takepartin where prizeTermId='73') as t left join c_user u on t.userId=u.userId  order by t.tpiTime desc; [ RunTime:0.000092s ]
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:0.000926s ]
+INFO: [ view_template ] --END-- [ RunTime:0.000995s ]
+INFO: [ view_parse ] --START--
+NOTIC: [8] Undefined offset:  0 D:\wamp\www\digTreasure-ThinkPHP\home\Runtime\Cache\3ca35bdf19db5a6a23c511a038f04f7e.php 第 111 行.
+NOTIC: [8] Undefined offset:  0 D:\wamp\www\digTreasure-ThinkPHP\home\Runtime\Cache\3ca35bdf19db5a6a23c511a038f04f7e.php 第 113 行.
+INFO: Run ParseTemplate Behavior [ RunTime:0.012790s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.012861s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:0.000294s ]
+INFO: Run TokenBuild Behavior [ RunTime:0.000280s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:0.000201s ]
+INFO: Run ShowRuntime Behavior [ RunTime:0.000359s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001284s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:0.000483s ]
+INFO: [ view_end ] --END-- [ RunTime:0.000540s ]
+
+[ 2014-03-08T14:39:48+08:00 ] 127.0.0.1 /www/digTreasure-ThinkPHP/home.php/Index/index
+INFO: [ route_check ] --START--
+INFO: Run CheckRoute Behavior [ RunTime:0.000973s ]
+INFO: [ route_check ] --END-- [ RunTime:0.001097s ]
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000674s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000781s ]
+NOTIC: [8] A session had already been started - ignoring session_start() D:\wamp\www\digTreasure-ThinkPHP\ThinkPHP\Common\functions.php 第 552 行.
+SQL: SHOW COLUMNS FROM `c_user` [ RunTime:0.001492s ]
+SQL: SHOW COLUMNS FROM `c_prize` [ RunTime:0.001426s ]
+SQL: SHOW COLUMNS FROM `c_prize` [ RunTime:0.001167s ]
+SQL: select pt.prizeId,min(pt.prizeTermBetCount) as betCount,p.prizeTitle,p.prizePrice,p.prizePicture,count(*) as termNum from c_prizeterm pt left join c_prize p on pt.prizeId=p.prizeId group by pt.prizeId order by termNum desc; [ RunTime:0.000315s ]
+SQL: select pt.prizeId,min(pt.prizeTermBetCount) as betCount,p.prizeTitle,p.prizePrice,p.prizePicture,count(*) as termNum from c_prizeterm pt left join c_prize p on pt.prizeId=p.prizeId group by pt.prizeId; [ RunTime:0.000168s ]
+SQL: select pt.prizeId,min(pt.prizeTermBetCount) as betCount,p.prizeTitle,p.prizePrice,p.prizePicture,count(*) as termNum from c_prizeterm pt left join c_prize p on pt.prizeId=p.prizeId group by pt.prizeId order by prizeId desc; [ RunTime:0.000163s ]
+SQL: select pt.prizeId,min(pt.prizeTermBetCount) as betCount,p.prizeTitle,p.prizePrice,p.prizePicture,count(*) as termNum from c_prizeterm pt left join c_prize p on pt.prizeId=p.prizeId group by pt.prizeId order by prizePrice desc; [ RunTime:0.000162s ]
+SQL: select pt.prizeId,min(pt.prizeTermBetCount) as betCount,p.prizeTitle,p.prizePrice,p.prizePicture,count(*) as termNum from c_prizeterm pt left join c_prize p on pt.prizeId=p.prizeId group by pt.prizeId order by prizePrice; [ RunTime:0.000160s ]
+SQL: SHOW COLUMNS FROM `c_tobuy` [ RunTime:0.001186s ]
+SQL: SHOW COLUMNS FROM `c_tobuy` [ RunTime:0.001485s ]
+SQL: select buy.prizeId,buy.toBuyId, min(prizeTermBetCount) as betCount,count(*) as termNum,buy.prizeTitle,buy.prizePicture,buy.prizePrice from c_prizeterm pt ,(select t.toBuyId,p.prizeId,p.prizeTitle,p.prizePrice,p.prizePicture from c_tobuy t ,c_prize p where t.prizeId=p.prizeId and userId='1') as buy where pt.prizeId=buy.prizeId group by buy.prizeId order by buy.toBuyId; [ RunTime:0.000172s ]
+SQL: SHOW COLUMNS FROM `c_user` [ RunTime:0.001302s ]
+SQL: select * from C_User where userId='1'; [ RunTime:0.000312s ]
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:0.000475s ]
+INFO: [ view_template ] --END-- [ RunTime:0.000544s ]
+INFO: [ view_parse ] --START--
+INFO: Run ParseTemplate Behavior [ RunTime:0.037407s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.037508s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:0.002071s ]
+INFO: Run TokenBuild Behavior [ RunTime:0.000633s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:0.000270s ]
+INFO: Run ShowRuntime Behavior [ RunTime:0.000584s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.003843s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:0.000454s ]
+INFO: [ view_end ] --END-- [ RunTime:0.000510s ]
+
+[ 2014-03-08T14:42:46+08:00 ] 127.0.0.1 /www/digTreasure-ThinkPHP/home.php/Prize/prizeDtails/prizeId/19
+INFO: [ route_check ] --START--
+INFO: Run CheckRoute Behavior [ RunTime:0.001044s ]
+INFO: [ route_check ] --END-- [ RunTime:0.001147s ]
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000814s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000888s ]
+NOTIC: [8] A session had already been started - ignoring session_start() D:\wamp\www\digTreasure-ThinkPHP\ThinkPHP\Common\functions.php 第 552 行.
+SQL: SHOW COLUMNS FROM `c_prize` [ RunTime:0.001543s ]
+SQL: SHOW COLUMNS FROM `c_prize` [ RunTime:0.001962s ]
+SQL: select p.prizeDetail,p.prizeTitle,p.prizePrice,max(pt.prizeTermId) as newestTermId,min(pt.prizeTermBetCount) as betCount,count(*) as termNum from c_prize p ,c_prizeterm pt where p.prizeId=pt.prizeId and p.prizeId='19' group by p.prizeId; [ RunTime:0.001143s ]
+SQL: SHOW COLUMNS FROM `c_takepartin` [ RunTime:0.001364s ]
+SQL: SHOW COLUMNS FROM `c_takepartin` [ RunTime:0.001144s ]
+SQL: select * from (select userId ,sum(tpiPayAmount) as allPay from c_takepartin  where prizeTermId='19' group by userId order by sum(tpiPayAmount) desc) as t limit 0,1;  [ RunTime:0.000637s ]
+SQL: SHOW COLUMNS FROM `c_user` [ RunTime:0.001430s ]
+SQL: SHOW COLUMNS FROM `c_user` [ RunTime:0.001807s ]
+SQL: select * from C_User where userId='1'; [ RunTime:0.000584s ]
+SQL: select userId from c_takepartin where prizeTermId='19' order by tpiTime limit 0,1; [ RunTime:0.000408s ]
+SQL: select * from C_User where userId='1'; [ RunTime:0.000128s ]
+SQL: select u.userNickName ,u.userPortrait,t.tpiPayAmount as betCount,t.tpiTime from (select * from c_takepartin where prizeTermId='19') as t left join c_user u on t.userId=u.userId  order by t.tpiTime desc; [ RunTime:0.000526s ]
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:0.001107s ]
+INFO: [ view_template ] --END-- [ RunTime:0.001187s ]
+INFO: [ view_parse ] --START--
+INFO: Run ParseTemplate Behavior [ RunTime:0.023229s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.023320s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:0.000669s ]
+INFO: Run TokenBuild Behavior [ RunTime:0.000616s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:0.000504s ]
+INFO: Run ShowRuntime Behavior [ RunTime:0.000683s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.002637s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:0.000808s ]
+INFO: [ view_end ] --END-- [ RunTime:0.000867s ]
+
+[ 2014-03-08T14:42:48+08:00 ] 127.0.0.1 /www/digTreasure-ThinkPHP/home.php/Index/index
+INFO: [ route_check ] --START--
+INFO: Run CheckRoute Behavior [ RunTime:0.000712s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000797s ]
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000460s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000529s ]
+NOTIC: [8] A session had already been started - ignoring session_start() D:\wamp\www\digTreasure-ThinkPHP\ThinkPHP\Common\functions.php 第 552 行.
+SQL: SHOW COLUMNS FROM `c_user` [ RunTime:0.001374s ]
+SQL: SHOW COLUMNS FROM `c_prize` [ RunTime:0.001201s ]
+SQL: SHOW COLUMNS FROM `c_prize` [ RunTime:0.001210s ]
+SQL: select pt.prizeId,min(pt.prizeTermBetCount) as betCount,p.prizeTitle,p.prizePrice,p.prizePicture,count(*) as termNum from c_prizeterm pt left join c_prize p on pt.prizeId=p.prizeId group by pt.prizeId order by termNum desc; [ RunTime:0.000393s ]
+SQL: select pt.prizeId,min(pt.prizeTermBetCount) as betCount,p.prizeTitle,p.prizePrice,p.prizePicture,count(*) as termNum from c_prizeterm pt left join c_prize p on pt.prizeId=p.prizeId group by pt.prizeId; [ RunTime:0.000178s ]
+SQL: select pt.prizeId,min(pt.prizeTermBetCount) as betCount,p.prizeTitle,p.prizePrice,p.prizePicture,count(*) as termNum from c_prizeterm pt left join c_prize p on pt.prizeId=p.prizeId group by pt.prizeId order by prizeId desc; [ RunTime:0.000159s ]
+SQL: select pt.prizeId,min(pt.prizeTermBetCount) as betCount,p.prizeTitle,p.prizePrice,p.prizePicture,count(*) as termNum from c_prizeterm pt left join c_prize p on pt.prizeId=p.prizeId group by pt.prizeId order by prizePrice desc; [ RunTime:0.000126s ]
+SQL: select pt.prizeId,min(pt.prizeTermBetCount) as betCount,p.prizeTitle,p.prizePrice,p.prizePicture,count(*) as termNum from c_prizeterm pt left join c_prize p on pt.prizeId=p.prizeId group by pt.prizeId order by prizePrice; [ RunTime:0.000155s ]
+SQL: SHOW COLUMNS FROM `c_tobuy` [ RunTime:0.001206s ]
+SQL: SHOW COLUMNS FROM `c_tobuy` [ RunTime:0.001206s ]
+SQL: select buy.prizeId,buy.toBuyId, min(prizeTermBetCount) as betCount,count(*) as termNum,buy.prizeTitle,buy.prizePicture,buy.prizePrice from c_prizeterm pt ,(select t.toBuyId,p.prizeId,p.prizeTitle,p.prizePrice,p.prizePicture from c_tobuy t ,c_prize p where t.prizeId=p.prizeId and userId='1') as buy where pt.prizeId=buy.prizeId group by buy.prizeId order by buy.toBuyId; [ RunTime:0.000333s ]
+SQL: SHOW COLUMNS FROM `c_user` [ RunTime:0.001904s ]
+SQL: select * from C_User where userId='1'; [ RunTime:0.000212s ]
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:0.001487s ]
+INFO: [ view_template ] --END-- [ RunTime:0.001594s ]
+INFO: [ view_parse ] --START--
+INFO: Run ParseTemplate Behavior [ RunTime:0.038173s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.038279s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:0.001462s ]
+INFO: Run TokenBuild Behavior [ RunTime:0.000459s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:0.000204s ]
+INFO: Run ShowRuntime Behavior [ RunTime:0.000579s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.002910s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:0.000557s ]
+INFO: [ view_end ] --END-- [ RunTime:0.000622s ]
+
+[ 2014-03-08T14:45:58+08:00 ] 127.0.0.1 /www/digTreasure-ThinkPHP/home.php/Prize/prizeDtails/prizeId/7
+INFO: [ route_check ] --START--
+INFO: Run CheckRoute Behavior [ RunTime:0.001031s ]
+INFO: [ route_check ] --END-- [ RunTime:0.001119s ]
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000763s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000830s ]
+NOTIC: [8] A session had already been started - ignoring session_start() D:\wamp\www\digTreasure-ThinkPHP\ThinkPHP\Common\functions.php 第 552 行.
+SQL: SHOW COLUMNS FROM `c_prize` [ RunTime:0.001682s ]
+SQL: SHOW COLUMNS FROM `c_prize` [ RunTime:0.002044s ]
+SQL: select p.prizeDetail,p.prizeTitle,p.prizePrice,max(pt.prizeTermId) as newestTermId,min(pt.prizeTermBetCount) as betCount,count(*) as termNum from c_prize p ,c_prizeterm pt where p.prizeId=pt.prizeId and p.prizeId='7' group by p.prizeId; [ RunTime:0.000971s ]
+SQL: SHOW COLUMNS FROM `c_takepartin` [ RunTime:0.001469s ]
+SQL: SHOW COLUMNS FROM `c_takepartin` [ RunTime:0.002051s ]
+SQL: select * from (select userId ,sum(tpiPayAmount) as allPay from c_takepartin  where prizeTermId='30' group by userId order by sum(tpiPayAmount) desc) as t limit 0,1;  [ RunTime:0.000740s ]
+NOTIC: [8] Undefined offset:  0 D:\wamp\www\digTreasure-ThinkPHP\home\Lib\Action\PrizeAction.class.php 第 14 行.
+NOTIC: [8] Undefined offset:  0 D:\wamp\www\digTreasure-ThinkPHP\home\Lib\Action\PrizeAction.class.php 第 15 行.
+SQL: SHOW COLUMNS FROM `c_user` [ RunTime:0.001724s ]
+SQL: SHOW COLUMNS FROM `c_user` [ RunTime:0.001517s ]
+SQL: select * from C_User where userId=''; [ RunTime:0.000385s ]
+NOTIC: [8] Undefined offset:  0 D:\wamp\www\digTreasure-ThinkPHP\home\Lib\Action\PrizeAction.class.php 第 18 行.
+NOTIC: [8] Undefined offset:  0 D:\wamp\www\digTreasure-ThinkPHP\home\Lib\Action\PrizeAction.class.php 第 19 行.
+SQL: select userId from c_takepartin where prizeTermId='30' order by tpiTime limit 0,1; [ RunTime:0.000333s ]
+NOTIC: [8] Undefined offset:  0 D:\wamp\www\digTreasure-ThinkPHP\home\Lib\Action\PrizeAction.class.php 第 25 行.
+SQL: select * from C_User where userId=''; [ RunTime:0.000158s ]
+SQL: select u.userNickName ,u.userPortrait,t.tpiPayAmount as betCount,t.tpiTime from (select * from c_takepartin where prizeTermId='30') as t left join c_user u on t.userId=u.userId  order by t.tpiTime desc; [ RunTime:0.000392s ]
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:0.001572s ]
+INFO: [ view_template ] --END-- [ RunTime:0.001650s ]
+INFO: [ view_parse ] --START--
+NOTIC: [8] Undefined offset:  0 D:\wamp\www\digTreasure-ThinkPHP\home\Runtime\Cache\3ca35bdf19db5a6a23c511a038f04f7e.php 第 111 行.
+NOTIC: [8] Undefined offset:  0 D:\wamp\www\digTreasure-ThinkPHP\home\Runtime\Cache\3ca35bdf19db5a6a23c511a038f04f7e.php 第 113 行.
+INFO: Run ParseTemplate Behavior [ RunTime:0.016399s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.016490s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:0.000616s ]
+INFO: Run TokenBuild Behavior [ RunTime:0.001028s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:0.000816s ]
+INFO: Run ShowRuntime Behavior [ RunTime:0.001055s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.003763s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:0.000839s ]
+INFO: [ view_end ] --END-- [ RunTime:0.000906s ]
+
+[ 2014-03-08T14:46:01+08:00 ] 127.0.0.1 /www/digTreasure-ThinkPHP/home.php/Index/index
+INFO: [ route_check ] --START--
+INFO: Run CheckRoute Behavior [ RunTime:0.000733s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000816s ]
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000460s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000517s ]
+NOTIC: [8] A session had already been started - ignoring session_start() D:\wamp\www\digTreasure-ThinkPHP\ThinkPHP\Common\functions.php 第 552 行.
+SQL: SHOW COLUMNS FROM `c_user` [ RunTime:0.001611s ]
+SQL: SHOW COLUMNS FROM `c_prize` [ RunTime:0.001977s ]
+SQL: SHOW COLUMNS FROM `c_prize` [ RunTime:0.001557s ]
+SQL: select pt.prizeId,min(pt.prizeTermBetCount) as betCount,p.prizeTitle,p.prizePrice,p.prizePicture,count(*) as termNum from c_prizeterm pt left join c_prize p on pt.prizeId=p.prizeId group by pt.prizeId order by termNum desc; [ RunTime:0.000653s ]
+SQL: select pt.prizeId,min(pt.prizeTermBetCount) as betCount,p.prizeTitle,p.prizePrice,p.prizePicture,count(*) as termNum from c_prizeterm pt left join c_prize p on pt.prizeId=p.prizeId group by pt.prizeId; [ RunTime:0.000206s ]
+SQL: select pt.prizeId,min(pt.prizeTermBetCount) as betCount,p.prizeTitle,p.prizePrice,p.prizePicture,count(*) as termNum from c_prizeterm pt left join c_prize p on pt.prizeId=p.prizeId group by pt.prizeId order by prizeId desc; [ RunTime:0.000183s ]
+SQL: select pt.prizeId,min(pt.prizeTermBetCount) as betCount,p.prizeTitle,p.prizePrice,p.prizePicture,count(*) as termNum from c_prizeterm pt left join c_prize p on pt.prizeId=p.prizeId group by pt.prizeId order by prizePrice desc; [ RunTime:0.000150s ]
+SQL: select pt.prizeId,min(pt.prizeTermBetCount) as betCount,p.prizeTitle,p.prizePrice,p.prizePicture,count(*) as termNum from c_prizeterm pt left join c_prize p on pt.prizeId=p.prizeId group by pt.prizeId order by prizePrice; [ RunTime:0.000140s ]
+SQL: SHOW COLUMNS FROM `c_tobuy` [ RunTime:0.001526s ]
+SQL: SHOW COLUMNS FROM `c_tobuy` [ RunTime:0.001577s ]
+SQL: select buy.prizeId,buy.toBuyId, min(prizeTermBetCount) as betCount,count(*) as termNum,buy.prizeTitle,buy.prizePicture,buy.prizePrice from c_prizeterm pt ,(select t.toBuyId,p.prizeId,p.prizeTitle,p.prizePrice,p.prizePicture from c_tobuy t ,c_prize p where t.prizeId=p.prizeId and userId='1') as buy where pt.prizeId=buy.prizeId group by buy.prizeId order by buy.toBuyId; [ RunTime:0.000463s ]
+SQL: SHOW COLUMNS FROM `c_user` [ RunTime:0.001330s ]
+SQL: select * from C_User where userId='1'; [ RunTime:0.000466s ]
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:0.000833s ]
+INFO: [ view_template ] --END-- [ RunTime:0.000904s ]
+INFO: [ view_parse ] --START--
+INFO: Run ParseTemplate Behavior [ RunTime:0.038418s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.038508s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:0.001469s ]
+INFO: Run TokenBuild Behavior [ RunTime:0.000418s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:0.000195s ]
+INFO: Run ShowRuntime Behavior [ RunTime:0.000568s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.002819s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:0.000472s ]
+INFO: [ view_end ] --END-- [ RunTime:0.000570s ]
+

@@ -1,0 +1,185 @@
+.homePrize{
+	position: relative;
+	width: 100%;
+	background-color: white;
+}
+.homePrizeHeader{
+	height: 0.4rem;
+	width: 100%;
+	background-color: white;
+	font-size: 0.15rem;
+	position: relative;
+	z-index: 1;
+	border-bottom: 0.01rem solid rgb(240,240,240);
+	border-top: 1px solid rgb(240,240,240);
+}
+.homePrizeHeader ul{
+	/*border: 1px solid gold;*/
+	margin: 0;
+	padding:0;
+	height: 100%;
+	width: 100%;
+	text-align: center;
+	position: relative;
+}
+.homePrizeHeader li{
+	list-style-type: none;
+	height: 100%;
+	width: 20%;
+	position: absolute;
+	/*border: 1px solid gold;*/
+	vertical-align: middle;
+	line-height: 0.4rem;
+}
+.homePrizeHeader span{
+	display:inline-block;
+	height: 0.37rem;
+	color: rgb(101,101,101);
+	/*border: 1px solid indianred;*/
+}
+.homePrizeWrap{
+	position: relative;
+}
+.homePrizeList{
+	position:absolute;
+	width: 100%;
+    margin:0;
+	padding:0;
+	box-sizing:border-box;
+}
+
+.blank{
+    position:relative !important;
+    z-index:-100;
+}
+
+.homePrizeList li{
+	border-bottom: 1px  solid rgb(240,240,240);
+    border-right: 1px solid rgb(240,240,240);
+	width: 50%;
+	height: 2.2rem;
+	font-size: 1rem;
+	display:inline-block;
+	position: relative;
+	list-style-type:none;
+	box-sizing:border-box;
+}
+.homePrizeList a{
+	display: block;
+	width: 100%;
+	height: 100%;
+	color: black;
+}
+.HPLpicture{
+	position: absolute;
+	width: 100%;
+	height: 1.6rem;
+	/*border: 1px solid black;*/
+	top: 0;
+	text-align: center;
+}
+.HPLpicture img{
+	height: 1.6rem;
+	width: 1.3rem;
+	display: inline-block;
+	/*border: 1px solid darkgoldenrod;*/	
+}
+.HPLtitle{
+	position: absolute;
+	width: 100%;
+	height: 0.24rem;
+	/*border: 1px solid black;*/
+	top: 1.5rem;
+	text-align: center;
+	/*background-color: yellow;*/
+}
+.HPLtitle span{
+	position: absolute;
+	left: 0;
+	height: 100%;
+	width: 100%;
+	/*display: inline-block;*/
+	font-size: 0.14rem;
+	/*background-color: red;*/
+	line-height: 0.24rem;
+	overflow: hidden;
+	display: -webkit-box;
+	-webkit-line-clamp: 1;
+	-webkit-box-orient: vertical;
+	word-break: break-all;
+}
+.HPLdetails{
+	position: absolute;
+	width: 100%;
+	height: 0.36rem;
+	/*border: 1px solid black;*/
+	top: 1.75rem;
+	text-align: center;
+}
+.HPLdetailsLeft{
+	position: absolute;
+	left: 0;
+	width: 70%;
+	height: 100%;
+	/*background-color: red;*/
+	line-height: 0.18rem;
+	color: rgb(132,132,132);
+}
+.HTLtop{
+	/*border: 1px solid royalblue;*/
+    left: 0.05rem;
+	position: absolute;
+	top: 0;
+	height: 0.12rem;
+	font-size: 0.11rem;
+	line-height: 0.12rem;
+}
+.HTLmiddle{
+	left: 0.05rem;
+	position: absolute;
+	top: 0.12rem;
+	height: 0.12rem;
+	width: 100%;
+}
+.HTLmiddle span:nth-child(1){
+	position: absolute;
+	top: 0.02rem;
+	/*border: 1px solid green;*/
+	background-color: goldenrod;
+	display:block;
+	height: 0.08rem;
+    border-radius: 0.08rem;
+	z-index:5;
+}
+.HTLmiddle span:nth-child(2){
+	position: absolute;
+	top: 0.02rem;
+	background-color: rgb(188,188,188);
+	display:block;
+	height: 0.08rem;
+	width: 92%;
+	border-radius: 0.08rem;
+}
+.HTLbottom{
+	left: 0.05rem;
+	/*border: 1px solid red;*/
+	position: absolute;
+	top: 0.24rem;
+	height: 0.12rem;
+	font-size: 0.11rem;
+}
+.HPLdetailsRight{
+	position: absolute;
+	right: 0;
+	width: 30%;
+	height: 100%;
+	/*background-color: green;*/
+	text-align: center;
+}
+.HPLdetailsRight img{
+	/*border: 1px solid yellow;*/
+	margin-bottom: 0.55rem;
+	display: inline-block;
+	height: 0.35rem;
+	width: 0.35rem;
+}

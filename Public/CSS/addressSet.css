@@ -1,0 +1,425 @@
+body,i,input{
+	margin: auto;
+	background-color: rgb(238,238,238);
+	font-style: normal;
+	color: rgb(111,116,118);
+}
+input{
+	outline: none;
+	border: 0;
+	background-color: white;
+	width: 100%;
+}
+textarea{
+	outline: none;
+	background-color: white;
+	border-right: 0;
+	border-left: 0;
+	border-top: 0;
+	border-bottom: 1,solid rgb(200,200,200);
+	color: rgb(111,116,118);
+	height: 0.46rem;
+	width: 100%;
+	resize: none;
+	z-index: 2;
+}
+.Header{
+	/*opacity: 0.3;*/
+	position: fixed;
+	width: 100%;
+	height: 0.5rem;
+	background-color: rgb(222,47,81);
+	z-index: 2;
+}
+.back{
+	width: 0.6rem;
+	height: 100%;
+	position: absolute;
+	left: 0;
+	
+}
+.back a{
+	width: 100%;
+	height: 100%;
+	display: block;
+	
+}
+.back img{
+	display: block;
+	margin-left: 0.15rem;
+	margin-top: 0.1rem;
+	width: 0.3rem;
+	height: 0.3rem;
+}
+.Title{
+	position: absolute;
+	left: 0.6rem;
+	right: 0.6rem;
+	height: 100%;
+	text-align: center;
+}
+.Title span{
+	color: white;
+	display: block;
+	margin-top: 0.13rem;
+	font-size: 0.2rem;
+}
+.buyList{
+	position: absolute;
+	right: 0;
+	width: 0.6rem;
+	height: 100%;
+	text-align: center;
+	line-height: 0.5rem;
+}
+.buyList span{
+	font-size: 0.16rem;
+	color: white;
+	width: 100%;
+	height: 100%;
+	display: block;
+}
+.contentTop{
+    height: 0.5rem;
+    width: 100%;
+}
+.contentBottom{
+	position: relative;
+	width: 100%;
+	/*top: 0.4rem;*/
+	bottom: 0;
+	font-size: 0.14rem;
+}
+.CB{
+	position: relative;
+	width: 100%;
+	height: 0.5rem;
+	background-color: white;
+	line-height: 0.5rem;
+	border-bottom: 1px solid rgb(200,200,200);
+}
+.CB span{
+	display: block;
+	position: absolute;
+	left: 0.1rem;
+	width: 0.8rem;
+	color: rgb(154,154,154);
+}
+.CB i{
+	display: block;
+	position: absolute;
+	left: 1rem;
+	right: 0.1rem;
+	background-color: white;
+}
+.xiala{
+	display: block;
+	position: absolute;
+	right: 0.1rem;
+	height: 0.5rem;
+	font-size: 0.25rem;
+}
+.btn{
+	position: absolute;
+    width: 0.4rem;
+    height: 0.4rem;
+    border-radius: 0.2rem;
+    right: 0.15rem;
+    top: 0.05rem;
+}
+.botton{
+	position: absolute;
+	height: 0.16rem;
+	width: 0.4rem;
+	background-color: rgb(109,190,183);
+	top: 0.12rem;
+	border-radius: 0.1rem;
+}
+.bottonHand{
+	display: block;
+	position: absolute;
+	width: 0.24rem;
+	height: 0.24rem;
+	border-radius: 0.15rem;
+	background-color: rgb(0,150,136);
+	top: -0.04rem;
+	right: 0;
+}
+.conplain{
+    position: relative;
+}
+.conplain span{
+	display: inline-block;
+	margin-left: 0.1rem;
+	margin-right: 0.1rem;
+	font-size: 0.15rem;
+	line-height: 0.25rem;
+	color: rgb(154,154,154);
+}
+.save{
+	background-color: rgb(3,169,244);
+	color: white;
+	height: 0.4rem;
+	margin-left: 0.3rem;
+	margin-right: 0.3rem;
+	margin-top: 0.2rem;
+	border-radius: 0.05rem;
+	text-align: center;
+	font-size: 0.18rem;
+	line-height: 0.4rem;
+}
+
+.shade{
+	height: 100%;
+	width: 100%;
+	background-color: black;
+	opacity: 0.6;
+	position: absolute;
+	z-index: 5;
+}
+.address{
+	height: 2.7rem;
+	width: 90%;
+	background-color: white;
+	position: absolute;
+	top: 1.3rem;
+	left: 5%;
+	z-index: 6;
+	font-size: 0.16rem;
+	border-radius: 0.03rem;
+}
+.top{
+	position: absolute;
+	display: block;
+	width: 100%;
+	height: 2.2rem;
+	/*text-align: center;*/	
+	border-bottom: 0.01rem solid rgb(240,240,240);
+	color: rgb(102,102,102);
+}
+.addressHead{
+	
+	position: absolute;
+	height: 0.3rem;
+	width: 100%;
+	line-height: 0.3rem;
+	font-size: 0.16rem;
+}
+.addressHead b{
+	font-weight: 100;
+	color: black;
+}
+.addressContent{
+	position: absolute;
+	top: 0.3rem;
+	height: 1.9rem;
+	width: 100%;
+}
+.bottom{
+	position: absolute;
+	display: block;
+	width: 100%;
+	height: 0.5rem;
+	bottom: 0;	
+	text-align: center;	
+}
+.bottom span:nth-child(1){
+	position: absolute;
+	left: 0;
+	display: block;
+	width: 50%;
+	line-height: 0.5rem;
+    border-right: 0.01rem solid rgb(220,220,220);
+}
+.bottom span:nth-child(2){
+	position: absolute;
+	right: 0;
+	display: block;
+	width: 50%;
+	line-height: 0.5rem;
+}
+.addressInput{
+    position:absolute;
+    left:5%;
+    right:5%;
+    height:0.3rem;
+    border-top:1px solid rgb(200,200,200);
+	border-bottom:1px solid rgb(200,200,200);
+}
+.addressInput input{
+    height:0.25rem;
+    font-size:0.16rem;
+    width:80%;
+    margin-left:0.15rem;
+    text-align:center;
+}
+.addressInput span{
+	top:0;
+	left:0.02rem;
+	font-size:0.2rem;
+	height:0.3rem;
+	display:block;
+    position:absolute;
+    color:rgb(192,192,192);
+}
+.sheng{
+	position:absolute;
+	width:33.333%;
+	left:0;
+	height:100%;
+	box-sizing:border-box;
+	border-right:1px solid rgb(200,200,200);
+	border-left:1px solid rgb(200,200,200);
+}
+.shi{
+	position:absolute;
+	width:33.333%;
+	left:33.333%;
+	height:100%;
+	box-sizing:border-box;
+	border-right:1px solid rgb(200,200,200);
+	border-left:1px solid rgb(200,200,200);
+}
+.qu{
+	position:absolute;
+	width:33.333%;
+	right:0;
+	height:100%;
+	box-sizing:border-box;
+	border-right:1px solid rgb(200,200,200);
+	border-left:1px solid rgb(200,200,200);
+}
+
+.addressSelect{
+    position:absolute;
+    left:5%;
+    right:5%;
+    height:1.5rem;
+    top:0.3rem;
+}
+.addressSelect span{
+	display:block;
+    font-size:0.16rem;
+    height:0.3rem;
+	border-bottom:1px solid rgb(200,200,200);
+	line-height:0.3rem;
+}
+.shengSelect{
+	position:absolute;
+	/*width: calc(33.333%-2px);
+    width: -moz-calc(33.333%-2px);
+    width: -webkit-calc(33.333%-2px);
+	*/
+	width:33.333%;
+	box-sizing:border-box;
+	left:0;
+	height:100%;
+	border-right:1px solid rgb(200,200,200);
+	border-left:1px solid rgb(200,200,200);
+	border-bottom:1px solid rgb(200,200,200);
+	overflow:scroll;
+	text-align:center;
+	
+}
+.shiSelect{
+	position:absolute;
+	box-sizing:border-box;
+	width:33.333%;
+	left:33.333%;
+	height:100%;
+	border-right:1px solid rgb(200,200,200);
+	border-left:1px solid rgb(200,200,200);
+	border-bottom:1px solid rgb(200,200,200);
+	overflow:scroll;
+	text-align:center;
+}
+.quSelect{
+	position:absolute;
+	width:33.333%;
+	right:0;
+	height:100%;
+	box-sizing:border-box;
+	border-right:1px solid rgb(200,200,200);
+	border-left:1px solid rgb(200,200,200);
+	border-bottom:1px solid rgb(200,200,200);
+	overflow:scroll;
+	text-align:center;
+}
+.error{
+	position: relative;
+	margin-top: 0.3rem;
+	height: 0.4rem;
+	text-align: center;
+	width: 100%;
+	font-size: 0.14rem;
+	line-height: 0.4rem;
+	color: white;
+	z-index: 5;
+}
+.addressDel{
+	height: 1.4rem;
+	width: 90%;
+	background-color: white;
+	position: absolute;
+	top: 1.9rem;
+	left: 5%;
+	z-index: 6;
+	font-size: 0.16rem;
+	border-radius: 0.03rem;
+}
+.addressDel div:nth-child(1){
+	position: absolute;
+	display: block;
+	width: 100%;
+	height: 70%;
+	text-align: center;	
+	border-bottom: 0.01rem solid rgb(240,240,240);
+	color: rgb(102,102,102);
+}
+.addressDel div:nth-child(1) span{
+	display: block;
+	line-height: 0.98rem;
+}
+.addressDel div:nth-child(2){
+	position: absolute;
+	display: block;
+	width: 100%;
+	height: 30%;
+	bottom: 0;	
+	text-align: center;	
+}
+.addressDel div:nth-child(2) span:nth-child(1){
+	position: absolute;
+	left: 0;
+	display: block;
+	width: 50%;
+	line-height: 0.42rem;
+    border-right: 0.01rem solid rgb(220,220,220);
+}
+.addressDel div:nth-child(2) span:nth-child(2){
+	position: absolute;
+	right: 0;
+	display: block;
+	width: 50%;
+	line-height: 0.42rem;
+}
+
+
+.error{
+	position: absolute;
+	top:3.05rem;
+	margin-top: 0.3rem;
+	height: 0.4rem;
+	text-align: center;
+	width: 100%;
+	font-size: 0.14rem;
+	line-height: 0.4rem;
+	color: white;
+	z-index: 5;
+}
+.error span{
+	background-color: rgb(132,132,132);
+	font-size: 0.14rem;
+	padding: 0.1rem 0.1rem 0.1rem;
+	border-radius: 0.05rem;
+}

@@ -1,0 +1,201 @@
+body{
+	margin: auto;
+	background-color: rgb(238,238,238);
+}
+i{font-style: normal;}
+ul,li{
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+}
+a{
+	display: block;
+	width: 100%;
+	height: 100%;
+	color: rgb(43,43,43);
+	text-decoration: none;
+}
+i{
+	font-style: normal;
+}
+.Header{
+	/*opacity: 0.3;*/
+	position: fixed;
+	width: 100%;
+	height: 0.5rem;
+	background-color: rgb(222,47,81);
+	z-index: 3;
+}
+.back{
+	width: 0.6rem;
+	height: 100%;
+	position: absolute;
+	left: 0;
+	
+}
+.back a{
+	width: 100%;
+	height: 100%;
+	display: block;
+	
+}
+.back img{
+	display: block;
+	margin-left: 0.15rem;
+	margin-top: 0.1rem;
+	width: 0.3rem;
+	height: 0.3rem;
+}
+.Title{
+	position: absolute;
+	left: 0.6rem;
+	right: 0.6rem;
+	height: 100%;
+	text-align: center;
+}
+.Title span{
+	color: white;
+	display: block;
+	margin-top: 0.13rem;
+	font-size: 0.2rem;
+}
+.top{
+	width: 100%;
+	height: 0.5rem;
+}
+.baskDetailsTop{
+	position: relative;
+	height: 0.4rem;
+	width: 100%;
+	background-color: white;
+}
+.BDTleft{
+	position: absolute;
+	left: 0.1rem;
+	line-height: 0.4rem;
+	height: 0.4rem;
+	width: 50%;
+	/*background-color: blue;*/
+	/*border-bottom: 1px solid rgb(240,240,240);*/
+}
+.BDTleft img{
+	margin-top: 0.05rem;
+	width: 0.3rem;
+	height: 0.3rem;
+	border-radius: 0.15rem;
+}
+.BDTleft span{
+	display: inline-block;
+	margin-left: 0.1rem;
+	position: absolute;
+	top: 0;
+	/*border: 1px solid red;*/
+	font-size: 0.15rem;
+	height: 0.4rem;
+}
+.BDTright{
+	position: absolute;
+	right: 0.1rem;
+	height: 0.4rem;
+	line-height: 0.4rem;
+	width: 50%;
+	/*background-color: red;*/
+	/*border-bottom: 1px solid rgb(240,240,240);*/
+}
+.BDTright span{
+	font-size: 0.13rem;
+	position: absolute;
+	right: 0;
+	color: rgb(138,138,138);
+}
+.baskDetailsMiddle{
+	width: 100%;
+	height: 1.3rem;
+	background-color: white;
+	position: relative;
+}
+.BDTMwrap{
+	position:absolute;
+	left: 0.1rem;
+	right: 0.1rem;
+	height: 1.3rem;
+	border-bottom: 1px solid rgb(240,240,240);
+	border-top: 1px solid rgb(240,240,240);
+}
+.BDTMwrap span:nth-child(1){
+	display: block;
+	position: absolute;
+	height: 0.5rem;
+	top: 0.05rem;
+	width: 100%;
+	font-size: 0.13rem;
+	color: rgb(3,169,244);
+}
+.BDTMwrap span:nth-child(2){
+	display: block;
+	position: absolute;
+	top: 0.45rem;
+	width: 100%;
+	font-size: 0.13rem;
+	color:  rgb(138,138,138);
+	/*border: 1px solid red;*/
+}
+.BDTMwrap span:nth-child(2) i{
+	color: rgb(3,169,244);
+}
+.BDTMwrap span:nth-child(3){
+	display: block;
+	position: absolute;
+	top: 0.6rem;
+	width: 100%;
+	font-size: 0.13rem;
+	color:  rgb(138,138,138);
+	/*border: 1px solid red;*/
+}
+.theNum{
+	position: absolute;
+	top: 0.8rem;
+	width: 100%;
+	background-color: rgb(222,47,81);
+	height: 0.4rem;
+	line-height: 0.4rem;
+	/*border: 1px solid red;*/
+}
+.theNum p{
+	position: absolute;
+	left: 0.1rem;
+	/*border: 1px solid black;*/
+	font-size: 0.15rem;
+	color:  white;
+	margin: 0;
+	padding: 0;
+}
+.baskDetailsBottom{
+	position: relative;
+	width: 100%;
+	background-color: white;
+}
+.BDBtext{
+	position: relative;
+	font-size: 0.15rem;
+	color: rgb(102,102,102);
+	box-sizing: border-box;
+	margin-left: 0.1rem;
+	margin-right: 0.1rem;
+	border-top: 1px solid rgb(240,240,240);
+}
+.BDBimg{
+	position: relative;
+	width: 100%;
+	background-color: white;
+}
+.BDBimgWrap{
+	box-sizing: border-box;
+	margin-left: 0.1rem;
+	margin-right: 0.1rem;
+}
+.BDBimg img{
+	margin-top: 0.1rem;
+	width: 100%;
+	/*height: 2rem;*/
+}

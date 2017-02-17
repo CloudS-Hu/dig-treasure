@@ -1,0 +1,117 @@
+.homeNewest{
+	height: 1.96rem;
+	width: 100%;
+	/*background-color: white;*/
+	position: relative;
+	border-bottom: 1px solid rgb(240,240,240);
+}
+.homeNewestHeader{
+	position: relative;
+	height: 0.4rem;
+	width: 100%;
+	background-color: white;
+	font-size: 0.15rem;
+	color: rgb(101,101,101);
+	line-height: 0.4rem;
+	border-bottom: 1px solid rgb(240,240,240);
+}
+.homeNewestHeader span{
+	position: absolute;
+	left: 0.2rem;
+}
+.homeNewestHeader a{
+	position: absolute;
+	width: 0.8rem;
+	display: block;
+	color: rgb(101,101,101);
+	right: 0;
+}
+.homeNewestContent{
+	/*border: 1px solid red;*/
+	height: 1.56rem;
+	width: 100%;
+	background-color: white;
+	margin: 0;
+	padding: 0;
+	position: relative;
+}
+.homeNewestContent a{
+	display: block;
+	width: 100%;
+	height: 100%;
+	color: black;
+}
+.homeNewestContent li{
+	height: 1.4rem;
+	width: 33%;
+	top: 0.08rem;
+	list-style-type: none;
+	position: absolute;
+	border-right: 1px solid rgb(240,240,240);
+	/*border: 1px solid red;*/
+}
+.HNCpicture{
+	position: absolute;
+	width: 100%;
+	height: 0.8rem;
+	/*border: 1px solid black;*/
+	top: 0;
+	text-align: center;
+}
+.HNCpicture img{
+	height: 0.8rem;
+	width: 0.65rem;
+	display: inline-block;
+	margin-bottom: 0.25rem;
+	/*border: 1px solid darkgoldenrod;*/	
+}
+.HNCtitle{
+	position: absolute;
+	width: 100%;
+	height: 0.36rem;
+	/*border: 1px solid black;*/
+	top: 0.8rem;
+	text-align: center;
+	/*background-color: yellow;*/
+	left: 10%;
+}
+.HNCtitle span{
+	position: absolute;
+	left: 0;
+	height: 100%;
+	width: 80%;
+	/*display: inline-block;*/
+	font-size: 0.14rem;
+	/*background-color: red;*/
+	line-height: 0.18rem;
+	overflow: hidden;
+	display: -webkit-box;
+	-webkit-line-clamp: 2;
+	-webkit-box-orient: vertical;
+	word-break: break-all;
+}
+.HNCdetails{
+	position: absolute;
+	width: 100%;
+	height: 0.24rem;
+	/*border: 1px solid black;*/
+	top: 1.16rem;
+	text-align: center;
+}
+.HNCmiddle{
+	left: 10%;
+	position: absolute;
+	top: 0.04rem;
+	height: 0.12rem;
+	width: 100%;
+	/*right: 7%;*/
+}
+.HNCmiddle span{
+	position: absolute;
+	/*border: 1px solid green;*/
+	background-color: red;
+	display:block;
+	height: 0.16rem;
+	width: 80%;
+	border-radius: 0.16rem;
+}

@@ -1,0 +1,252 @@
+body{
+	margin: auto;
+}
+a{
+    width: 100%;
+	height: 100%;
+	display: block;
+	text-decoration: none;
+	color: black;
+	/*border: 1px solid red;*/
+}
+/*我*/
+.my{
+	/*border: 1px solid green;*/
+	width: 100%;
+	/*left: 80%;*/
+	/*height: 1rem;*/
+	position: relative;
+	background-color:rgb(222,222,222);
+	float: left;
+	overflow: hidden;
+}
+.myWrap{
+	position: relative;
+}
+.myHeader{
+	width: 100%;
+	height: 2rem;
+	/*background-color: #4169E1;*/
+	/*border: 1px solid red;*/
+	background: url(../images/img/mybc.JPG);
+	background-size: 100%;
+	background-repeat: no-repeat;
+	background-position-x: 100%;
+	background-position-y: 100%;
+}
+.myHeaderShade{
+	width: 100%;
+	height: 2rem;
+	background-color:black;
+	opacity: 0.5;
+	position: absolute;
+}
+.myShare{
+    /*border: 1px solid red;*/
+    /*height: 0.5rem;*/
+    position: absolute;
+    z-index: 3;
+    height: 0.35rem;
+	width: 0.35rem;
+    left: 0.15rem;
+    top: 0.1rem;
+}
+.myShare img{
+	position: absolute;
+	/*border: 1px solid red;;*/
+	width: 0.3rem;
+	height: 0.3rem;
+} 
+
+
+.myShow a{
+	z-index: 4;
+	top: 0.45rem;
+	position: absolute;
+	/*border: 1px solid white;*/
+	width: 100%;
+	height: 0.9rem;
+}
+.myPhoto{
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    z-index: 3;
+    text-align: center;
+    top: 0.4rem;
+    /*border: 1px solid red;*/
+}
+.myPhoto img{
+	width: 0.6rem;
+	height: 0.6rem;
+	border-radius:0.6rem;
+}
+.myName{
+	top: 1.05rem;
+	width: 100%;
+	z-index: 3;
+	position: absolute;
+	text-align: center;
+	/*border: 1px solid red;*/
+}
+.myName span{
+	color: white;
+}
+.myName div{
+	position: absolute;
+	width: 100%;
+	font-size: 0.13rem;
+	/*border: 1px solid green;*/
+	/*top: 0.95rem;*/
+	/*height: 0.5rem;*/
+}
+.myMiddle{
+	margin-top: 0.1rem;
+	width: 100%;
+	/*height: 1.2rem;*/
+	background-color: white;
+}
+.myMiddle ul{
+	border-top: 1px solid rgb(240,240,240);
+	margin: 0;
+	padding: 0;
+	/*border: 1px solid green;*/
+	/*background-color: gray;*/
+	margin: 0;
+	padding: 0;
+	height: 100%;
+}
+.myMiddle li{
+	/*border: 1px solid white;*/
+	height: 0.35rem;
+	list-style-type: none;
+	font-size: 0.15rem;
+	border-bottom: 1px solid rgb(240,240,240);
+}
+/*.myMiddle i{
+	display: inline-block;
+    height: 0.35rem;
+	font-style:initial;
+	font-size: 0.2rem;
+	margin-left: 0.07rem;
+	background-color: red;
+	font-weight: bolder;
+	color: rgb(200,200,200);
+}*/
+.left1{
+	position: absolute;
+	left: 0.1rem;
+	line-height: 0.35rem;
+	/*border: 1px solid red;*/
+	
+}
+.right1{
+	position: absolute;
+	right: 0.07rem;
+	height: 0.35rem;
+	/*border: 1px solid red;*/
+	line-height: 0.35rem;
+}
+.right1 span{
+	display: inline-block;
+	position: relative;
+	top: -0.03rem;
+	border-radius: 0.03rem;
+	height: 0.22rem;
+	line-height: 0.22rem;
+	margin-bottom: 0.3rem;
+	padding: 0 0.1rem 0;
+	color: white;
+	font-size: 0.12rem;
+	background-color:rgb(3,169,244);
+	vertical-align: -5%;
+}
+.right1 img{
+	width: 0.1rem;
+	height: 0.15rem;
+	vertical-align: -7%;
+}
+.left1 img{
+	vertical-align: -20%;
+	width: 0.2rem;
+	height: 0.23rem;
+}
+.myFooter{
+	margin-top: 0.1rem;
+	width: 100%;
+	/*height: 1.2rem;*/
+	background-color: white;
+}
+/*页脚--五个页面切换按钮*/
+.footer{
+	/*opacity: 0.3;*/
+	position: fixed;
+	bottom: 0rem;
+	left: 0rem;
+	width: 100%;
+	height: 0.5rem;
+	border-top: 0.01rem solid rgb(240,240,240);
+	/*border: 1px solid red;*/
+	font-size: 0.13rem;
+	background-color: rgb(252,252,252);
+	z-index: 3;
+}
+
+.footerHome{
+	width: 20%;
+	height: 0.5rem;
+	position: absolute;
+	left: 0;
+}
+.footerHomeWrap{
+	height: 100%;
+	width: 100%;
+	text-align: center;
+}
+.footer img{
+	margin-top: 0.03rem;
+	width: 0.32rem;
+	height: 0.28rem;
+}
+.footer span{
+    display: block;	
+    position: absolute;
+    width: 100%;
+    bottom: 0.03rem;
+    color: rgb(157,157,170);
+}
+.footerNewest{
+	/*border: 1px solid red;*/
+	width: 20%;
+	height: 0.5rem;
+	position: absolute;
+	left: 20%;
+}
+.footerBask{
+	/*border: 1px solid red;*/
+	width: 20%;
+	height: 0.5rem;
+	position: absolute;
+	left: 40%;
+}
+.footerTobuy{
+	/*border: 1px solid red;*/
+	width: 20%;
+	height: 0.5rem;
+	position: absolute;
+	left: 60%;
+}
+.footerMy{
+	/*border: 1px solid red;*/
+	width: 20%;
+	height: 0.5rem;
+	position: absolute;
+	left: 80%;
+}
+
+
+
+
+
+
